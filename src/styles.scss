@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  cursor : url("/cursors/Cursor79.cur"), auto;
+}
+button{
+  cursor: url("/cursors/Cursor107.cur"), auto;
+  &:disabled{
+    cursor: url("/cursors/Cursor99.cur"), auto;
+  }
+}
