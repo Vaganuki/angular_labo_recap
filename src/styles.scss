@@ -1,10 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-*{
-  cursor : url("/cursors/Cursor79.cur"), auto;
+$body-background-color: rgba(0, 128, 128,1);
+
+* {
+  font-family: 'Microsoft Sans Serif', Arial, Helvetica, sans-serif;
+  cursor: url("/cursors/Cursor79.cur"), auto;
 }
-button{
+
+body{
+  background-color: $body-background-color;
+}
+
+button {
   cursor: url("/cursors/Cursor107.cur"), auto;
-  &:disabled{
+
+  &:disabled {
     cursor: url("/cursors/Cursor99.cur"), auto;
   }
 }
