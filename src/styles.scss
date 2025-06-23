@@ -1,8 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-$body-background-color: rgba(0, 128, 128,1);
+$body-background-color: #008080;
+$main-color: #c3c3c3;
+$secondary-color: #818181;
+$accent-color: #fdffff;
+
 
 * {
   font-family: 'Microsoft Sans Serif', Arial, Helvetica, sans-serif;
+  font-weight: 100;
   cursor: url("/cursors/Cursor79.cur"), auto;
 }
 
@@ -12,8 +17,26 @@ body{
 
 button {
   cursor: url("/cursors/Cursor107.cur"), auto;
+  outline: none;
+  padding: 0.2rem 0.75rem;
+  margin: 0.2rem;
+
+  background-color: $main-color;
+
+  border: 0.2em solid;
+  border-color: $accent-color $secondary-color $secondary-color $accent-color;
+  //box-shadow: inset -1px -1px 0 $secondary-color, inset 1px 1px 0 $accent-color;
+
+  &:active{
+    border-color: $secondary-color $accent-color $accent-color $secondary-color;
+  }
 
   &:disabled {
     cursor: url("/cursors/Cursor99.cur"), auto;
+
+    background-color: $secondary-color;
+    border-color: $accent-color $main-color $main-color $accent-color;
+
+    //text-shadow: 1px 1px black;
   }
 }
