@@ -1,0 +1,57 @@
+{
+  "users": [
+    {
+      "email": "aude.beurive@bstorm.be",
+      "password": "$2a$10$HQp0Af02xZqo6h0T8ECz3OaMy.qyymJqeb0lUJyY4xlcoqg.YUFsO",
+      "firstname": "Aude",
+      "lastname": "Beurive",
+      "pseudo": "Lhel",
+      "avatar": "https://gitlab.com/uploads/-/system/user/avatar/10169541/avatar.png",
+      "birthdate": "1989-10-16",
+      "id": 1
+    },
+    {
+      "email": "pierre.pierre@techni.be",
+      "password": "$2a$10$UXIN/zsPJWvYUj8tfijv3.vJm0QqoJGCWB1.AHRz9J.TvGFrRX786",
+      "firstname": "Pierre",
+      "lastname": "Pierre",
+      "pseudo": "PéPé",
+      "avatar": "https://media.licdn.com/dms/image/v2/D4E03AQE4-f62KM0Ufg/profile-displayphoto-shrink_800_800/B4EZdoDXaaHgAc-/0/1749797402843?e=1755734400&v=beta&t=ueEYZ7wctxr8byi0SYoyUVxemzBKYIlempaojfZfVk0",
+      "birthdate": "2025-06-11",
+      "id": 2
+    }
+  ],
+  "friends": [
+    {
+      "id": 1,
+      "isAccepted": true,
+      "senderId": 1,
+      "receiverId": 2
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "name": "Tournoi du plus beau canard",
+      "description": "Venez déguisé en canard et remportez le prix du plus beau canard ! La récompense : Être le plus bg des canards.",
+      "userId": 1,
+      "beginDate": "2025-06-27",
+      "endDate": null,
+      "address": "Technifutur",
+      "image": "https://i.ebayimg.com/images/g/B5wAAOSwQHlkghiX/s-l400.jpg",
+      "isCancelled": false
+    }
+  ],
+  "participations": [
+    {
+      "id": 1,
+      "eventId": 1,
+      "userId": 1
+    },
+    {
+      "eventId": 1,
+      "userId": 2,
+      "id": 2
+    }
+  ]
+}
