@@ -1,1 +1,123 @@
 /* You can add global styles to this file, and also import other style files */
+@use "sass:color";
+
+$body-background-color: #008080;
+$main-color: #c3c3c3;
+$secondary-color: #818181;
+$accent-color: #fdffff;
+$main-title: #010081;
+$secondary-title: #1084D0;
+
+
+* {
+  font-family: 'Microsoft Sans Serif', 'MS Sans Serif', Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  cursor: url("/cursors/Cursor79.cur"), auto;
+}
+
+body {
+  background-color: $body-background-color;
+}
+
+.window {
+  background-color: $main-color;
+  box-shadow: inset -1px -1px 2px black, inset 1px 1px 2px $accent-color;
+  padding: 0.2rem;
+  & .windowContent {
+    margin: 0.25rem 0.625rem;
+  }
+}
+
+.titleBar {
+  width: 100%;
+  color: white;
+  background: linear-gradient(to right, $main-title, $secondary-title);
+  padding: 0.2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & .title{
+    font-weight: bold;
+    margin-left: 0.25rem;
+  }
+  & .titleButton{
+    display: inline-block;
+    text-align: center;
+    margin-right: 0.25rem;
+    height: 1rem;
+    aspect-ratio: 1/1;
+    padding: 0.1rem;
+    background-color: $main-color;
+    color: black;
+    font-weight: bold;
+    border: 0.15rem solid;
+    border-color: $accent-color $secondary-color $secondary-color $accent-color;
+    //box-shadow: inset -1px -1px 1px $secondary-color, inset 1px 1px 1px $accent-color;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &:hover {
+      background-color: color.adjust($secondary-color, $lightness: 15%);
+    }
+
+    &:active {
+      border-color: $secondary-color $accent-color $accent-color $secondary-color;
+      box-shadow: inset -1px -1px 1px $accent-color, inset 1px 1px 1px $secondary-color;
+    }
+  }
+}
+
+form{
+  font-size: 0.875rem;
+  & div{
+    margin-bottom: 0.4rem;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+
+    & input,label{
+      cursor: url("/cursors/Cursor107.cur"), auto;
+    }
+    & label::first-letter{
+      text-decoration: underline;
+    }
+    & input{
+      border: 0.15rem inset;
+      border-color: $secondary-color $accent-color $accent-color $secondary-color;
+      padding: 0.15rem;
+      &:focus,:active{
+        outline: none;
+        //border-color: $accent-color $secondary-color $secondary-color $accent-color;
+      }
+    }
+
+  }
+}
+
+button,input[type="submit"] {
+  cursor: url("/cursors/Cursor107.cur"), auto;
+  outline: none;
+  padding: 0.2rem 0.75rem;
+  margin: 0.2rem;
+
+  background-color: $main-color;
+
+  border: 0.2em solid;
+  border-color: $accent-color $secondary-color $secondary-color $accent-color;
+  box-shadow: inset -1px -1px 1px $secondary-color, inset 1px 1px 1px $accent-color;
+
+  &:hover {
+    background-color: color.adjust($secondary-color, $lightness: 15%);
+  }
+
+  &:active {
+    border-color: $secondary-color $accent-color $accent-color $secondary-color;
+    box-shadow: inset -1px -1px 1px $accent-color, inset 1px 1px 1px $secondary-color;
+  }
+
+  &:disabled {
+    cursor: url("/cursors/Cursor99.cur"), auto;
+
+    background-color: $secondary-color;
+    border-color: $accent-color $main-color $main-color $accent-color;
+  }
+}
