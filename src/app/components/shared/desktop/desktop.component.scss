@@ -1,14 +1,58 @@
 @use '../../../../styles.scss' as *;
 @use "sass:color";
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
   height: 100vh;
   margin: 0;
-
 }
-.bottomBar{
+
+.iconContainer {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  height: 85vh;
+  padding: 1rem;
+  justify-content: start;
+  width: fit-content;
+
+
+
+  & .icon {
+    width: 5rem;
+    text-align: center;
+    & p{
+      margin: 0.2rem 0;
+    }
+    cursor: url("/cursors/Cursor107.cur"), auto;
+
+    &:hover {
+      & p{
+        background-color: color.adjust($secondary-title, $lightness: 30%, $hue: 10);
+        border: 1px solid $secondary-title;
+      }
+      &::before {
+        background-color: color.adjust($main-title, $lightness: 10%, $hue: 10);
+        border: 1px solid $secondary-title;
+      }
+    }
+
+    &::before {
+      content: '';
+      margin: 0 auto;
+      width: 3.5rem;
+      aspect-ratio: 4/5;
+      display: block;
+      background-color: $main-title;
+
+    }
+  }
+}
+
+.bottomBar {
   background-color: $main-color;
   margin-top: auto;
   padding: 0.2rem;
@@ -18,16 +62,17 @@
 
   border-top: 1px $accent-color solid;
   box-shadow: 0 1px 1px $accent-color inset;
-  & *{
+
+  & * {
     margin: 0;
   }
 
-  & .taskContainer{
+  & .taskContainer {
     display: flex;
     gap: 0.3rem;
   }
 
-  & .hourContainer{
+  & .hourContainer {
     background-color: color.adjust($secondary-color, $lightness: 15%);
     padding: 0.2rem;
     border: inset 0.1rem $accent-color;
