@@ -8,7 +8,6 @@ $accent-color: #fdffff;
 $main-title: #010081;
 $secondary-title: #1084D0;
 
-
 * {
   font-family: 'Microsoft Sans Serif', 'MS Sans Serif', Arial, Helvetica, sans-serif;
   font-weight: 100;
@@ -17,6 +16,8 @@ $secondary-title: #1084D0;
 
 body {
   background-color: $body-background-color;
+  margin: 0;
+  padding: 0;
 }
 
 .window {
@@ -93,7 +94,7 @@ form{
   }
 }
 
-button,input[type="submit"] {
+button,input[type="submit"],.button {
   cursor: url("/cursors/Cursor107.cur"), auto;
   outline: none;
   padding: 0.2rem 0.75rem;
@@ -104,6 +105,10 @@ button,input[type="submit"] {
   border: 0.2em solid;
   border-color: $accent-color $secondary-color $secondary-color $accent-color;
   box-shadow: inset -1px -1px 1px $secondary-color, inset 1px 1px 1px $accent-color;
+
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   &:hover {
     background-color: color.adjust($secondary-color, $lightness: 15%);

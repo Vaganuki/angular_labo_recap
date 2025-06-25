@@ -1,0 +1,35 @@
+@use '../../../../styles.scss' as *;
+@use "sass:color";
+
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+
+}
+.bottomBar{
+  background-color: $main-color;
+  margin-top: auto;
+  padding: 0.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-top: 1px $accent-color solid;
+  box-shadow: 0 1px 1px $accent-color inset;
+  & *{
+    margin: 0;
+  }
+
+  & .taskContainer{
+    display: flex;
+    gap: 0.3rem;
+  }
+
+  & .hourContainer{
+    background-color: color.adjust($secondary-color, $lightness: 15%);
+    padding: 0.2rem;
+    border: inset 0.1rem $accent-color;
+  }
+}
