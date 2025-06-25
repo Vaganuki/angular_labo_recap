@@ -12,7 +12,7 @@ import { LoginData } from '../../../interfaces/login.interface';
     RouterLink,
   ],
   templateUrl: './login-in-screen.component.html',
-  styleUrls: ['./login-in-screen.component.scss']
+  styleUrl: './login-in-screen.component.scss'
 })
 export class LoginInScreenComponent {
 
