@@ -8,7 +8,6 @@ $accent-color: #fdffff;
 $main-title: #010081;
 $secondary-title: #1084D0;
 
-
 * {
   font-family: 'Microsoft Sans Serif', 'MS Sans Serif', Arial, Helvetica, sans-serif;
   font-weight: 100;
@@ -93,7 +92,7 @@ form{
   }
 }
 
-button,input[type="submit"] {
+button,input[type="submit"],.button {
   cursor: url("/cursors/Cursor107.cur"), auto;
   outline: none;
   padding: 0.2rem 0.75rem;
