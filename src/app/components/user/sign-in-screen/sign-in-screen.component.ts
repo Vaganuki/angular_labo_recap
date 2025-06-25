@@ -1,33 +1,58 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {Router, RouterLink} from '@angular/router';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RegisterData } from '../../../interfaces/register.interface';
 
 @Component({
   selector: 'app-sign-in-screen',
-  imports: [],
+  imports: [
+    ReactiveFormsModule,
+    RouterLink,
+  ],
   templateUrl: './sign-in-screen.component.html',
   styleUrl: './sign-in-screen.component.scss'
 })
 export class SignInScreenComponent {
 
-  username = '';
-  password = '';
-  errorMessage = '';
+  registerForm: FormGroup;
 
-  constructor() {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+  )
+
+  {
+    this.registerForm = this.fb.group({
+      firstname: ['', Validators.required],
+      lastname: ['', Validators.required],
+      pseudo: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      avatar: ['', Validators.required],
+      birthdate: ['', Validators.required],
+    });
   }
 
-  onSignIn() {
-    // Logic for signing in the user
-    if (this.username && this.password) {
-      // Simulate a successful sign-in
-      console.log('User signed in:', this.username);
-      this.errorMessage = '';
-    } else {
-      this.errorMessage = 'Please enter both username and password.';
+  onSubmit() {
+    if (this.registerForm.invalid) {
+      alert('Veuillez remplir tous les champs correctement.');
+      return;
     }
-  }
 
-  onSignUp() {
-    // Logic for signing up the user
-    console.log('User signed up:', this.username);
+    const registerData: RegisterData = this.registerForm.value;
+
+    this.http.post('http://localhost:3000/register', registerData)
+      .subscribe({
+        next: () => {
+          alert('Inscription réussie ! Vous pouvez maintenant vous connecter.');
+          void this.router.navigate(['/login']);
+        },
+        error: (err) => {
+          console.error('Erreur inscription:', err);
+          alert('Erreur lors de l\'inscription. Veuillez réessayer.');
+        }
+      });
   }
 }

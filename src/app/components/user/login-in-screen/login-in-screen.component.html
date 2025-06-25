@@ -1,1 +1,44 @@
-<p>login-in-screen works!</p>
+<div class="window">
+  <div class="titleBar">
+
+    <div class="title">Login</div>
+
+    <div>
+      <div class="titleButton">?</div>
+      <div class="titleButton">X</div>
+    </div>
+  </div>
+
+  <div class="windowContent">
+
+    <div class="logo">
+      <span class="logoTitle">MhsEvent</span>
+      25
+    </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+          <div>
+              <label for="email">Email :</label>
+              <input type="email" id="email" formControlName="email" required />
+              <br><br>
+          </div>
+
+          <div>
+              <label for="password">Mot de passe :</label>
+              <input type="password" id="password" formControlName="password" required />
+              <br><br>
+          </div>
+
+          <button type="button" (click)="PasswordForgotten()">Mot de passe oublié</button>
+
+          <button type="submit">Se connecter</button>
+          <br>
+
+        <button [routerLink]="['/register']">S'inscrire</button>
+
+      </form>
+
+  </div>
+</div>
+

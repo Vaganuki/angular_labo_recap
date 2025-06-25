@@ -19,6 +19,36 @@
       "avatar": "https://media.licdn.com/dms/image/v2/D4E03AQE4-f62KM0Ufg/profile-displayphoto-shrink_800_800/B4EZdoDXaaHgAc-/0/1749797402843?e=1755734400&v=beta&t=ueEYZ7wctxr8byi0SYoyUVxemzBKYIlempaojfZfVk0",
       "birthdate": "2025-06-11",
       "id": 2
+    },
+    {
+      "email": "samet@samet.com",
+      "password": "$2a$10$j0MCMkoCvBLaWr1UJUDqL.r8No8kmfKRNpFCdWMCGJbCRS4uF9DMO",
+      "firstname": "Samet",
+      "lastname": "Sakin",
+      "pseudo": "Samo",
+      "avatar": "https://cdn.discordapp.com/attachments/1384425174757150760/1384874227043143861/image.png?ex=685c95e1&is=685b4461&hm=70052cf9096fee08e4301ba0fbaff4e87ada8245a4a0e2591edd4e14dde65fb7&",
+      "birthdate": "2025-06-18",
+      "id": 3
+    },
+    {
+      "email": "marco@marco.com",
+      "password": "$2a$10$I7sZe6.qvcnrJiuVt0j5E.lcRlYoSWDWfMP7cucoxSoPWPcORX9QK",
+      "firstname": "Marco",
+      "lastname": "Polo",
+      "pseudo": "Spaghetti",
+      "avatar": "https://cdn.pixabay.com/photo/2023/06/10/05/07/mario-8053171_1280.png",
+      "birthdate": "1985-03-10",
+      "id": 4
+    },
+    {
+      "email": "hugo@hugo.com",
+      "password": "$2a$10$YApJRaWkAox93ly4PjHxA.tV0ka0wYhZau5igcDVYr88yN7u4kaTG",
+      "firstname": "Hugo",
+      "lastname": "Huog",
+      "pseudo": "VaginKuni",
+      "avatar": "https://media.mas.to/media_attachments/files/111/890/188/210/718/248/original/e4a19b29fa43842f.png",
+      "birthdate": "2025-06-24",
+      "id": 5
     }
   ],
   "friends": [
