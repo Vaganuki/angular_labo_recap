@@ -20,20 +20,22 @@
   width: fit-content;
 
 
-
   & .icon {
     width: 5rem;
     text-align: center;
-    & p{
+
+    & p {
       margin: 0.2rem 0;
     }
+
     cursor: url("/cursors/Cursor107.cur"), auto;
 
     &:hover {
-      & p{
+      & p {
         background-color: color.adjust($secondary-title, $lightness: 30%, $hue: 10);
         border: 1px solid $secondary-title;
       }
+
       &::before {
         background-color: color.adjust($main-title, $lightness: 10%, $hue: 10);
         border: 1px solid $secondary-title;
@@ -70,6 +72,18 @@
   & .taskContainer {
     display: flex;
     gap: 0.3rem;
+
+    & button {
+
+      & .buttonIcon {
+        height: 1.25rem;
+        margin-right: 0.2rem;
+        image-rendering: pixelated;
+      }
+
+      display: flex;
+      align-items: center;
+    }
   }
 
   & .hourContainer {
@@ -78,3 +92,4 @@
     border: inset 0.1rem $accent-color;
   }
 }
+
