@@ -1,0 +1,49 @@
+<div class="window">
+  <div class="titleBar">
+
+    <div class="title">Votre profil</div>
+
+    <div>
+      <div class="titleButton">?</div>
+      <div [routerLink]="['/main-page']" class="titleButton">X</div>
+    </div>
+  </div>
+
+  <div class="windowContent">
+
+    <div *ngIf="user; else loading">
+
+      <h2 class="profilePseudo">Profil de {{ user.pseudo }}</h2>
+
+      <div class="profile">
+
+        <div>
+          <img [src]="user.avatar" alt="Avatar de {{ user.pseudo }}" width="130"/>
+        </div>
+
+        <div class="profileDetails">
+          <p>Prénom : {{ user.firstname }}</p>
+          <p>Nom : {{ user.lastname }}</p>
+          <p>Email : {{ user.email }}</p>
+          <p>Date de naissance : {{ user.birthdate }}</p>
+        </div>
+
+      </div>
+
+      <div class="profileActions">
+        <button class="button" (click)="editProfile()">Modifier le profil</button>
+        <button class="button" (click)="changePassword()">Changer le mot de passe</button>
+        <button class="button" (click)="deleteProfile()">Supprimer le profil</button>
+      </div>
+
+    </div>
+
+    <ng-template #loading>
+      <p>Chargement du profil...</p>
+    </ng-template>
+
+
+
+  </div>
+</div>
+

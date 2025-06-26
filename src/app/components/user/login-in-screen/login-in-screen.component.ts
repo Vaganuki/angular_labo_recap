@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
 import { LoginData } from '../../../interfaces/login.interface';
 
 @Component({
@@ -21,7 +22,8 @@ export class LoginInScreenComponent {
   constructor(
       private fb: FormBuilder,
       private http: HttpClient,
-      private router: Router
+      private router: Router,
+      private authService: AuthService
   )
 
   {
@@ -43,9 +45,9 @@ export class LoginInScreenComponent {
 
     const loginData: LoginData = this.loginForm.value;
 
-    this.http.post('http://localhost:3000/login', loginData).subscribe({
-      next: (res: any) => {
-        localStorage.setItem('token', res.accessToken);
+    this.authService.login(loginData).subscribe({
+      next: (res) => {
+        this.authService.saveToken(res.accessToken);
         void this.router.navigate(['/main-page']);
       },
       error: err => {

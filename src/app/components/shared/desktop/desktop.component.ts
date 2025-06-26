@@ -44,8 +44,13 @@ export class DesktopComponent {
     this._soundSystem.playSound('microsoft', this.volume);
   }
 
-  logout(){
+  logout() {
+    const confirmLogout = window.confirm('🔒 Êtes-vous sûr de vouloir vous déconnecter ?');
+
+    if (confirmLogout) {
       localStorage.removeItem('token');
+      localStorage.removeItem('userId'); // à ne pas oublier !
       void this.router.navigate(['/homepage']);
+    }
   }
 }
