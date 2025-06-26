@@ -14,6 +14,47 @@ $secondary-title: #1084D0;
   cursor: url("/cursors/Cursor79.cur"), auto;
 }
 
+::-webkit-scrollbar {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+::-webkit-scrollbar-track {
+  background-image: url("data:image/svg+xml,%3Csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='2' height='2' fill='%23b0b0b0'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-color: #dcdcdc;
+  border: 1px solid #a0a0a0;
+  //border: 0.15rem solid;
+  //border-color:$secondary-color $accent-color $accent-color $secondary-color;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $main-color;
+  border: 0.15em solid;
+  border-color: $accent-color $secondary-color $secondary-color $accent-color;
+  //box-shadow: inset -1px -1px 0 #fff, inset 1px 1px 0 #404040;
+  &:active {
+    background-color: $secondary-color;
+    border-color: color.adjust($secondary-color, $lightness: -15%) $accent-color $accent-color color.adjust($secondary-color, $lightness: -15%);
+  }
+}
+
+::-webkit-scrollbar-button {
+  background-color: $main-color;
+  content: '◀';
+
+  height: 1.5em;
+  width: 1.5em;
+  border: 0.15em solid;
+  border-color: $accent-color $secondary-color $secondary-color $accent-color;
+  //box-shadow: inset -1px -1px 0 #fff, inset 1px 1px 0 #404040;
+  &:active {
+    background-color: $secondary-color;
+    border-color: color.adjust($secondary-color, $lightness: -15%) $accent-color $accent-color color.adjust($secondary-color, $lightness: -15%);
+  }
+}
+
 body {
   background-color: $body-background-color;
   margin: 0;
@@ -23,25 +64,29 @@ body {
 .window {
   background-color: $main-color;
   box-shadow: inset -1px -1px 2px black, inset 1px 1px 2px $accent-color;
-  padding: 0.2rem;
+  padding: 0.2rem 0;
+  box-sizing: border-box;
   & .windowContent {
-    margin: 0.25rem 0.625rem;
+    overflow-y: auto;
   }
 }
 
 .titleBar {
-  width: 100%;
+  //width: 100%;
   color: white;
   background: linear-gradient(to right, $main-title, $secondary-title);
   padding: 0.2rem 0;
+  margin: 0.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  & .title{
+
+  & .title {
     font-weight: bold;
     margin-left: 0.25rem;
   }
-  & .titleButton{
+
+  & .titleButton {
     display: inline-block;
     text-align: center;
     margin-right: 0.25rem;
@@ -57,6 +102,7 @@ body {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
     &:hover {
       background-color: color.adjust($secondary-color, $lightness: 15%);
     }
@@ -68,24 +114,28 @@ body {
   }
 }
 
-form{
+form {
   font-size: 0.875rem;
-  & div{
+
+  & div {
     margin-bottom: 0.4rem;
     display: grid;
     grid-template-columns: 1fr 7fr;
 
-    & input,label{
+    & input, label {
       cursor: url("/cursors/Cursor107.cur"), auto;
     }
-    & label::first-letter{
+
+    & label::first-letter {
       text-decoration: underline;
     }
-    & input{
+
+    & input {
       border: 0.15rem inset;
       border-color: $secondary-color $accent-color $accent-color $secondary-color;
       padding: 0.15rem;
-      &:focus,:active{
+
+      &:focus, :active {
         outline: none;
         //border-color: $accent-color $secondary-color $secondary-color $accent-color;
       }
@@ -94,7 +144,7 @@ form{
   }
 }
 
-button,input[type="submit"],.button {
+button, input[type="submit"], .button {
   cursor: url("/cursors/Cursor107.cur"), auto;
   outline: none;
   padding: 0.2rem 0.75rem;
@@ -125,4 +175,12 @@ button,input[type="submit"],.button {
     background-color: $secondary-color;
     border-color: $accent-color $main-color $main-color $accent-color;
   }
+}
+
+.logo {
+  background-color: $secondary-color;
+  margin: 2rem auto;
+  padding: 2rem 6rem;
+  border: inset 0.2rem $accent-color;
+  width: fit-content;
 }
