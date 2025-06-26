@@ -12,31 +12,31 @@
   <div class="windowContent">
 
     <div class="logo">
-        <img src="logo.png" alt="coucou" width="300">
+      <img src="logo.png" alt="coucou" width="300">
     </div>
 
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-          <div>
-              <label for="email">Email :</label>
-              <input type="email" id="email" formControlName="email" required />
-              <br><br>
-          </div>
+      <div>
+        <label for="email">Email :</label>
+        <input type="email" id="email" formControlName="email" required/>
+        <br><br>
+      </div>
 
-          <div>
-              <label for="password">Mot de passe :</label>
-              <input type="password" id="password" formControlName="password" required />
-              <br><br>
-          </div>
+      <div>
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" formControlName="password" required/>
+        <br><br>
+      </div>
 
-          <button type="button" (click)="PasswordForgotten()">Mot de passe oublié</button>
+      <button type="button" (click)="PasswordForgotten()">Mot de passe oublié</button>
 
-          <button type="submit">Se connecter</button>
-          <br>
+      <button type="submit">Se connecter</button>
+      <br>
 
-        <button [routerLink]="['/register']">S'inscrire</button>
+      <button [routerLink]="['/register']">S'inscrire</button>
 
-      </form>
+    </form>
 
   </div>
 </div>

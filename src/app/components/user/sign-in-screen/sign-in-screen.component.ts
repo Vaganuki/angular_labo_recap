@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {Component, Input} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegisterData } from '../../../interfaces/register.interface';
+import {HttpClient} from '@angular/common/http';
+import {ReactiveFormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {RegisterData} from '../../../interfaces/register.interface';
+import {OverlayRef} from '@angular/cdk/overlay';
 
-import { Component, Input } from '@angular/core';
-import { OverlayRef } from '@angular/cdk/overlay';
 @Component({
   selector: 'app-sign-in-screen',
   imports: [
@@ -23,9 +22,7 @@ export class SignInScreenComponent {
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router
-  )
-
-  {
+  ) {
     this.registerForm = this.fb.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
@@ -57,6 +54,7 @@ export class SignInScreenComponent {
         }
       });
   }
+
   @Input() overlayRef!: OverlayRef;
 
   close() {
