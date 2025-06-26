@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, Input } from '@angular/core';
+import { OverlayRef } from '@angular/cdk/overlay';
 @Component({
   selector: 'app-sign-in-screen',
   imports: [],
@@ -29,5 +29,10 @@ export class SignInScreenComponent {
   onSignUp() {
     // Logic for signing up the user
     console.log('User signed up:', this.username);
+  }
+  @Input() overlayRef!: OverlayRef;
+
+  close() {
+    this.overlayRef?.dispose();
   }
 }
