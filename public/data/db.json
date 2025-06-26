@@ -70,6 +70,16 @@
       "address": "Technifutur",
       "image": "https://i.ebayimg.com/images/g/B5wAAOSwQHlkghiX/s-l400.jpg",
       "isCancelled": false
+    },
+    {
+      "name": "Tournoi Smash",
+      "description": "Tournoi Smash des DevWeb 2025",
+      "userId": 3,
+      "beginDate": "2025-07-01",
+      "endDate": "2025-07-04",
+      "address": "Rue bois Saint-Jean 26",
+      "image": "https://invader.bar/wp-content/uploads/2024/10/tournoi-super-smash-bros.jpg",
+      "id": 2
     }
   ],
   "participations": [

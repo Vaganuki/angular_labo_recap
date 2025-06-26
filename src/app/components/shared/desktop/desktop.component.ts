@@ -1,10 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import {Router, RouterLink, RouterOutlet} from '@angular/router';
 import {SoundSystemService} from '../../../services/sound-system.service';
 
 @Component({
   selector: 'app-desktop',
-  imports: [],
+  imports: [
+    RouterLink,
+    RouterOutlet
+  ],
   templateUrl: './desktop.component.html',
   styleUrl: './desktop.component.scss'
 })

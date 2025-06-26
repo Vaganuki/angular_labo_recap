@@ -54,6 +54,14 @@
   }
 }
 
+.childComponent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75vw;
+  height: 85vh;
+}
+
 .bottomBar {
   background-color: $main-color;
   margin-top: auto;

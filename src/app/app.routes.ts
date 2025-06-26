@@ -4,12 +4,19 @@ import { HomepageComponent } from './components/shared/homepage/homepage.compone
 import { LoginInScreenComponent } from './components/user/login-in-screen/login-in-screen.component';
 import { SignInScreenComponent }  from './components/user/sign-in-screen/sign-in-screen.component';
 import {DesktopComponent} from './components/shared/desktop/desktop.component';
+import {EventCreationComponent} from './components/events/event-creation/event-creation.component';
 
 export const routes: Routes = [
   {
     path: 'main-page',
     component: DesktopComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'create-event',
+        component:EventCreationComponent
+      },
+    ]
   },
   {
     path: 'homepage',
@@ -23,6 +30,10 @@ export const routes: Routes = [
     path: 'register',
     component: SignInScreenComponent,
   },
+    // {
+    //   path: 'create-event',
+    //   component:EventCreationComponent
+    // },
   {
     path: '**',
     redirectTo: 'homepage'

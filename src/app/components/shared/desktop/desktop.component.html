@@ -5,13 +5,16 @@
       <p>Voir tous les utilisateurs</p>
     </div>
     <div (click)="error()" class="icon"><p>Voir tous les events</p></div>
-    <div (click)="error()" class="icon"><p>Créer un event</p></div>
+    <div [routerLink]="['/main-page/create-event']" class="icon"><p>Créer un event</p></div>
     <div (click)="error()" class="icon"><p>Demande d'amis</p></div>
     <div (click)="error()" class="icon"><p>Voir tous mes amis</p></div>
     <div (click)="error()" class="icon"><p>Profil</p></div>
     <div (click)="error()" class="icon"><p>Jsp</p></div>
     <div (click)="error()" class="icon"><p>C'est un test</p></div>
 
+    <div class="childComponent">
+      <router-outlet></router-outlet>
+    </div>
 
   </div>
 
