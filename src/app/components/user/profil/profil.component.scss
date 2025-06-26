@@ -1,3 +1,9 @@
+.profileContainer{
+  margin: 2rem;
+  padding: 1rem;
+  border: 2px solid gray;
+}
+
 .profile{
   display: flex;
   flex-direction: row;
@@ -8,6 +14,8 @@
 
 .profilePseudo{
   margin: 1rem 0 0 0;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .profileDetails{
@@ -16,4 +24,12 @@
 
 .profileActions > *{
   font-size: 1.1em;
+}
+
+.profileButtons{
+  text-align: right;
+
+  button{
+    font-size: 1.3rem;
+  }
 }

@@ -11,7 +11,7 @@
 
   <div class="windowContent">
 
-    <div *ngIf="user; else loading">
+    <div *ngIf="user; else loading" class="profileContainer">
 
       <h2 class="profilePseudo">Profil de {{ user.pseudo }}</h2>
 
@@ -42,8 +42,13 @@
       <p>Chargement du profil...</p>
     </ng-template>
 
+    <div class="profileButtons">
+      <button [routerLink]="['/main-page']">OK</button>
+      <button [routerLink]="['/main-page']">Annuler</button>
+    </div>
 
 
   </div>
+
 </div>
 
