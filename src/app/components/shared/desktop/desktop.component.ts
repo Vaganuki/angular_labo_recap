@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import {SoundSystemService} from '../../../services/sound-system.service';
 
 @Component({
@@ -8,6 +9,11 @@ import {SoundSystemService} from '../../../services/sound-system.service';
   styleUrl: './desktop.component.scss'
 })
 export class DesktopComponent {
+
+  constructor(
+    private router: Router,
+  ) {}
+
 
   private _soundSystem = inject(SoundSystemService);
 
@@ -33,5 +39,10 @@ export class DesktopComponent {
 
   viouwm(){
     this._soundSystem.playSound('microsoft', this.volume);
+  }
+
+  logout(){
+      localStorage.removeItem('token');
+      void this.router.navigate(['/homepage']);
   }
 }

@@ -12,6 +12,7 @@
     <div (click)="error()" class="icon"><p>Jsp</p></div>
     <div (click)="error()" class="icon"><p>C'est un test</p></div>
 
+
   </div>
 
   <div class="bottomBar">
@@ -20,6 +21,9 @@
       <button><img src="PLACEHOLDER-person-heart.svg" alt="Logo MhsEvent25" class="buttonIcon">Amis</button>
       <button>Events</button>
       <button>Profil</button>
+
+
+      <button (click)="logout()"> déconnexion</button>
     </div>
     <div class="hourContainer">
       <p>{{ heure }}</p>
