@@ -1,1 +1,64 @@
-<p>sign-in-screen works!</p>
+<div class="window">
+  <div class="titleBar">
+
+    <div class="title">Register</div>
+
+    <div>
+      <div class="titleButton">?</div>
+      <div [routerLink]="['/homepage']" class="titleButton">X</div>
+    </div>
+  </div>
+
+  <div class="windowContent">
+
+    <div class="logo">
+      <img src="logo.png" alt="coucou" width="300">
+    </div>
+
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label>Prénom</label>
+        <input type="text" formControlName="firstname" />
+      </div>
+
+      <div>
+        <label>Nom</label>
+        <input type="text" formControlName="lastname" />
+      </div>
+
+      <div>
+        <label>Pseudo</label>
+        <input type="text" formControlName="pseudo" />
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input type="email" formControlName="email" />
+      </div>
+
+      <div>
+        <label>Mot de passe</label>
+        <input type="password" formControlName="password" />
+      </div>
+
+      <div>
+        <label>Avatar (URL)</label>
+        <input type="text" formControlName="avatar" />
+      </div>
+
+      <div>
+        <label>Date de naissance</label>
+        <input type="date" formControlName="birthdate" />
+      </div>
+
+      <button type="submit">S'inscrire</button>
+      <br>
+
+      <button [routerLink]="['/login']">Se connecter</button>
+
+    </form>
+
+  </div>
+</div>
+
