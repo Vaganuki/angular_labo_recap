@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {OverlayRef} from '@angular/cdk/overlay';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -15,6 +16,7 @@ import { LoginData } from '../../../interfaces/login.interface';
   styleUrl: './login-in-screen.component.scss'
 })
 export class LoginInScreenComponent {
+  @Input() overlayRef!: OverlayRef;
 
   loginForm: FormGroup;
 
@@ -62,5 +64,8 @@ export class LoginInScreenComponent {
         }
       }
     });
+  }
+  close() {
+    this.overlayRef?.dispose();
   }
 }

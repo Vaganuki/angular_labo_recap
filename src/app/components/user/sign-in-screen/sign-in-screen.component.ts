@@ -4,6 +4,8 @@ import {Router, RouterLink} from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterData } from '../../../interfaces/register.interface';
 
+import { Component, Input } from '@angular/core';
+import { OverlayRef } from '@angular/cdk/overlay';
 @Component({
   selector: 'app-sign-in-screen',
   imports: [
@@ -54,5 +56,10 @@ export class SignInScreenComponent {
           alert('Erreur lors de l\'inscription. Veuillez réessayer.');
         }
       });
+  }
+  @Input() overlayRef!: OverlayRef;
+
+  close() {
+    this.overlayRef?.dispose();
   }
 }
