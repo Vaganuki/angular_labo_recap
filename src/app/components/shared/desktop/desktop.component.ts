@@ -45,8 +45,11 @@ export class DesktopComponent {
     this._soundSystem.playSound('microsoft', this.volume);
   }
 
-  logout(){
+  logout() {
+    const confirmLogout = window.confirm('🔒 Êtes-vous sûr de vouloir vous déconnecter ?');
+    if (confirmLogout) {
       this._authService.logout();
       void this.router.navigate(['/welcome']);
+    }
   }
 }

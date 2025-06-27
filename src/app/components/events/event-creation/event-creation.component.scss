@@ -1,0 +1,48 @@
+@use '../../../../styles.scss' as *;
+
+.windowContent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 35vw;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+form > * {
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+}
+
+form > div {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+label {
+  width: 15rem;
+  text-align: left;
+}
+
+input {
+  width: 200px;
+  padding: 0.3rem;
+  border: none;
+  background-color: white;
+}
+
+button {
+  font-size: 1.3rem;
+  width: 200px;
+  padding: 0.3rem;
+  margin: 0 1.6rem;
+}
+

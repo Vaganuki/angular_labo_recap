@@ -3,6 +3,7 @@ import {OverlayRef} from '@angular/cdk/overlay';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
 import { LoginData } from '../../../interfaces/login.interface';
 import {AuthService} from '../../../services/auth.service';
 
@@ -24,7 +25,8 @@ export class LoginInScreenComponent {
   constructor(
       private fb: FormBuilder,
       private http: HttpClient,
-      private router: Router
+      private router: Router,
+      private authService: AuthService
   )
 
   {
@@ -54,26 +56,5 @@ export class LoginInScreenComponent {
      );
 
     // this.http.post('http://localhost:3000/login', loginData).subscribe({
-    //   next: (res: any) => {
-    //     localStorage.setItem('token', res.accessToken);
-    //     void this.router.navigate(['/']);
-    //   },
-    //   error: err => {
-    //     console.error('💥 ERREUR reçue :', err);
-    //
-    //     if (err.status === 400) {
-    //       alert('❌ Champs invalides ou manquants.');
-    //     } else if (err.status === 403) {
-    //       alert('⛔ Session expirée, veuillez vous reconnecter.');
-    //     } else if (err.status === 0) {
-    //       alert('🚫 Impossible de contacter le serveur.');
-    //     } else {
-    //       alert('❌ Une erreur inconnue est survenue.');
-    //     }
-    //   }
-    // });
-  }
-  close() {
-    this.overlayRef?.dispose();
   }
 }

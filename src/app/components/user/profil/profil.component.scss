@@ -1,0 +1,35 @@
+.profileContainer{
+  margin: 2rem;
+  padding: 1rem;
+  border: 2px solid gray;
+}
+
+.profile{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.profilePseudo{
+  margin: 1rem 0 0 0;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.profileDetails{
+  font-size: 1.3rem;
+}
+
+.profileActions > *{
+  font-size: 1.1em;
+}
+
+.profileButtons{
+  text-align: right;
+
+  button{
+    font-size: 1.3rem;
+  }
+}

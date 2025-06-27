@@ -54,8 +54,18 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/register`, data);
   }
 
+
   saveToken(token: string): void {
     localStorage.setItem('token', token);
+
+    const decoded = this.decodeToken(token);
+    const userId = decoded.sub;
+
+    if (userId) {
+      localStorage.setItem('userId', userId);
+    } else {
+      console.error("Impossible de récupérer l'ID utilisateur depuis le token.");
+    }
   }
 
   getToken(): string | null {
@@ -69,5 +79,13 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('token');
     this.loggedIn$.next(false);
+    localStorage.removeItem('userId');
+  }
+
+  // 🔍 Ajout : méthode pour décoder un token
+  private decodeToken(token: string): any {
+    const payload = token.split('.')[1];
+    const decodedPayload = atob(payload);
+    return JSON.parse(decodedPayload);
   }
 }

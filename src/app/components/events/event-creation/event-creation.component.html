@@ -1,12 +1,64 @@
 <div class="window">
   <div class="titleBar">
-    <div class="title">Wiwiwi</div>
+
+    <div class="title">Créer l'évènement</div>
+
     <div>
-      <div class="titleButton">_</div>
-      <div [routerLink]="'/'" class="titleButton">X</div>
+      <div class="titleButton">?</div>
+      <div [routerLink]="['/main-page']" class="titleButton">X</div>
     </div>
   </div>
+
   <div class="windowContent">
-    <p>wiwiwi</p>
+
+
+    <form [formGroup]="createEventForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label>Nom</label>
+        <input type="text" formControlName="name" />
+      </div>
+
+      <div>
+        <label>Description</label>
+        <input type="text" formControlName="description" />
+      </div>
+
+      <div>
+        <label>User ID</label>
+        <input type="number" formControlName="userId" min="1" />
+      </div>
+
+      <div>
+        <label>Date du début</label>
+        <input type="date" formControlName="beginDate" />
+      </div>
+
+      <div>
+        <label>Date de fin</label>
+        <input type="date" formControlName="endDate" />
+      </div>
+
+      <div>
+        <label>Adresse</label>
+        <input type="text" formControlName="address" />
+      </div>
+
+      <div>
+        <label>Image (URL)</label>
+        <input type="text" formControlName="image" />
+      </div>
+
+      <div class="buttonContainer">
+
+        <button [routerLink]="['/main-page']">Annuler</button>
+
+        <button type="submit">Créer l'évènement</button>
+
+      </div>
+
+
+    </form>
+
   </div>
 </div>
+

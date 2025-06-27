@@ -5,14 +5,22 @@ import { LoginInScreenComponent } from './components/user/login-in-screen/login-
 import { SignInScreenComponent }  from './components/user/sign-in-screen/sign-in-screen.component';
 import {DesktopComponent} from './components/shared/desktop/desktop.component';
 import {EventCreationComponent} from './components/events/event-creation/event-creation.component';
+import {ProfilComponent} from './components/user/profil/profil.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: DesktopComponent,
     canActivate: [AuthGuard],
-    children:[
-      {path:'event', component: EventCreationComponent},
+    children: [
+      {
+        path: 'create-event',
+        component:EventCreationComponent
+      },
+      {
+        path: 'profil',
+        component: ProfilComponent
+      }
     ]
   },
   {
