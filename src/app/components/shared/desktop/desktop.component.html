@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="iconContainer">
+  <div  class="iconContainer">
     <div class="icon">
       <p>Voir tous les utilisateurs</p>
     </div>
@@ -14,12 +14,16 @@
 
 
   </div>
+  <div class="childComponent">
+    <router-outlet/>
+  </div>
+
 
   <div class="bottomBar">
     <div class="taskContainer">
       <button (click)="viouwm()"><img src="fav-icon.gif" alt="Logo MhsEvent25" class="buttonIcon">MhsEvent25</button>
       <button><img src="PLACEHOLDER-person-heart.svg" alt="Logo MhsEvent25" class="buttonIcon">Amis</button>
-      <button>Events</button>
+      <button [routerLink]="'/event'" >Events</button>
       <button>Profil</button>
 
 

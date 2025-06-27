@@ -1,10 +1,14 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import {Router, RouterLink, RouterOutlet} from '@angular/router';
 import {SoundSystemService} from '../../../services/sound-system.service';
+import {AuthService} from '../../../services/auth.service';
 
 @Component({
   selector: 'app-desktop',
-  imports: [],
+  imports: [
+    RouterOutlet,
+    RouterLink
+  ],
   templateUrl: './desktop.component.html',
   styleUrl: './desktop.component.scss'
 })
@@ -16,7 +20,7 @@ export class DesktopComponent {
 
 
   private _soundSystem = inject(SoundSystemService);
-
+  private _authService = inject(AuthService);
   volume = 1;
 
   heure = `${new Date().getHours().toString().padStart(2, '0')} : ${new Date().getMinutes().toString().padStart(2, '0')}`;
@@ -42,7 +46,7 @@ export class DesktopComponent {
   }
 
   logout(){
-      localStorage.removeItem('token');
-      void this.router.navigate(['/homepage']);
+      this._authService.logout();
+      void this.router.navigate(['/welcome']);
   }
 }
