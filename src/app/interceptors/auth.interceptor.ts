@@ -26,7 +26,7 @@ export const AuthInterceptor: HttpInterceptorFn = (
     catchError((error: HttpErrorResponse) => {
 
       const isAuthError = error.status === 401 || error.status === 403;
-      const isAuthRoute = req.url.includes('/login');
+      const isAuthRoute = req.url.includes('/welcome');
 
       if (isAuthError && !isAuthRoute) {
         alert('⛔ Votre session a expiré. Veuillez vous reconnecter.');

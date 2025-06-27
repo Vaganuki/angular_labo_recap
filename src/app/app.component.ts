@@ -1,13 +1,11 @@
 import {Component, inject} from '@angular/core';
-import {Router, RouterLink, RouterOutlet} from '@angular/router';
-import {DesktopComponent} from './components/shared/desktop/desktop.component';
-import {SoundSystemService} from './services/sound-system.service';
+import {RouterLink, RouterOutlet} from '@angular/router';
 import {AuthService} from './services/auth.service';
 import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, DesktopComponent, CommonModule, RouterLink],
+  imports: [RouterOutlet, CommonModule, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

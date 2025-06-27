@@ -26,7 +26,7 @@
       "firstname": "Samet",
       "lastname": "Sakin",
       "pseudo": "Samo",
-      "avatar": "https://cdn.discordapp.com/attachments/1384425174757150760/1384874227043143861/image.png?ex=685e9021&is=685d3ea1&hm=c5121133fb9d89acb9dc43c40edf94a39041e072ed288453ccb18cd4109e61f8&",
+      "avatar": "https://cdn.discordapp.com/attachments/1384425174757150760/1384874227043143861/image.png?ex=685c95e1&is=685b4461&hm=70052cf9096fee08e4301ba0fbaff4e87ada8245a4a0e2591edd4e14dde65fb7&",
       "birthdate": "2025-06-18",
       "id": 3
     },
@@ -72,13 +72,12 @@
       "isCancelled": false
     },
     {
-      "name": "Tournoi Smash",
-      "description": "Tournoi Smash des DevWeb 2025",
-      "userId": 3,
-      "beginDate": "2025-07-01",
-      "endDate": "2025-07-04",
-      "address": "Rue bois Saint-Jean 26",
-      "image": "https://invader.bar/wp-content/uploads/2024/10/tournoi-super-smash-bros.jpg",
+      "name": "feur",
+      "description": "tamere",
+      "beginDate": "20650-09-08",
+      "endDate": "20650-09-09",
+      "address": "chez ta daronne",
+      "image": "https://www.pokepedia.fr/images/thumb/0/0c/M%C3%A9ga-Lockpin-ROSA.png/1200px-M%C3%A9ga-Lockpin-ROSA.png",
       "id": 2
     }
   ],

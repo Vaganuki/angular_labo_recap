@@ -26,7 +26,6 @@ export class EventCreationComponent {
     this.createEventForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
-      userId: ['', Validators.required],
       beginDate: ['', Validators.required],
       endDate: ['', Validators.required],
       address: ['', Validators.required],
@@ -46,7 +45,7 @@ export class EventCreationComponent {
       .subscribe({
         next: () => {
           alert('Événement créé avec succès !');
-          this.router.navigate(['/main-page']);
+          this.router.navigate(['/']);
         },
         error: (err) => {
           console.error('Erreur lors de la création de l’événement:', err);

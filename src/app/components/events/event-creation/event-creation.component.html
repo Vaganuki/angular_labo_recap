@@ -5,58 +5,51 @@
 
     <div>
       <div class="titleButton">?</div>
-      <div [routerLink]="['/main-page']" class="titleButton">X</div>
+      <div [routerLink]="['/']" class="titleButton">X</div>
     </div>
   </div>
 
   <div class="windowContent">
 
+    <div class="formTitle">
+      Create Event
+    </div>
 
-    <form [formGroup]="createEventForm" (ngSubmit)="onSubmit()">
-      <div>
-        <label>Nom</label>
-        <input type="text" formControlName="name" />
+    <form class="formBody" [formGroup]="createEventForm" (ngSubmit)="onSubmit()">
+      <legend id="legend">Entrez les infos de l'event :</legend>
+      <div id="nomDiv">
+        <label for="name">Nom</label>
+        <input id="name" type="text" formControlName="name"/>
       </div>
 
-      <div>
-        <label>Description</label>
-        <input type="text" formControlName="description" />
+      <div id="descriptionDiv">
+        <label for="desc">Description</label>
+        <input id="desc" type="text" formControlName="description"/>
       </div>
 
-      <div>
-        <label>User ID</label>
-        <input type="number" formControlName="userId" min="1" />
+      <div id="dateDebutDiv">
+        <label for="ddb">Date du début</label>
+        <input id="ddb" type="date" formControlName="beginDate"/>
       </div>
 
-      <div>
-        <label>Date du début</label>
-        <input type="date" formControlName="beginDate" />
+      <div id="dateFinDiv">
+        <label for="ddf">Date de fin</label>
+        <input id="ddf" type="date" formControlName="endDate"/>
       </div>
 
-      <div>
-        <label>Date de fin</label>
-        <input type="date" formControlName="endDate" />
+      <div id="adresseDiv">
+        <label for="adresse">Adresse</label>
+        <input id="adresse" type="text" formControlName="address"/>
       </div>
 
-      <div>
-        <label>Adresse</label>
-        <input type="text" formControlName="address" />
+      <div id="imageDiv">
+        <label for="img">Image (URL)</label>
+        <input id="img" type="text" formControlName="image"/>
       </div>
 
-      <div>
-        <label>Image (URL)</label>
-        <input type="text" formControlName="image" />
-      </div>
+      <button id="annuler" type="button" [routerLink]="['/']">Annuler</button>
 
-      <div class="buttonContainer">
-
-        <button [routerLink]="['/main-page']">Annuler</button>
-
-        <button type="submit">Créer l'évènement</button>
-
-      </div>
-
-
+      <button id="creer" type="submit">Créer l'évènement</button>
     </form>
 
   </div>

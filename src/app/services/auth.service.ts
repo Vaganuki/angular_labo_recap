@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {RegisterData} from '../interfaces/register.interface';
@@ -9,9 +9,9 @@ import {LoginData} from '../interfaces/login.interface';
 })
 export class AuthService {
   private baseUrl = 'http://localhost:3000';
+  private http = inject(HttpClient);
 
-  constructor(private http: HttpClient) {
-  }
+  constructor() {}
 
 
   // Comportement initial selon la présence d’un token
@@ -21,8 +21,6 @@ export class AuthService {
   public isLoggedIn$ = this.loggedIn$.asObservable();
 
   login(data: LoginData): Observable<{ accessToken: string }> {
-    // return this.http.post<{ accessToken: string }>(`${this.baseUrl}/login`, data);
-
     return new Observable(observer => {
       this.http.post<{ accessToken: string }>(`${this.baseUrl}/login`, data)
         .subscribe({
@@ -34,7 +32,6 @@ export class AuthService {
           },
           error: err => {
             console.error('💥 ERREUR reçue :', err);
-
             if (err.status === 400) {
               alert('❌ Champs invalides ou manquants.');
             } else if (err.status === 403) {
@@ -77,8 +74,8 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('token');
     this.loggedIn$.next(false);
+    localStorage.removeItem('token');
     localStorage.removeItem('userId');
   }
 

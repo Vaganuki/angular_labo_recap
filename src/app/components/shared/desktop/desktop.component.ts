@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import {Router, RouterLink, RouterOutlet} from '@angular/router';
+import {Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {SoundSystemService} from '../../../services/sound-system.service';
 import {AuthService} from '../../../services/auth.service';
 
@@ -7,7 +7,7 @@ import {AuthService} from '../../../services/auth.service';
   selector: 'app-desktop',
   imports: [
     RouterOutlet,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './desktop.component.html',
   styleUrl: './desktop.component.scss'

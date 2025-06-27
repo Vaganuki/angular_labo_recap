@@ -1,10 +1,7 @@
 import {Component, inject, Input} from '@angular/core';
-import {OverlayRef} from '@angular/cdk/overlay';
-import { HttpClient } from '@angular/common/http';
-import { Router, RouterLink } from '@angular/router';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../../services/auth.service';
-import { LoginData } from '../../../interfaces/login.interface';
+import {Router, RouterLink} from '@angular/router';
+import {ReactiveFormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {LoginData} from '../../../interfaces/login.interface';
 import {AuthService} from '../../../services/auth.service';
 
 @Component({
@@ -18,18 +15,11 @@ import {AuthService} from '../../../services/auth.service';
   styleUrl: './login-in-screen.component.scss'
 })
 export class LoginInScreenComponent {
-  @Input() overlayRef!: OverlayRef;
   private _authService = inject(AuthService);
+  private router = inject(Router);
   loginForm: FormGroup;
 
-  constructor(
-      private fb: FormBuilder,
-      private http: HttpClient,
-      private router: Router,
-      private authService: AuthService
-  )
-
-  {
+  constructor( private fb: FormBuilder) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -47,14 +37,12 @@ export class LoginInScreenComponent {
     }
 
     const loginData: LoginData = this.loginForm.value;
-     this._authService.login(loginData).subscribe(
-       {
-         next: (res) => {
-           void this.router.navigate(['/']);
-         }
-       }
-     );
-
-    // this.http.post('http://localhost:3000/login', loginData).subscribe({
+    this._authService.login(loginData).subscribe(
+      {
+        next: (res) => {
+          void this.router.navigate(['/']);
+        }
+      }
+    );
   }
 }
