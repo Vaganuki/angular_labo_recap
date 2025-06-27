@@ -12,7 +12,7 @@
     },
     {
       "email": "pierre.pierre@techni.be",
-      "password": "$2a$10$UXIN/zsPJWvYUj8tfijv3.vJm0QqoJGCWB1.AHRz9J.TvGFrRX786",
+      "password": "$2a$10$pZ2g0ah6VsCMiFvnv0McRO0cYctJKg.s5.Yr9jzRWxmJTwYofgay6",
       "firstname": "Pierre",
       "lastname": "Pierre",
       "pseudo": "PéPé",
@@ -80,6 +80,16 @@
       "address": "Rue bois Saint-Jean 26",
       "image": "https://invader.bar/wp-content/uploads/2024/10/tournoi-super-smash-bros.jpg",
       "id": 2
+    },
+    {
+      "name": "Aude Picture Group",
+      "description": "Aude prends la photo du groupe",
+      "userId": "2",
+      "beginDate": "2025-06-30",
+      "endDate": "2025-06-30",
+      "address": "Rue du Bois Saint-Jean 17",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbO6MNwo0HA3Bm3FJaXKb5t20X6Ab40AASWg&s",
+      "id": 3
     }
   ],
   "participations": [

@@ -21,9 +21,7 @@ export class SignInScreenComponent {
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router
-  )
-
-  {
+  ) {
     this.registerForm = this.fb.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],

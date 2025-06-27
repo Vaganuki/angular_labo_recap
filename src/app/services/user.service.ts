@@ -32,4 +32,59 @@ export class UserService {
     }
     return this.getUserById(userId);
   }
+
+  updateUser(userId: string, updatedData: Partial<RegisterData>): Observable<any> {
+    const token = this.authService.getToken();
+
+    if (!token) throw new Error('Utilisateur non authentifié');
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.patch(`${this.baseUrl}/users/${userId}`, updatedData, { headers });
+  }
+
+
+  updatePassword(userId: string | null, newPassword: string): Observable<any> {
+    if (!userId) {
+      throw new Error('ID utilisateur manquant');
+    }
+
+    const token = this.authService.getToken();
+
+    if (!token) {
+      throw new Error('Utilisateur non authentifié');
+    }
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.patch(`${this.baseUrl}/users/${userId}`, {
+      password: newPassword
+    }, { headers });
+  }
+
+
+  deleteCurrentUser(): Observable<void> {
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+      throw new Error('ID utilisateur non trouvé');
+    }
+
+    const token = this.authService.getToken();
+    if (!token) {
+      throw new Error('Utilisateur non authentifié');
+    }
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.delete<void>(`${this.baseUrl}/users/${userId}`, { headers });
+  }
+
 }

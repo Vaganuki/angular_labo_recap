@@ -9,9 +9,9 @@
     </div>
   </div>
 
-  <div class="windowContent">
+  <div *ngIf="user; else loading" class="windowContent">
 
-    <div *ngIf="user; else loading" class="profileContainer">
+    <div class="profileContainer">
 
       <h2 class="profilePseudo">Profil de {{ user.pseudo }}</h2>
 
@@ -31,24 +31,27 @@
       </div>
 
       <div class="profileActions">
-        <button class="button" (click)="editProfile()">Modifier le profil</button>
-        <button class="button" (click)="changePassword()">Changer le mot de passe</button>
+        <button class="button"  [routerLink]="['/main-page/profil/edit-profile']">Modifier le profil</button>
+        <button class="button" [routerLink]="['/main-page/profil/change-password']">Changer le mot de passe</button>
         <button class="button" (click)="deleteProfile()">Supprimer le profil</button>
       </div>
 
     </div>
-
-    <ng-template #loading>
-      <p>Chargement du profil...</p>
-    </ng-template>
 
     <div class="profileButtons">
       <button [routerLink]="['/main-page']">OK</button>
       <button [routerLink]="['/main-page']">Annuler</button>
     </div>
 
+    <div class="childComponent">
+      <router-outlet></router-outlet>
+    </div>
 
   </div>
+
+    <ng-template #loading>
+      <p>Chargement du profil...</p>
+    </ng-template>
 
 </div>
 

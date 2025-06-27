@@ -6,6 +6,8 @@ import { SignInScreenComponent }  from './components/user/sign-in-screen/sign-in
 import {DesktopComponent} from './components/shared/desktop/desktop.component';
 import {EventCreationComponent} from './components/events/event-creation/event-creation.component';
 import {ProfilComponent} from './components/user/profil/profil.component';
+import {EditProfileComponent} from './components/user/edit-profile/edit-profile.component';
+import {ChangePasswordComponent} from './components/user/change-password/change-password.component';
 
 export const routes: Routes = [
   {
@@ -19,8 +21,18 @@ export const routes: Routes = [
       },
       {
         path: 'profil',
-        component: ProfilComponent
-      }
+        component: ProfilComponent,
+        children: [
+          {
+            path: 'edit-profile',
+            component: EditProfileComponent
+          },
+          {
+            path: 'change-password',
+            component: ChangePasswordComponent,
+          }
+        ]
+      },
     ]
   },
   {
