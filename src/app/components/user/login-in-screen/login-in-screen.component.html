@@ -1,1 +1,43 @@
-<p>login-in-screen works!</p>
+<!--<div class="login-modal">-->
+<!--  <div class="barre">-->
+<!--    <button class="close-button" (click)="close()">✖</button>-->
+<!--  </div>-->
+<!--  <h2>Login</h2>-->
+<!--  <div class="in">-->
+<!--    <input placeholder="Pseudo" />-->
+<!--    <input type="password" placeholder="Password" />-->
+<!--  </div>-->
+<!--  <button class="login-button">Login</button>-->
+<!--</div>-->
+
+
+
+
+<div class="window">
+  <div class="titleBar">
+    <!--    ⬆ ça applique le fond bleu et un display flex (important)-->
+    <div class="title">
+      <!--      ⬆ ça rend le titre blanc et gras-->
+      <h2>Login</h2>
+    </div>
+
+    <div class="b">
+      <!--      ⬆ cette div rassemble tous les boutons à droite (grace au display flex)-->
+
+      <div class="titleButton"> ? </div>
+      <div class="titleButton" (click)="close()"> ✖ </div>
+      <!--      ⬆ ici on a un boutton, le mieux c'est de n'y mettre qu'un seul caractère-->
+    </div>
+
+  </div>
+
+  <div class="windowContent">
+    <!--    le contenu que vous connaissez-->
+    <div class="in">
+      <input placeholder="Pseudo" />
+      <input type="password" placeholder="Password" />
+    </div>
+    <button class="login-button">Login</button>
+
+  </div>
+</div>

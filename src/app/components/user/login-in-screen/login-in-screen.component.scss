@@ -1,0 +1,24 @@
+.window {
+  width: 80vw;
+  max-width: 90vw;
+  height: 80vh;
+  max-height: 90vh;
+
+  .titleBar{
+    height: 25px;
+
+    .b{
+      display: flex;
+      align-items: center;
+      justify-content: right;
+
+
+      .titleButton{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+}

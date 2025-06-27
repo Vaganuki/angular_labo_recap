@@ -10,6 +10,8 @@ import { ComponentPortal } from '@angular/cdk/portal';
 // Importe le composant de la modale de login à afficher
 import {LoginInScreenComponent} from '../components/user/login-in-screen/login-in-screen.component';
 import {SignInScreenComponent} from '../components/user/sign-in-screen/sign-in-screen.component';
+import {AlluserComponent} from '../components/user/alluser/alluser.component';
+import {AlleventComponent} from '../components/events/allEvent/allevent/allevent.component';
 
 // Déclare ce service comme injectable à la racine de l'application (singleton)
 @Injectable({ providedIn: 'root' })
@@ -24,6 +26,14 @@ export class ModalService {
 
   openSignInModal(): void {
     this.openModal(SignInScreenComponent);
+  }
+
+  openAllUsersModal(): void {
+    this.openModal(AlluserComponent);
+  }
+
+  openAllEventsModal(): void {
+    this.openModal(AlleventComponent);
   }
 
   private openModal<T>(component: new (...args: any[]) => T): void {
