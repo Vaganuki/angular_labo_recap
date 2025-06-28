@@ -1,1 +1,51 @@
-<p>event-property works!</p>
+<div class="window">
+  <div class="titleBar">
+    <div class="title">Propriété de l'évènement</div>
+    <div>
+      <div class="titleButton">?</div>
+      <div class="titleButton" [routerLink]="['/main-page/event-user']">X</div>
+    </div>
+  </div>
+  <div class="windowContent">
+
+    <div class="eventProperty" *ngIf="event">
+      <div class="eventPropertyTitle">
+        <strong>Titre :</strong> {{ event.name }}
+      </div>
+
+      <div class="eventPropertyImage" *ngIf="event.image">
+        <img [src]="event.image" alt="Image de l'événement" />
+      </div>
+
+      <div class="eventPropertyDescription">
+        <strong>Description :</strong> {{ event.description }}
+      </div>
+
+      <div class="eventPropertyDate">
+        <strong>Date :</strong>
+        du {{ event.beginDate | date:'fullDate' }}
+        <ng-container *ngIf="event.endDate"> au {{ event.endDate | date:'fullDate' }}</ng-container>
+      </div>
+
+      <div class="eventPropertyLocation">
+        <strong>Adresse :</strong> {{ event.address }}
+      </div>
+
+      <div class="eventPropertyOrganizer">
+        <strong>Organisateur (ID) :</strong> {{ event.userId }}
+      </div>
+
+      <div class="eventPropertyStatus">
+        <strong>Status :</strong>
+        <span [ngClass]="event.isCancelled ? 'cancelled' : 'active'">
+      {{ event.isCancelled ? 'Annulé' : 'Actif' }}
+    </span>
+      </div>
+    </div>
+
+    <ng-template [ngIf]="!event">
+      <p>Chargement des détails de l'événement...</p>
+    </ng-template>
+
+  </div>
+</div>

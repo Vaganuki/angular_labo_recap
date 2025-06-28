@@ -48,7 +48,7 @@ export class ProfilComponent implements OnInit {
     this.userService.deleteCurrentUser().subscribe({
       next: () => {
         localStorage.removeItem('token');
-        this.router.navigate(['/homepage']);
+        void this.router.navigate(['/homepage']);
       },
       error: (err) => {
         console.error('Erreur lors de la suppression du profil :', err);
