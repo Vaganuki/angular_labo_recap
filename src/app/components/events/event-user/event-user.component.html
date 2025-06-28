@@ -1,0 +1,52 @@
+<div class="window">
+  <div class="titleBar">
+    <div class="title">Votre profil</div>
+    <div>
+      <div class="titleButton">?</div>
+      <div [routerLink]="['/main-page']" class="titleButton">X</div>
+    </div>
+  </div>
+
+  <div class="windowContent">
+
+    <button [routerLink]="['/main-page/profil']">Utilisateur</button>
+    <button [routerLink]="['/main-page/event-user']">Évènement</button>
+
+    <div class="eventContainer">
+
+      <ul *ngIf="participations.length; else noEvent" class="colored-square">
+        <li *ngFor="let participation of participations; let i = index"
+            [class.active]="participation.isActive"
+            (click)="selectEvent(i)">
+          <div class="eventList">
+            {{ participation.event?.name }}
+            <br><br>
+          </div>
+        </li>
+      </ul>
+
+      <ng-template #noEvent>
+        <p>Aucun événement trouvé.</p>
+      </ng-template>
+
+    </div>
+
+    <div class="eventActions">
+      <button class="button"
+              [routerLink]="selectedEventId ? ['/main-page/event-user/property', selectedEventId] : null"
+              [disabled]="!selectedEventId">
+        Propriétés
+      </button>
+    </div>
+
+    <div class="profileButtons">
+      <button [routerLink]="['/main-page']">OK</button>
+      <button [routerLink]="['/main-page']">Annuler</button>
+    </div>
+
+    <div class="childComponent">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+</div>

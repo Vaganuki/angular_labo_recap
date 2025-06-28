@@ -11,6 +11,9 @@
 
   <div *ngIf="user; else loading" class="windowContent">
 
+    <button [routerLink]="['/main-page/profil']">Utilisateur</button>
+    <button [routerLink]="['/main-page/event-user']">Évènement</button>
+
     <div class="profileContainer">
 
       <h2 class="profilePseudo">Profil de {{ user.pseudo }}</h2>

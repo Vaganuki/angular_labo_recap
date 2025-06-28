@@ -46,6 +46,10 @@ export class UserService {
     return this.http.patch(`${this.baseUrl}/users/${userId}`, updatedData, { headers });
   }
 
+  getUserParticipations(userId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/users/${userId}/participations?_expand=event`);
+  }
+
 
   updatePassword(userId: string | null, newPassword: string): Observable<any> {
     if (!userId) {

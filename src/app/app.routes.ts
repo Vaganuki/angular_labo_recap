@@ -8,6 +8,8 @@ import {EventCreationComponent} from './components/events/event-creation/event-c
 import {ProfilComponent} from './components/user/profil/profil.component';
 import {EditProfileComponent} from './components/user/edit-profile/edit-profile.component';
 import {ChangePasswordComponent} from './components/user/change-password/change-password.component';
+import {EventUserComponent} from './components/events/event-user/event-user.component';
+import {EventPropertyComponent} from './components/events/event-property/event-property.component';
 
 export const routes: Routes = [
   {
@@ -30,7 +32,17 @@ export const routes: Routes = [
           {
             path: 'change-password',
             component: ChangePasswordComponent,
-          }
+          },
+        ]
+      },
+      {
+        path: 'event-user',
+        component: EventUserComponent,
+        children: [
+          {
+            path: 'property/:id',
+            component: EventPropertyComponent,
+          },
         ]
       },
     ]
