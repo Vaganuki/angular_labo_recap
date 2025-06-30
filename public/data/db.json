@@ -53,40 +53,16 @@
   ],
   "friends": [
     {
-      "id": 1,
       "isAccepted": true,
       "senderId": 1,
-      "receiverId": 2
-    },
-    {
-      "isAccepted": false,
-      "senderId": 3,
       "receiverId": 2,
-      "id": 2
+      "id": 1
     },
     {
       "isAccepted": false,
-      "senderId": 3,
-      "receiverId": 4,
-      "id": 3
-    },
-    {
-      "isAccepted": true,
       "senderId": 2,
       "receiverId": 3,
-      "id": 4
-    },
-    {
-      "isAccepted": true,
-      "senderId": 2,
-      "receiverId": 4,
-      "id": 5
-    },
-    {
-      "isAccepted": false,
-      "senderId": 2,
-      "receiverId": 5,
-      "id": 6
+      "id": 2
     }
   ],
   "events": [

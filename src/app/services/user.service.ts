@@ -1,6 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {map, Observable} from 'rxjs';
 import { RegisterData } from '../interfaces/register.interface';
 import { AuthService } from './auth.service';
 import {FriendData} from '../interfaces/friend.interface';
@@ -63,15 +63,23 @@ export class UserService {
     return this.http.delete<void>(`${this.baseUrl}/${localStorage.getItem('userId')}`, { headers: this.authHeaders });
   }
 
-      //Amis
-
-  getFriends(userId: string): Observable<FriendData[]> {
-    return this.http.get<FriendData[]>(`${this.baseUrl}/${userId}/friends`, { headers: this.authHeaders });
-  }
+  //Amis
 
   getUserFriendsByStatus(userId: string, isAccepted: boolean): Observable<FriendData[]> {
     const params = new HttpParams().set('isAccepted', String(isAccepted));
-    return this.http.get<FriendData[]>(`${this.baseUrl}/${userId}/friends`, { headers: this.authHeaders, params });
+    return this.http.get<FriendData[]>(`${this.baseUrl}/${userId}/friends`, { headers: this.authHeaders, params }).pipe(
+        map(friends => {
+          const uniqueFriends = new Map<string, FriendData>();
+          friends.forEach(friend => {
+
+            const key = [friend.senderId, friend.receiverId].sort((a, b) => a - b).join('-');
+            if (!uniqueFriends.has(key)) {
+              uniqueFriends.set(key, friend);
+            }
+          });
+          return Array.from(uniqueFriends.values());
+        })
+    );
   }
 
   searchUsersByPseudo(pseudo: string): Observable<RegisterData[]> {

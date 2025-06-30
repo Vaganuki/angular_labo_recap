@@ -15,37 +15,35 @@
           <input
                   type="text"
                   [(ngModel)]="searchValue"
-                  placeholder="Rechercher un événement..."
+                  placeholder="Rechercher un utilisateur..."
           />
           <div class="button-option">
               <button (click)="searchUsers()">Search</button>
           </div>
       </div>
 
-    <ul class="userList">
-      <li *ngFor="let user of users" class="userItem">
-        <div class="userInfo">
-          <div class="userAvatar">
-            <img [src]="user.avatar" alt="Avatar de {{ user.pseudo }}" />
-          </div>
-          <div class="userTexts">
-            <strong>Pseudo:</strong> {{ user.pseudo }} <br>
-            <strong>Nom:</strong> {{ user.lastname }} <br>
-            <strong>Prénom:</strong> {{ user.firstname }}
+    <div>
+      <div *ngFor="let user of users">
+        <div>
+          <div>
+            <img [src]="user.avatar" alt="Avatar de {{ user.pseudo }}" width="50" />
+            Pseudo: {{ user.pseudo }}
+            Nom: {{ user.lastname }}
+            Prénom: {{ user.firstname }}
 
-              <button
-                *ngIf="user.id !== +currentUserId!"
-                (click)="sendFriendRequest(user.id)"
-                [disabled]="sentRequests.has(user.id) || friends.has(user.id)">
-                  Ajouter en ami
-              </button>
+            <button
+              *ngIf="user.id !== +currentUserId!"
+              (click)="sendFriendRequest(user.id)"
+              [disabled]="sentRequests.has(user.id) || friends.has(user.id)">
+              Demander en ami
+            </button>
 
-              <br> <br>
+            <br> <br>
 
           </div>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
 
     <ng-template #noUsers>
       <p>Aucun utilisateur trouvé.</p>

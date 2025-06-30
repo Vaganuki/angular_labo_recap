@@ -10,7 +10,21 @@
   </div>
 
   <div class="windowContent">
+    <div *ngIf="pendingRequests.length > 0; else noRequests">
+      <div *ngFor="let request of pendingRequests">
+        <div>
+          <img [src]="request.user.avatar" alt="Avatar de {{ request.user.pseudo }}" width="40"/>
+          Pseudo: {{ request.user.pseudo }}<br>
+          <button (click)="accept(request.friendId)">Accepter</button>
+          <button (click)="decline(request.friendId)">Refuser</button>
+        </div>
+        <br>
+      </div>
+    </div>
 
+    <ng-template #noRequests>
+      <p>Aucune demande en attente.</p>
+    </ng-template>
   </div>
 
 </div>
