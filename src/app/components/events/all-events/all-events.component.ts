@@ -4,6 +4,8 @@ import {OverlayRef} from '@angular/cdk/overlay';
 import {EventData} from '../../../interfaces/event.interface';
 import {EventService} from '../../../services/event.service';
 import {RouterLink} from '@angular/router';
+import { ModalService } from '../../../services/popup.service';
+
 
 @Component({
   selector: 'app-all-events',
@@ -26,8 +28,7 @@ export class AllEventsComponent {
 
   @Input() overlayRef!: OverlayRef;
 
-  constructor(private eventService: EventService) {
-  }
+  constructor(private eventService: EventService, private modalService: ModalService) {}
 
   ngOnInit() {
     this.eventService.getEvents().subscribe((data: EventData[]) => {
@@ -38,6 +39,8 @@ export class AllEventsComponent {
   close() {
     this.overlayRef?.dispose();
   }
+
+
 
   toggleFullscreen() {
     this.isFullscreen = !this.isFullscreen;
@@ -51,6 +54,10 @@ export class AllEventsComponent {
     if (this.selectedEvents) {
       this.modalService.openEventPropertiesModal(this.selectedEvents);
     }
+  }
+
+  openCreateEvent(): void {
+    this.modalService.openCreateEventModal();
   }
 
   SearchInput() {

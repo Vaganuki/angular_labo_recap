@@ -1,7 +1,4 @@
-import { Event as AppEvent } from '../interfaces/event.interface';
-
-
-// Indique que ce fichier utilise les décorateurs et l'injection de dépendances Angular
+import { EventData as AppEvent } from '../interfaces/event.interface';// Indique que ce fichier utilise les décorateurs et l'injection de dépendances Angular
 import { Injectable } from '@angular/core';
 
 // Importe les classes nécessaires pour créer et gérer des overlays (modales) avec Angular CDK
@@ -14,11 +11,9 @@ import { ComponentPortal } from '@angular/cdk/portal';
 import {LoginInScreenComponent} from '../components/user/login-in-screen/login-in-screen.component';
 import {SignInScreenComponent} from '../components/user/sign-in-screen/sign-in-screen.component';
 import {AlluserComponent} from '../components/user/alluser/alluser.component';
-import {AlleventComponent} from '../components/events/allEvent/allevent/allevent.component';
-import {
-  EventPropertiesModalComponent
-} from '../components/events/EventProperties/event-properties-modal/event-properties-modal.component';
+import {EventPropertiesModalComponent} from '../components/events/EventProperties/event-properties-modal/event-properties-modal.component';
 import {EventCreationComponent} from '../components/events/event-creation/event-creation.component';
+import {AllEventsComponent} from '../components/events/all-events/all-events.component';
 
 // Déclare ce service comme injectable à la racine de l'application (singleton)
 @Injectable({ providedIn: 'root' })
@@ -31,6 +26,10 @@ export class ModalService {
     this.openModal(LoginInScreenComponent);
   }
 
+  openCreateEventModal(): void {
+    this.openModal(EventCreationComponent);
+  }
+
   openSignInModal(): void {
     this.openModal(SignInScreenComponent);
   }
@@ -40,12 +39,10 @@ export class ModalService {
   }
 
   openAllEventsModal(): void {
-    this.openModal(AlleventComponent);
+    this.openModal(AllEventsComponent);
   }
 
-  openCreateEventModal(): void {
-    this.openModal(EventCreationComponent);
-  }
+
 
   openEventPropertiesModal(event: AppEvent): void {
     this.overlayRef = this.overlay.create({

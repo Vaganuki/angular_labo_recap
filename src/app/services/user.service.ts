@@ -12,6 +12,17 @@ export class UserService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
+  getUsers(): Observable<RegisterData[]> {
+    const token = this.authService.getToken();
+    if (!token) {
+      throw new Error('Utilisateur non authentifié');
+    }
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<RegisterData[]>(this.baseUrl, { headers });
+  }
+
   getUserById(id: string | number): Observable<RegisterData> {
     const token = this.authService.getToken();
     if (!token) {
@@ -49,7 +60,6 @@ export class UserService {
   getUserParticipations(userId: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/${userId}/participations?_expand=event`);
   }
-
 
   updatePassword(userId: string | null, newPassword: string): Observable<any> {
     if (!userId) {
@@ -89,5 +99,4 @@ export class UserService {
 
     return this.http.delete<void>(`${this.baseUrl}/${userId}`, { headers });
   }
-
 }

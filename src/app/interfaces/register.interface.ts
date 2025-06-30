@@ -6,4 +6,5 @@ export interface RegisterData {
   password: string;
   avatar: string;
   birthdate: string;
+  id: number;
 }

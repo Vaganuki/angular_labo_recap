@@ -33,11 +33,17 @@
     width: 5rem;
     text-align: center;
 
+    img:hover {
+      /* Le background ne sera visible que si l'image a de la transparence */
+      background-color: $main-title;
+      width: 3.5rem;
+    }
+
     & p {
       margin: 0.2rem 0;
     }
 
-    cursor: url("/cursors/Cursor107.cur"), auto;
+    //cursor: url("/cursors/Cursor107.cur"), auto;
 
     &:hover {
       & p {
@@ -51,15 +57,15 @@
       }
     }
 
-    &::before {
-      content: '';
-      margin: 0 auto;
-      width: 3.5rem;
-      aspect-ratio: 4/5;
-      display: block;
-      background-color: $main-title;
-
-    }
+    //&::before {
+    //  content: '';
+    //  margin: 0 auto;
+    //  width: 3.5rem;
+    //  aspect-ratio: 4/5;
+    //  display: block;
+    //
+    //
+    //}
   }
 }
 
@@ -100,5 +106,6 @@
     padding: 0.2rem;
     border: inset 0.1rem $accent-color;
   }
+
 }
 

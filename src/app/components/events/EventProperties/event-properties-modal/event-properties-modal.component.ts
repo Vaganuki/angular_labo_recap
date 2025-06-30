@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import { Event as AppEvent } from '../../../../interfaces/event.interface';
+import { EventData as AppEvent } from '../../../../interfaces/event.interface';
 import {OverlayRef} from '@angular/cdk/overlay';
 
 @Component({
