@@ -3,14 +3,14 @@
     <div class="title">Votre profil</div>
     <div>
       <div class="titleButton">?</div>
-      <div [routerLink]="['/main-page']" class="titleButton">X</div>
+      <div [routerLink]="['']" class="titleButton">X</div>
     </div>
   </div>
 
   <div class="windowContent">
 
-    <button [routerLink]="['/main-page/profil']">Utilisateur</button>
-    <button [routerLink]="['/main-page/event-user']">Évènement</button>
+    <button [routerLink]="['/profil']">Utilisateur</button>
+    <button [routerLink]="['/event-user']">Évènement</button>
 
     <div class="eventContainer">
 
@@ -33,15 +33,15 @@
 
     <div class="eventActions">
       <button class="button"
-              [routerLink]="selectedEventId ? ['/main-page/event-user/property', selectedEventId] : null"
+              [routerLink]="selectedEventId ? ['/event-user/property', selectedEventId] : null"
               [disabled]="!selectedEventId">
         Propriétés
       </button>
     </div>
 
     <div class="profileButtons">
-      <button [routerLink]="['/main-page']">OK</button>
-      <button [routerLink]="['/main-page']">Annuler</button>
+      <button [routerLink]="['']">OK</button>
+      <button [routerLink]="['']">Annuler</button>
     </div>
 
     <div class="childComponent">
