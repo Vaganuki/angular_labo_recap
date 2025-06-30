@@ -1,42 +1,52 @@
-import {Component, Input} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {OverlayRef} from '@angular/cdk/overlay';
-import {EventData} from '../../../interfaces/event.interface';
-import {EventService} from '../../../services/event.service';
-import {RouterLink, RouterOutlet} from '@angular/router';
+import {Component, OnInit, inject, Input} from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OverlayRef } from '@angular/cdk/overlay';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { EventData } from '../../../interfaces/event.interface';
+import { EventService } from '../../../services/event.service';
+import { ParticipationService } from '../../../services/participation.service';
 
 @Component({
   selector: 'app-all-events',
+  standalone: true,
   imports: [
     FormsModule,
     ReactiveFormsModule,
     RouterLink,
-    RouterOutlet,
-
+    RouterOutlet
   ],
   templateUrl: './all-events.component.html',
   styleUrl: './all-events.component.scss'
 })
-export class AllEventsComponent {
+export class AllEventsComponent implements OnInit {
   events: EventData[] = [];
   selectedEvents?: EventData;
   isFullscreen = false;
-
   participations: any[] = [];
   selectedEventId: string | null = null;
-
   searchValue = '';
   searchTerm = '';
+  joinedEvents = new Set<number>();
+  currentUserId = localStorage.getItem('userId');
 
   @Input() overlayRef!: OverlayRef;
 
-  constructor(private eventService: EventService) {
-  }
+  private eventService = inject(EventService);
+  private participationService = inject(ParticipationService);
 
   ngOnInit() {
     this.eventService.getEvents().subscribe((data: EventData[]) => {
       this.events = data;
     });
+
+    // Charger les participations de l'utilisateur connecté
+    if (this.currentUserId) {
+      this.participationService.getUserParticipations(+this.currentUserId).subscribe({
+        next: participations => {
+          participations.forEach(p => this.joinedEvents.add(p.eventId));
+        }
+      });
+    }
   }
 
   close() {
@@ -62,25 +72,23 @@ export class AllEventsComponent {
     );
   }
 
-  selectEvent(index: number): void {
-    const clicked = this.participations[index];
-    console.log('Clicked participation:', clicked);
+  participate(): void {
+    if (!this.selectedEvents || !this.currentUserId) return;
 
-    if (clicked.isActive) {
-
-      this.participations = this.participations.map(p => ({...p, isActive: false}));
-      this.selectedEventId = null;
-    } else {
-
-      this.participations = this.participations.map((p, i) => ({
-        ...p,
-        isActive: i === index
-      }));
-      this.selectedEventId = clicked?.event?.id ?? null;
-    }
+    this.participationService.createParticipation({
+      eventId: this.selectedEvents.id,
+      userId: +this.currentUserId
+    }).subscribe({
+      next: () => {
+        this.joinedEvents.add(this.selectedEvents!.id);
+        alert('Participation enregistrée !');
+      },
+      error: (err) => {
+        console.error('Erreur participation:', err);
+        alert('Erreur lors de la participation.');
+      }
+    });
   }
 
-
   protected readonly event = event;
-
 }

@@ -41,8 +41,16 @@
           </div>
         </div>
         <div class="button-option">
-          <button>Participate</button>
+
+          <button
+            (click)="participate()"
+            [disabled]="!selectedEvents || joinedEvents.has(selectedEvents.id)"
+          >
+            Participer
+          </button>
+
           <button>Create</button>
+
           <button class="button"
                   [routerLink]="selectedEvents ? ['/events/property', selectedEvents.id] : null"
                   [state]="{ from: 'events' }"
@@ -56,7 +64,7 @@
           <div class="check">
             <div>
               <input type="checkbox" id="participate">
-              <label for="participate">Participate to Events</label>
+              <label for="participate">Participer</label>
             </div>
             <div>
               <input type="checkbox" id="created">

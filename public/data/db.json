@@ -140,6 +140,11 @@
       "eventId": 3,
       "userId": 5,
       "id": 6
+    },
+    {
+      "eventId": 2,
+      "userId": 2,
+      "id": 7
     }
   ]
 }
