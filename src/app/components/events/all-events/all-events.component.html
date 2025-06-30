@@ -1,12 +1,12 @@
 <div class="window" [class.fullscreen]="isFullscreen">
   <div class="titleBar">
     <div class="title">
-      <h2>View All Events</h2>
+      <div>View All Events</div>
     </div>
     <div class="b">
       <div class="titleButton"> _ </div>
 <!--      <div class="titleButton" (click)="toggleFullscreen()"> | | </div>-->
-      <div class="titleButton" [routerLink]="['/']"> ✖ </div>
+      <div class="titleButton" [routerLink]="['/']">X</div>
     </div>
   </div>
   <div class="w">
@@ -41,7 +41,7 @@
         </div>
         <div class="button-option">
           <button>Participate</button>
-          <button>Create</button>
+          <button [routerLink]="['/create-event']">Create</button>
           <button (click)="showProperties()" [disabled]="!selectedEvents">Proprietes</button>
         </div>
 

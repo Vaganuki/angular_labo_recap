@@ -1,26 +1,7 @@
 .window {
-  width: 60vw;
-  max-width: 70vw;
-  height: 70vh;
+  min-width: 60vw;
+  min-height: 70vh;
   max-height: 90vh;
-
-  .titleBar{
-    height: 25px;
-
-    .b{
-      display: flex;
-      align-items: center;
-      justify-content: right;
-
-
-      .titleButton{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-  }
-
 
   .viewAll {
     display: flex;
