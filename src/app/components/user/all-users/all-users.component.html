@@ -1,0 +1,36 @@
+<div class="window">
+  <div class="titleBar">
+    <div class="title">Tout les utilisateurs</div>
+
+    <div>
+      <div class="titleButton">_</div>
+      <div [routerLink]="['/main-page']" class="titleButton">X</div>
+    </div>
+
+  </div>
+
+  <div class="windowContent">
+    <ul class="userList">
+      <li *ngFor="let user of users" class="userItem">
+        <div class="userInfo">
+          <div class="userAvatar">
+            <img [src]="user.avatar" alt="Avatar de {{ user.pseudo }}" />
+          </div>
+          <div class="userTexts">
+            <strong>Pseudo:</strong> {{ user.pseudo }}
+            <strong>Nom:</strong> {{ user.lastname }}
+            <strong>Prénom:</strong> {{ user.firstname }}
+<!--            <button (click)="sendFriendRequest(user.id)" class="btn-friend-request">-->
+<!--              Ajouter en ami-->
+<!--            </button>-->
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <ng-template #noUsers>
+      <p>Aucun utilisateur trouvé.</p>
+    </ng-template>
+  </div>
+
+</div>

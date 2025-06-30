@@ -10,6 +10,7 @@ import {EditProfileComponent} from './components/user/edit-profile/edit-profile.
 import {ChangePasswordComponent} from './components/user/change-password/change-password.component';
 import {EventUserComponent} from './components/events/event-user/event-user.component';
 import {EventPropertyComponent} from './components/events/event-property/event-property.component';
+import {AllUsersComponent} from './components/user/all-users/all-users.component';
 
 export const routes: Routes = [
   {
@@ -45,6 +46,10 @@ export const routes: Routes = [
           },
         ]
       },
+      {
+        path: 'all-users',
+        component: AllUsersComponent,
+      }
     ]
   },
   {

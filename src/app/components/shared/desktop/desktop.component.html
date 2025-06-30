@@ -1,9 +1,7 @@
 <div class="container">
 
   <div class="iconContainer">
-    <div class="icon">
-      <p>Voir tous les utilisateurs</p>
-    </div>
+    <div [routerLink]="['/main-page/all-users']" class="icon"><p>Voir tous les utilisateurs</p></div>
     <div (click)="error()" class="icon"><p>Voir tous les events</p></div>
     <div [routerLink]="['/main-page/create-event']" class="icon"><p>Créer un event</p></div>
     <div (click)="error()" class="icon"><p>Demande d'amis</p></div>
@@ -24,6 +22,7 @@
       <button><img src="PLACEHOLDER-person-heart.svg" alt="Logo MhsEvent25" class="buttonIcon">Amis</button>
       <button>Events</button>
       <button [routerLink]="['/main-page/profil']">Profil</button>
+      <button (click)="sofian()"><img src="/sofian.png" alt="" width="10"></button>
 
 
       <button (click)="logout()"> déconnexion</button>
