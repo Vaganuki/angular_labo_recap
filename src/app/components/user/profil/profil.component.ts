@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ReactiveFormsModule } from "@angular/forms";
-import {Router, RouterLink, RouterOutlet} from '@angular/router';
+import {Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import { UserService } from '../../../services/user.service';
 import { RegisterData } from '../../../interfaces/register.interface';
 import { NgIf } from '@angular/common';
@@ -8,12 +8,13 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-profil',
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    RouterLink,
-    NgIf,
-    RouterOutlet,
-  ],
+    imports: [
+        ReactiveFormsModule,
+        RouterLink,
+        NgIf,
+        RouterOutlet,
+        RouterLinkActive,
+    ],
   templateUrl: './profil.component.html',
   styleUrl: './profil.component.scss'
 })
