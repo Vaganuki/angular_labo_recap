@@ -1,0 +1,27 @@
+<div class="window">
+  <div class="titleBar">
+    <div class="title">Liste des amis</div>
+    <div>
+      <div class="titleButton">_</div>
+      <div class="titleButton" [routerLink]="['/']">X</div>
+    </div>
+  </div>
+
+  <div class="windowContent">
+    <div *ngIf="friends.length > 0; else noFriends">
+      <div *ngFor="let friend of friends">
+        <div>
+          <div>
+          <img [src]="friend.avatar" alt="Avatar de {{ friend.pseudo }}" width="40"/>
+            {{ friend.pseudo }}
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noFriends>
+      <p>Aucun ami trouvé.</p>
+    </ng-template>
+  </div>
+</div>

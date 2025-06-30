@@ -14,6 +14,8 @@ import {EventPropertyComponent} from './components/events/event-property/event-p
 import {AllEventsComponent} from './components/events/all-events/all-events.component';
 import {AboutUsComponent} from './components/about-us/about-us.component';
 import {AllUsersComponent} from './components/user/all-users/all-users.component';
+import {AllFriendsComponent} from './components/friends/all-friends/all-friends.component';
+import {FriendRequestComponent} from './components/friends/friend-request/friend-request.component';
 
 export const routes: Routes = [
   {
@@ -67,6 +69,14 @@ export const routes: Routes = [
           },
         ]
       },
+      {
+        path: 'friends',
+        component: AllFriendsComponent,
+      },
+      {
+        path: 'requests',
+        component: FriendRequestComponent
+      }
     ]
   },
   {
