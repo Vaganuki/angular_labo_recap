@@ -17,12 +17,19 @@
             <img [src]="user.avatar" alt="Avatar de {{ user.pseudo }}" />
           </div>
           <div class="userTexts">
-            <strong>Pseudo:</strong> {{ user.pseudo }}
-            <strong>Nom:</strong> {{ user.lastname }}
+            <strong>Pseudo:</strong> {{ user.pseudo }} <br>
+            <strong>Nom:</strong> {{ user.lastname }} <br>
             <strong>Prénom:</strong> {{ user.firstname }}
-<!--            <button (click)="sendFriendRequest(user.id)" class="btn-friend-request">-->
-<!--              Ajouter en ami-->
-<!--            </button>-->
+
+              <button
+                *ngIf="user.id !== +currentUserId!"
+                (click)="sendFriendRequest(user.id)"
+                [disabled]="sentRequests.has(user.id) || friends.has(user.id)">
+                  Ajouter en ami
+              </button>
+
+              <br> <br>
+
           </div>
         </div>
       </li>

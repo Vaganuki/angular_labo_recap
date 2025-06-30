@@ -12,6 +12,7 @@ import {ChangePasswordComponent} from './components/user/change-password/change-
 import {EventUserComponent} from './components/events/event-user/event-user.component';
 import {EventPropertyComponent} from './components/events/event-property/event-property.component';
 import {AllEventsComponent} from './components/events/all-events/all-events.component';
+import {AllUsersComponent} from './components/user/all-users/all-users.component';
 
 export const routes: Routes = [
   {
@@ -28,6 +29,10 @@ export const routes: Routes = [
             component: EventPropertyComponent,
           }
         ]
+      },
+      {
+        path: 'users',
+        component: AllUsersComponent,
       },
       {
         path: 'create-event',

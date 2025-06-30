@@ -1,5 +1,5 @@
 export interface FriendData {
-  "isAccepted": boolean;
+  isAccepted: boolean;
   senderId: number;
   receiverId: number;
 }

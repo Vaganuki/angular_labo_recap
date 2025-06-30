@@ -1,28 +1,34 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NgForOf } from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 import { UserService } from '../../../services/user.service';
 import { FriendService } from '../../../services/friend.service';
 import { RegisterData } from '../../../interfaces/register.interface';
+import { FriendData } from '../../../interfaces/friend.interface';
 
 @Component({
   selector: 'app-all-users',
   standalone: true,
-  imports: [RouterLink, NgForOf],
+  imports: [RouterLink, NgForOf, NgIf],
   templateUrl: './all-users.component.html',
   styleUrl: './all-users.component.scss'
 })
 export class AllUsersComponent implements OnInit {
   users: RegisterData[] = [];
   errorMessage = '';
+  currentUserId = localStorage.getItem('userId');
+
+  // Suivi des demandes envoyées et des amis confirmés
+  sentRequests = new Set<number>();
+  friends = new Set<number>();
 
   private userService = inject(UserService);
   private friendService = inject(FriendService);
 
-  currentUserId = localStorage.getItem('userId');
-
   ngOnInit(): void {
     this.loadUsers();
+    this.loadSentFriendRequests();
+    this.loadFriends();
   }
 
   loadUsers(): void {
@@ -33,6 +39,37 @@ export class AllUsersComponent implements OnInit {
       error: (err) => {
         console.error('Erreur chargement utilisateurs:', err);
         this.errorMessage = 'Impossible de charger les utilisateurs.';
+      }
+    });
+  }
+
+  loadSentFriendRequests(): void {
+    if (!this.currentUserId) return;
+
+    this.userService.getUserFriendsByStatus(this.currentUserId, false).subscribe({
+      next: (requests: FriendData[]) => {
+        requests
+            .filter(r => r.senderId === +this.currentUserId!)
+            .forEach(r => this.sentRequests.add(r.receiverId));
+      },
+      error: (err) => {
+        console.error('Erreur chargement demandes envoyées:', err);
+      }
+    });
+  }
+
+  loadFriends(): void {
+    if (!this.currentUserId) return;
+
+    this.userService.getUserFriendsByStatus(this.currentUserId, true).subscribe({
+      next: (friends: FriendData[]) => {
+        friends.forEach(friend => {
+          const otherId = friend.senderId === +this.currentUserId! ? friend.receiverId : friend.senderId;
+          this.friends.add(otherId);
+        });
+      },
+      error: (err) => {
+        console.error('Erreur chargement des amis:', err);
       }
     });
   }
@@ -51,7 +88,7 @@ export class AllUsersComponent implements OnInit {
     this.friendService.sendRequest(+this.currentUserId, receiverId).subscribe({
       next: (res) => {
         console.log('Demande envoyée:', res);
-        // Tu peux ajouter un message de succès ici ou désactiver le bouton
+        this.sentRequests.add(receiverId);
       },
       error: (err) => {
         console.error('Erreur lors de l\'envoi de la demande:', err);
