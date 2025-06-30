@@ -11,8 +11,8 @@
 
   <div *ngIf="user; else loading" class="windowContent">
 
-    <button [routerLink]="['/main-page/profil']">Utilisateur</button>
-    <button [routerLink]="['/main-page/event-user']">Évènement</button>
+    <button [routerLink]="['/profil']">Utilisateur</button>
+    <button [routerLink]="['/event-user']">Évènement</button>
 
     <div class="profileContainer">
 
@@ -34,8 +34,8 @@
       </div>
 
       <div class="profileActions">
-        <button class="button"  [routerLink]="['/main-page/profil/edit-profile']">Modifier le profil</button>
-        <button class="button" [routerLink]="['/main-page/profil/change-password']">Changer le mot de passe</button>
+        <button class="button"  [routerLink]="['/profil/edit-profile']">Modifier le profil</button>
+        <button class="button" [routerLink]="['/profil/change-password']">Changer le mot de passe</button>
         <button class="button" (click)="deleteProfile()">Supprimer le profil</button>
       </div>
 

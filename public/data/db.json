@@ -12,7 +12,7 @@
     },
     {
       "email": "pierre.pierre@techni.be",
-      "password": "$2a$10$pZ2g0ah6VsCMiFvnv0McRO0cYctJKg.s5.Yr9jzRWxmJTwYofgay6",
+      "password": "$2a$10$UXIN/zsPJWvYUj8tfijv3.vJm0QqoJGCWB1.AHRz9J.TvGFrRX786",
       "firstname": "Pierre",
       "lastname": "Pierre",
       "pseudo": "PéPé",
@@ -79,16 +79,6 @@
       "address": "chez ta daronne",
       "image": "https://www.pokepedia.fr/images/thumb/0/0c/M%C3%A9ga-Lockpin-ROSA.png/1200px-M%C3%A9ga-Lockpin-ROSA.png",
       "id": 2
-    },
-    {
-      "name": "Aude Picture Group",
-      "description": "Aude prends la photo du groupe",
-      "userId": "2",
-      "beginDate": "2025-06-30",
-      "endDate": "2025-06-30",
-      "address": "Rue du Bois Saint-Jean 17",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbO6MNwo0HA3Bm3FJaXKb5t20X6Ab40AASWg&s",
-      "id": 3
     }
   ],
   "participations": [
@@ -98,29 +88,9 @@
       "userId": 1
     },
     {
-      "eventId": 3,
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "eventId": 3,
+      "eventId": 1,
       "userId": 2,
-      "id": 3
-    },
-    {
-      "eventId": 3,
-      "userId": 3,
-      "id": 4
-    },
-    {
-      "eventId": 3,
-      "userId": 4,
-      "id": 5
-    },
-    {
-      "eventId": 3,
-      "userId": 5,
-      "id": 6
+      "id": 2
     }
   ]
 }
