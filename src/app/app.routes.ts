@@ -12,6 +12,7 @@ import {ChangePasswordComponent} from './components/user/change-password/change-
 import {EventUserComponent} from './components/events/event-user/event-user.component';
 import {EventPropertyComponent} from './components/events/event-property/event-property.component';
 import {AllEventsComponent} from './components/events/all-events/all-events.component';
+import {AboutUsComponent} from './components/about-us/about-us.component';
 
 export const routes: Routes = [
   {
@@ -19,6 +20,10 @@ export const routes: Routes = [
     component: DesktopComponent,
     canActivate: [AuthGuard],
     children: [
+      {
+        path: 'about-us',
+        component: AboutUsComponent
+      },
       {
         path:'events',
         component:AllEventsComponent
