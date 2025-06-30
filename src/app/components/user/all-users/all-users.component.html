@@ -10,6 +10,18 @@
   </div>
 
   <div class="windowContent">
+
+      <div class="search">
+          <input
+                  type="text"
+                  [(ngModel)]="searchValue"
+                  placeholder="Rechercher un événement..."
+          />
+          <div class="button-option">
+              <button (click)="searchUsers()">Search</button>
+          </div>
+      </div>
+
     <ul class="userList">
       <li *ngFor="let user of users" class="userItem">
         <div class="userInfo">

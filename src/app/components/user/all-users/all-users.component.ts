@@ -5,16 +5,19 @@ import { UserService } from '../../../services/user.service';
 import { FriendService } from '../../../services/friend.service';
 import { RegisterData } from '../../../interfaces/register.interface';
 import { FriendData } from '../../../interfaces/friend.interface';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-all-users',
   standalone: true,
-  imports: [RouterLink, NgForOf, NgIf],
+  imports: [RouterLink, NgForOf, NgIf, ReactiveFormsModule, FormsModule],
   templateUrl: './all-users.component.html',
   styleUrl: './all-users.component.scss'
 })
 export class AllUsersComponent implements OnInit {
+
   users: RegisterData[] = [];
+  searchValue = '';
   errorMessage = '';
   currentUserId = localStorage.getItem('userId');
 
@@ -96,4 +99,28 @@ export class AllUsersComponent implements OnInit {
       }
     });
   }
+
+  searchUsers(): void {
+    if (!this.searchValue.trim()) {
+      // Si rien n'est saisi, charger tous les users
+      this.loadUsers();
+      return;
+    }
+
+    this.userService.searchUsersByPseudo(this.searchValue.trim()).subscribe({
+      next: (users) => {
+        this.users = users;
+        if (users.length === 0) {
+          this.errorMessage = 'Aucun utilisateur trouvé.';
+        } else {
+          this.errorMessage = '';
+        }
+      },
+      error: (err) => {
+        console.error('Erreur recherche utilisateurs:', err);
+        this.errorMessage = 'Erreur lors de la recherche.';
+      }
+    });
+  }
+
 }
