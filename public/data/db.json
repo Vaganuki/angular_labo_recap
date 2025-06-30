@@ -59,7 +59,7 @@
       "id": 1
     },
     {
-      "isAccepted": false,
+      "isAccepted": true,
       "senderId": 2,
       "receiverId": 3,
       "id": 2
