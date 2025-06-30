@@ -1,37 +1,35 @@
-import {Component, OnInit} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {ModalService} from './services/popup.service';
-import { OverlayModule } from '@angular/cdk/overlay';
-import { PortalModule } from '@angular/cdk/portal';
-import { RouterModule } from '@angular/router'; // <-- Ajoute ceci
-
+import {Component, inject} from '@angular/core';
+import {RouterLink, RouterOutlet} from '@angular/router';
+import {AuthService} from './services/auth.service';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,OverlayModule, PortalModule, RouterModule],
+  imports: [RouterOutlet, CommonModule, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
-  title = 'angular_labo_recap';
-  constructor(private modalService: ModalService) {}
+export class AppComponent {
+  private auth = inject(AuthService);
+  isLoggedIn = false;
+  heure = `${new Date().getHours().toString().padStart(2, '0')} : ${new Date().getMinutes().toString().padStart(2, '0')}`;
+  timer = setInterval(() => {
+  });
 
-  ngOnInit(): void {
-    this.openLogin();
-  }
-
-  openSign() {
-    this.modalService.openSignInModal();
-  }
-  openLogin() {
-    this.modalService.openLoginModal();
+  constructor() {
   }
 
-  openAllUsers() {
-    this.modalService.openAllUsersModal();
+  ngOnInit() {
+    this.auth.isLoggedIn$.subscribe(status => {
+      this.isLoggedIn = status;
+    });
+    this.timer = setInterval(() => {
+      this.heure = `${new Date().getHours().toString().padStart(2, '0')} : ${new Date().getMinutes().toString().padStart(2, '0')}`;
+    }, 5000);
   }
 
-  openAllEvents() {
-    this.modalService.openAllEventsModal();
+  ngOnDestroy() {
+    clearInterval(this.timer);
   }
+
 }

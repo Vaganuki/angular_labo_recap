@@ -1,24 +1,33 @@
+@use '../../../../styles.scss' as *;
+
 .window {
-  width: 80vw;
-  max-width: 90vw;
   height: 80vh;
-  max-height: 90vh;
+}
 
-  .titleBar{
-    height: 25px;
+.windowContent {
+  text-align: center;
 
-    .b{
-      display: flex;
-      align-items: center;
-      justify-content: right;
+  max-height: 75vh;
+  width: fit-content;
+  margin: 0.5rem auto 0;
 
+  & .logo {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 2rem 0;
+  }
 
-      .titleButton{
-        display: flex;
-        align-items: center;
-        justify-content: center;
+  & form {
+    display: grid;
+    grid-template: repeat(4,1fr) / repeat(2,1fr);
+    & div {
+      margin: 1rem 0;
+      grid-column: span 2;
+
+      & label {
+        width: 4rem;
       }
     }
   }
-
 }

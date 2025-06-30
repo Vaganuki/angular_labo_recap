@@ -1,43 +1,58 @@
-<!--<div class="login-modal">-->
-<!--  <div class="barre">-->
-<!--    <button class="close-button" (click)="close()">✖</button>-->
-<!--  </div>-->
-<!--  <h2>Login</h2>-->
-<!--  <div class="in">-->
-<!--    <input placeholder="Pseudo" />-->
-<!--    <input type="password" placeholder="Password" />-->
-<!--  </div>-->
-<!--  <button class="login-button">Login</button>-->
-<!--</div>-->
-
-
-
-
 <div class="window">
   <div class="titleBar">
-<!--    ⬆ ça applique le fond bleu et un display flex (important)-->
-    <div class="title">
-<!--      ⬆ ça rend le titre blanc et gras-->
-      <h2>Sign in</h2>
+
+    <div class="title">Register</div>
+
+    <div>
+      <div class="titleButton">?</div>
+      <div [routerLink]="['/welcome']" class="titleButton">X</div>
     </div>
-
-    <div class="b">
-<!--      ⬆ cette div rassemble tous les boutons à droite (grace au display flex)-->
-
-      <div class="titleButton"> ? </div>
-      <div class="titleButton"> ✖ </div>
-<!--      ⬆ ici on a un boutton, le mieux c'est de n'y mettre qu'un seul caractère-->
-    </div>
-
   </div>
 
   <div class="windowContent">
-<!--    le contenu que vous connaissez-->
-    <div class="in">
-      <input placeholder="Pseudo" />
-      <input type="password" placeholder="Password" />
-    </div>
-    <button class="login-button">Sign</button>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="logo">
+        <img src="logo.png" alt="MhsEvent25">
+      </div>
+      <div id="prenomDiv">
+        <label for="prenom">Prénom</label>
+        <input id="prenom" type="text" formControlName="firstname"/>
+      </div>
 
+      <div id="nomDiv">
+        <label for="nom">Nom</label>
+        <input id="nom" type="text" formControlName="lastname"/>
+      </div>
+
+      <div id="pseudoDiv">
+        <label for="pseudo">Pseudo</label>
+        <input id="pseudo" type="text" formControlName="pseudo"/>
+      </div>
+
+      <div id="emailDiv">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email"/>
+      </div>
+
+      <div id="mdpDiv">
+        <label for="mdp">Mot de passe</label>
+        <input id="mdp" type="password" formControlName="password"/>
+      </div>
+
+      <div id="avatarDiv">
+        <label for="avatar">Avatar (URL)</label>
+        <input id="avatar" type="text" formControlName="avatar"/>
+      </div>
+
+      <div id="ddnDiv">
+        <label for="ddn">Date de naissance</label>
+        <input id="ddn" type="date" formControlName="birthdate"/>
+      </div>
+
+      <button id="inscrire" type="submit">S'inscrire</button>
+      <button id="connecter" [routerLink]="['/login']">Se connecter</button>
+
+    </form>
   </div>
 </div>
+

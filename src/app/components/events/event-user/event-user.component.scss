@@ -1,0 +1,15 @@
+$colors: #e74c3c, #1abc9c, #f1c40f, #2ecc71,
+         #3498db, #e67e22, #2c3e50, #8e44ad;
+li{
+  list-style: square;
+
+  @for $i from 1 through length($colors) {
+    &:nth-child(#{$i})::marker {
+      color: nth($colors, $i);
+    }
+  }
+
+  &.active{
+      background-color: white;
+  }
+}

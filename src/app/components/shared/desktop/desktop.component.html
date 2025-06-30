@@ -1,0 +1,37 @@
+<div class="container">
+
+  <div  class="iconContainer">
+    <div class="icon">
+      <p>Voir tous les utilisateurs</p>
+    </div>
+    <div [routerLink]="['/events']" class="icon"><p>Voir tous les events</p></div>
+    <div [routerLink]="['/create-event']" class="icon"><p>Créer un event</p></div>
+    <div class="icon"><p>Demande d'amis</p></div>
+    <div class="icon"><p>Voir tous mes amis</p></div>
+    <div [routerLink]="['/profil']" class="icon"><p>Profil</p></div>
+
+    <div class="childComponent">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+  <div class="childComponent">
+    <router-outlet/>
+  </div>
+
+
+  <div class="bottomBar">
+    <div class="taskContainer">
+      <button (click)="viouwm()"><img src="fav-icon.gif" alt="Logo MhsEvent25" class="buttonIcon">MhsEvent25</button>
+      <button><img src="PLACEHOLDER-person-heart.svg" alt="Logo MhsEvent25" class="buttonIcon">Amis</button>
+      <button [routerLink]="['/events']">Events</button>
+      <button [routerLink]="['/profil']">Profil</button>
+
+
+      <button (click)="logout()">Déconnexion</button>
+    </div>
+    <div class="hourContainer">
+      <p>{{ heure }}</p>
+    </div>
+  </div>
+</div>

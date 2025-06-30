@@ -1,43 +1,36 @@
-<!--<div class="login-modal">-->
-<!--  <div class="barre">-->
-<!--    <button class="close-button" (click)="close()">✖</button>-->
-<!--  </div>-->
-<!--  <h2>Login</h2>-->
-<!--  <div class="in">-->
-<!--    <input placeholder="Pseudo" />-->
-<!--    <input type="password" placeholder="Password" />-->
-<!--  </div>-->
-<!--  <button class="login-button">Login</button>-->
-<!--</div>-->
-
-
-
-
 <div class="window">
   <div class="titleBar">
-    <!--    ⬆ ça applique le fond bleu et un display flex (important)-->
-    <div class="title">
-      <!--      ⬆ ça rend le titre blanc et gras-->
-      <h2>Login</h2>
+
+    <div class="title">Login</div>
+
+    <div>
+      <div class="titleButton">?</div>
+      <div [routerLink]="['/welcome']" class="titleButton">X</div>
     </div>
-
-    <div class="b">
-      <!--      ⬆ cette div rassemble tous les boutons à droite (grace au display flex)-->
-
-      <div class="titleButton"> ? </div>
-      <div class="titleButton" (click)="close()"> ✖ </div>
-      <!--      ⬆ ici on a un boutton, le mieux c'est de n'y mettre qu'un seul caractère-->
-    </div>
-
   </div>
 
   <div class="windowContent">
-    <!--    le contenu que vous connaissez-->
-    <div class="in">
-      <input placeholder="Pseudo" />
-      <input type="password" placeholder="Password" />
+    <div class="logo">
+      <img src="logo.png" alt="MhsEvents25 logo">
     </div>
-    <button class="login-button">Login</button>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <div>
+        <label for="email">Email :</label>
+        <input type="email" id="email" formControlName="email" required/>
+      </div>
+
+      <div>
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" formControlName="password" required/>
+      </div>
+      <button type="submit">Se connecter</button>
+      <button [routerLink]="['/register']">S'inscrire</button>
+      <button type="button" (click)="PasswordForgotten()">Mot de passe oublié</button>
+
+    </form>
 
   </div>
 </div>
+

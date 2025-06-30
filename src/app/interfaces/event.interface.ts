@@ -1,12 +1,11 @@
-export interface Event{
-
+export interface EventData {
   id: number;
   name: string;
+  image: string;
   description: string;
   userId: number;
   beginDate: string;
-  endDate: string;
+  endDate?: string | null;
   address: string;
-  imageUrl: string;
   isCancelled: boolean;
 }

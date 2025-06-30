@@ -1,0 +1,41 @@
+<div class="window">
+  <div class="titleBar">
+    <div class="title">Homepage</div>
+    <div>
+      <div class="titleButton">?</div>
+      <div [routerLink]="['/welcome']" class="titleButton">X</div>
+    </div>
+  </div>
+
+  <div class="windowContent">
+    <div class="logo">
+      <img src="logo.png" alt="MhsEvents25 logo">
+    </div>
+
+    <div class="container">
+
+      <div class="text">
+        <p><strong>Bienvenue sur MhsEvent25 👾</strong></p>
+        <p>
+          Ici, c’est pas juste un site — c’est un bout de votre jeunesse.
+          Un retour à l’époque des écrans CRT, des clics qui claquent et des potes qui passent IRL.
+        </p>
+        <p>
+          🎉 Organisez vos events comme à l’ancienne, invitez vos amis, et voyez qui répond présent.<br>
+          🕹️ Rejoignez les plans, ou créez les vôtres, façon rétro mais efficace.<br>
+          💾 Le tout dans une interface pixelisée, inspirée des classiques, pour une vraie vibe nostalgique.
+        </p>
+        <p>
+          Cliquez sur <strong>“Se connecter”</strong> ou <strong>“S'inscrire”</strong> et replongez dans une autre époque… version <strong>MhsEvent25</strong>.
+        </p>
+      </div>
+
+      <div class="button-container">
+        <button [routerLink]="['/login']">Se connecter</button>
+        <button [routerLink]="['/register']">S'inscrire</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
