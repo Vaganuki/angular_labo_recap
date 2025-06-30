@@ -43,11 +43,11 @@
     {
       "email": "hugo@hugo.com",
       "password": "$2a$10$YApJRaWkAox93ly4PjHxA.tV0ka0wYhZau5igcDVYr88yN7u4kaTG",
-      "firstname": "Hugo",
-      "lastname": "Huog",
+      "firstname": "Huog",
+      "lastname": "Marlote",
       "pseudo": "VaginKuni",
       "avatar": "https://media.mas.to/media_attachments/files/111/890/188/210/718/248/original/e4a19b29fa43842f.png",
-      "birthdate": "2025-06-24",
+      "birthdate": "2000-06-29",
       "id": 5
     }
   ],
@@ -79,6 +79,16 @@
       "address": "chez ta daronne",
       "image": "https://www.pokepedia.fr/images/thumb/0/0c/M%C3%A9ga-Lockpin-ROSA.png/1200px-M%C3%A9ga-Lockpin-ROSA.png",
       "id": 2
+    },
+    {
+      "name": "Présentation projet",
+      "description": "Présentation du projet sur lequel on bosse là !!",
+      "userId": "5",
+      "beginDate": "2025-07-01",
+      "endDate": "2025-07-01",
+      "address": "ici",
+      "image": "https://tenor.com/view/pewpewpewpew-ahmed-mohsin-%D8%A3%D8%AD%D9%85%D8%AF-%D9%85%D8%AD%D8%B3%D9%86-hedgehog-dancing-meme-gif-2754780489075620554",
+      "id": 3
     }
   ],
   "participations": [
