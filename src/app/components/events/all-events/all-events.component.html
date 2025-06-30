@@ -9,6 +9,7 @@
       <div class="titleButton" [routerLink]="['/']"> ✖ </div>
     </div>
   </div>
+
   <div class="w">
     <div class="viewAll">
       <div class="t">
@@ -42,7 +43,12 @@
         <div class="button-option">
           <button>Participate</button>
           <button>Create</button>
-          <button (click)="showProperties()" [disabled]="!selectedEvents">Proprietes</button>
+          <button class="button"
+                  [routerLink]="selectedEvents ? ['/events/property', selectedEvents.id] : null"
+                  [state]="{ from: 'events' }"
+                  [disabled]="!selectedEvents">
+            Propriétés
+          </button>
         </div>
 
         <div class="button-option">
@@ -65,5 +71,10 @@
         <button class="button" (click)="close()">Cancel</button>
       </div>
     </div>
+
+    <div class="childComponent">
+      <router-outlet></router-outlet>
+    </div>
+
   </div>
 </div>

@@ -21,7 +21,13 @@ export const routes: Routes = [
     children: [
       {
         path:'events',
-        component:AllEventsComponent
+        component:AllEventsComponent,
+        children: [
+          {
+            path: 'property/:id',
+            component: EventPropertyComponent,
+          }
+        ]
       },
       {
         path: 'create-event',

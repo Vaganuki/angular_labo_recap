@@ -3,7 +3,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {OverlayRef} from '@angular/cdk/overlay';
 import {EventData} from '../../../interfaces/event.interface';
 import {EventService} from '../../../services/event.service';
-import {RouterLink} from '@angular/router';
+import {RouterLink, RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-all-events',
@@ -11,6 +11,7 @@ import {RouterLink} from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     RouterLink,
+    RouterOutlet,
 
   ],
   templateUrl: './all-events.component.html',
@@ -20,6 +21,9 @@ export class AllEventsComponent {
   events: EventData[] = [];
   selectedEvents?: EventData;
   isFullscreen = false;
+
+  participations: any[] = [];
+  selectedEventId: string | null = null;
 
   searchValue = '';
   searchTerm = '';
@@ -47,12 +51,6 @@ export class AllEventsComponent {
     this.selectedEvents = event;
   }
 
-  showProperties() {
-    if (this.selectedEvents) {
-      console.log(this.selectedEvents);
-    }
-  }
-
   SearchInput() {
     this.searchTerm = this.searchValue;
   }
@@ -62,6 +60,24 @@ export class AllEventsComponent {
     return this.events.filter(event =>
       (event.name).toLowerCase().includes(this.searchTerm.toLowerCase())
     );
+  }
+
+  selectEvent(index: number): void {
+    const clicked = this.participations[index];
+    console.log('Clicked participation:', clicked);
+
+    if (clicked.isActive) {
+
+      this.participations = this.participations.map(p => ({...p, isActive: false}));
+      this.selectedEventId = null;
+    } else {
+
+      this.participations = this.participations.map((p, i) => ({
+        ...p,
+        isActive: i === index
+      }));
+      this.selectedEventId = clicked?.event?.id ?? null;
+    }
   }
 
 
