@@ -1,1 +1,24 @@
-<router-outlet/>
+<div *ngIf="isLoggedIn">
+  <router-outlet/>
+</div>
+
+<div *ngIf="!isLoggedIn">
+  <div class="container">
+    <div class="childComponent">
+      <router-outlet/>
+    </div>
+
+    <div class="bottomBar">
+      <div class="taskContainer">
+        <button [routerLink]="'/welcome'"><img src="fav-icon.gif" alt="Logo MhsEvent25" class="buttonIcon">MhsEvent25</button>
+        <button disabled>Amis</button>
+        <button disabled>Events</button>
+        <button disabled>Profil</button>
+      </div>
+      <div class="hourContainer">
+        <p>{{ heure }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+

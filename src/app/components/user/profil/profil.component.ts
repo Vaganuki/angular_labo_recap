@@ -25,8 +25,7 @@ export class ProfilComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getCurrentUser().subscribe({
       next: (user) => {
-        this.user = user;
-        console.log('User reçu:', user);
+        this.user = user
       },
       error: (err) => console.error('Erreur récupération profil:', err)
     });

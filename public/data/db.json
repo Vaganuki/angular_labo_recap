@@ -12,7 +12,7 @@
     },
     {
       "email": "pierre.pierre@techni.be",
-      "password": "$2a$10$pZ2g0ah6VsCMiFvnv0McRO0cYctJKg.s5.Yr9jzRWxmJTwYofgay6",
+      "password": "$2a$10$UXIN/zsPJWvYUj8tfijv3.vJm0QqoJGCWB1.AHRz9J.TvGFrRX786",
       "firstname": "Pierre",
       "lastname": "Pierre",
       "pseudo": "PéPé",
@@ -26,7 +26,7 @@
       "firstname": "Samet",
       "lastname": "Sakin",
       "pseudo": "Samo",
-      "avatar": "https://cdn.discordapp.com/attachments/1384425174757150760/1384874227043143861/image.png?ex=685e9021&is=685d3ea1&hm=c5121133fb9d89acb9dc43c40edf94a39041e072ed288453ccb18cd4109e61f8&",
+      "avatar": "https://cdn.discordapp.com/attachments/1384425174757150760/1384874227043143861/image.png?ex=685c95e1&is=685b4461&hm=70052cf9096fee08e4301ba0fbaff4e87ada8245a4a0e2591edd4e14dde65fb7&",
       "birthdate": "2025-06-18",
       "id": 3
     },
@@ -43,11 +43,11 @@
     {
       "email": "hugo@hugo.com",
       "password": "$2a$10$YApJRaWkAox93ly4PjHxA.tV0ka0wYhZau5igcDVYr88yN7u4kaTG",
-      "firstname": "Hugo",
-      "lastname": "Huog",
+      "firstname": "Huog",
+      "lastname": "Marlote",
       "pseudo": "VaginKuni",
       "avatar": "https://media.mas.to/media_attachments/files/111/890/188/210/718/248/original/e4a19b29fa43842f.png",
-      "birthdate": "2025-06-24",
+      "birthdate": "2000-06-29",
       "id": 5
     }
   ],
@@ -72,23 +72,22 @@
       "isCancelled": false
     },
     {
-      "name": "Tournoi Smash",
-      "description": "Tournoi Smash des DevWeb 2025",
-      "userId": 3,
-      "beginDate": "2025-07-01",
-      "endDate": "2025-07-04",
-      "address": "Rue bois Saint-Jean 26",
-      "image": "https://invader.bar/wp-content/uploads/2024/10/tournoi-super-smash-bros.jpg",
+      "name": "feur",
+      "description": "tamere",
+      "beginDate": "20650-09-08",
+      "endDate": "20650-09-09",
+      "address": "chez ta daronne",
+      "image": "https://www.pokepedia.fr/images/thumb/0/0c/M%C3%A9ga-Lockpin-ROSA.png/1200px-M%C3%A9ga-Lockpin-ROSA.png",
       "id": 2
     },
     {
-      "name": "Aude Picture Group",
-      "description": "Aude prends la photo du groupe",
-      "userId": "2",
-      "beginDate": "2025-06-30",
-      "endDate": "2025-06-30",
-      "address": "Rue du Bois Saint-Jean 17",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbO6MNwo0HA3Bm3FJaXKb5t20X6Ab40AASWg&s",
+      "name": "Présentation projet",
+      "description": "Présentation du projet sur lequel on bosse là !!",
+      "userId": "5",
+      "beginDate": "2025-07-01",
+      "endDate": "2025-07-01",
+      "address": "ici",
+      "image": "https://tenor.com/view/pewpewpewpew-ahmed-mohsin-%D8%A3%D8%AD%D9%85%D8%AF-%D9%85%D8%AD%D8%B3%D9%86-hedgehog-dancing-meme-gif-2754780489075620554",
       "id": 3
     }
   ],
@@ -99,29 +98,9 @@
       "userId": 1
     },
     {
-      "eventId": 3,
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "eventId": 3,
+      "eventId": 1,
       "userId": 2,
-      "id": 3
-    },
-    {
-      "eventId": 3,
-      "userId": 3,
-      "id": 4
-    },
-    {
-      "eventId": 3,
-      "userId": 4,
-      "id": 5
-    },
-    {
-      "eventId": 3,
-      "userId": 5,
-      "id": 6
+      "id": 2
     }
   ]
 }

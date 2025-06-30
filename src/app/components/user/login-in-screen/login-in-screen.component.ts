@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router, RouterLink } from '@angular/router';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../../services/auth.service';
-import { LoginData } from '../../../interfaces/login.interface';
+import {Component, inject, Input} from '@angular/core';
+import {Router, RouterLink} from '@angular/router';
+import {ReactiveFormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {LoginData} from '../../../interfaces/login.interface';
+import {AuthService} from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login-in-screen',
@@ -16,17 +15,11 @@ import { LoginData } from '../../../interfaces/login.interface';
   styleUrl: './login-in-screen.component.scss'
 })
 export class LoginInScreenComponent {
-
+  private _authService = inject(AuthService);
+  private router = inject(Router);
   loginForm: FormGroup;
 
-  constructor(
-      private fb: FormBuilder,
-      private http: HttpClient,
-      private router: Router,
-      private authService: AuthService
-  )
-
-  {
+  constructor( private fb: FormBuilder) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -44,25 +37,12 @@ export class LoginInScreenComponent {
     }
 
     const loginData: LoginData = this.loginForm.value;
-
-    this.authService.login(loginData).subscribe({
-      next: (res) => {
-        this.authService.saveToken(res.accessToken);
-        void this.router.navigate(['/main-page']);
-      },
-      error: err => {
-        console.error('💥 ERREUR reçue :', err);
-
-        if (err.status === 400) {
-          alert('❌ Champs invalides ou manquants.');
-        } else if (err.status === 403) {
-          alert('⛔ Session expirée, veuillez vous reconnecter.');
-        } else if (err.status === 0) {
-          alert('🚫 Impossible de contacter le serveur.');
-        } else {
-          alert('❌ Une erreur inconnue est survenue.');
+    this._authService.login(loginData).subscribe(
+      {
+        next: (res) => {
+          void this.router.navigate(['/']);
         }
       }
-    });
+    );
   }
 }

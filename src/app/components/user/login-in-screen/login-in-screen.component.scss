@@ -1,59 +1,33 @@
 @use '../../../../styles.scss' as *;
 
-.window{
-  height: calc( 100vh - 0.4rem);
+.window {
+  height: 80vh;
 }
 
-.windowContent{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+.windowContent {
+  text-align: center;
 
-.logo{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $secondary-color;
-  width: 80%;
-  height: 10rem;
-  margin: 2rem 0 10rem 0;
-}
+  max-height: 75vh;
+  width: fit-content;
+  margin: 0.5rem auto 0;
 
+  & .logo {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 2rem 0;
+  }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
+  & form {
+    display: grid;
+    grid-template: repeat(4,1fr) / repeat(2,1fr);
+    & div {
+      margin: 1rem 0;
+      grid-column: span 2;
 
-form > * {
-  font-size: 1.3rem;
-  margin-top: 1.5rem;
-}
-
-form > div {
-  display: flex;
-  align-items: center;
-  margin: 1rem 0;
-}
-
-label {
-  width: 15rem;
-  text-align: left;
-}
-
-input {
-  width: 200px;
-  padding: 0.3rem;
-  border: none;
-  background-color: white;
-}
-
-button {
-  width: 200px;
-  margin-left: 15rem;
+      & label {
+        width: 4rem;
+      }
+    }
+  }
 }

@@ -1,0 +1,73 @@
+<div class="window" [class.fullscreen]="isFullscreen">
+  <div class="titleBar">
+    <!--    ⬆ ça applique le fond bleu et un display flex (important)-->
+    <div class="title">
+      <!--      ⬆ ça rend le titre blanc et gras-->
+      <h2>View All Users</h2>
+    </div>
+
+    <div class="b">
+      <!--      ⬆ cette div rassemble tous les boutons à droite (grace au display flex)-->
+
+      <div class="titleButton"> _ </div>
+      <div class="titleButton" (click)="toggleFullscreen()"> | | </div>
+      <div class="titleButton" (click)="close()"> ✖ </div>
+      <!--      ⬆ ici on a un boutton, le mieux c'est de n'y mettre qu'un seul caractère-->
+    </div>
+
+  </div>
+
+    <!--    le contenu que vous connaissez-->
+  <div class="w">
+<div class="viewAll">
+    <div class="t">
+      <p class="titleMenu">Liste of users</p>
+    </div>
+
+      <!--        ContainerAll c'est tout le contenu a l'interieur de border-->
+    <div class="containerAll">
+
+      <div class="search">
+          <input
+            type="text"
+            [(ngModel)]="searchValue"
+            placeholder="Rechercher un utilisateur..."
+          />
+        <div class="button-option">
+          <button (click)="SearchInput()">Search</button>
+        </div>
+      </div>
+
+      <!--        affichageAll c'est le carré blanc-->
+      <div class="affichageAll">
+
+        <div class="back">
+        <ul>
+          @for (user of filteredUsers(); track user.id) {
+            <li
+              [class.selected]="user.id === selectedUser?.id"
+              (click)="selectUser1(user)"
+            >
+              {{ user.firstname }} {{ user.lastname }}
+            </li>
+          }
+        </ul>
+        </div>
+      </div>
+
+      <div class="button-option">
+
+        <button>Add friend</button>
+        <button (click)="showProperties()" [disabled]="!selectedUser">Proprietes</button>
+      </div>
+    </div>
+
+    <div class="button-principale">
+      <button class="button">OK</button>
+      <button class="button" (click)="close()">Cancel</button>
+  </div>
+  </div>
+  </div>
+
+</div>
+

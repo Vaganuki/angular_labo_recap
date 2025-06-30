@@ -48,7 +48,7 @@ export class EventCreationComponent {
       .subscribe({
         next: () => {
           alert('Événement créé avec succès !');
-          void this.router.navigate(['/main-page']);
+          this.router.navigate(['/']);
         },
         error: (err) => {
           console.error('Erreur lors de la création de l’événement:', err);

@@ -1,4 +1,5 @@
 export interface EventData {
+  id: number;
   name: string;
   image: string;
   description: string;

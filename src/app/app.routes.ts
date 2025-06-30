@@ -1,3 +1,4 @@
+
 import { Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { HomepageComponent } from './components/shared/homepage/homepage.component';
@@ -10,14 +11,18 @@ import {EditProfileComponent} from './components/user/edit-profile/edit-profile.
 import {ChangePasswordComponent} from './components/user/change-password/change-password.component';
 import {EventUserComponent} from './components/events/event-user/event-user.component';
 import {EventPropertyComponent} from './components/events/event-property/event-property.component';
-import {AllUsersComponent} from './components/user/all-users/all-users.component';
+import {AllEventsComponent} from './components/events/all-events/all-events.component';
 
 export const routes: Routes = [
   {
-    path: 'main-page',
+    path: '',
     component: DesktopComponent,
     canActivate: [AuthGuard],
     children: [
+      {
+        path:'events',
+        component:AllEventsComponent
+      },
       {
         path: 'create-event',
         component:EventCreationComponent
@@ -46,14 +51,10 @@ export const routes: Routes = [
           },
         ]
       },
-      {
-        path: 'all-users',
-        component: AllUsersComponent,
-      }
     ]
   },
   {
-    path: 'homepage',
+    path: 'welcome',
     component: HomepageComponent,
   },
   {
@@ -63,9 +64,5 @@ export const routes: Routes = [
   {
     path: 'register',
     component: SignInScreenComponent,
-  },
-  {
-    path: '**',
-    redirectTo: 'homepage'
   },
 ];

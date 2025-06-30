@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router, RouterLink } from '@angular/router';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegisterData } from '../../../interfaces/register.interface';
+import {Component, Input} from '@angular/core';
+import {Router, RouterLink} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import {ReactiveFormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {RegisterData} from '../../../interfaces/register.interface';
+import {OverlayRef} from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-sign-in-screen',
@@ -52,5 +53,11 @@ export class SignInScreenComponent {
           alert('Erreur lors de l\'inscription. Veuillez réessayer.');
         }
       });
+  }
+
+  @Input() overlayRef!: OverlayRef;
+
+  close() {
+    this.overlayRef?.dispose();
   }
 }
