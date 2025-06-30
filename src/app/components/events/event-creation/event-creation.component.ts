@@ -16,6 +16,8 @@ import { EventData } from '../../../interfaces/event.interface';
 export class EventCreationComponent {
 
   createEventForm: FormGroup;
+  userId= localStorage.getItem('userId');
+
 
   constructor(
     private fb: FormBuilder,
@@ -26,6 +28,7 @@ export class EventCreationComponent {
     this.createEventForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
+      userId: [ this.userId || '', Validators.required],
       beginDate: ['', Validators.required],
       endDate: ['', Validators.required],
       address: ['', Validators.required],

@@ -1,0 +1,53 @@
+<div class="window">
+  <div class="titleBar">
+    <div class="title">Modification du profil</div>
+    <div>
+      <div class="titleButton">_</div>
+      <div class="titleButton" [routerLink]="['/main-page/profil']">X</div>
+    </div>
+  </div>
+  <div class="windowContent">
+
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+      <div>
+        <label>Prénom</label>
+        <input type="text" formControlName="firstname" />
+      </div>
+
+      <div>
+        <label>Nom</label>
+        <input type="text" formControlName="lastname" />
+      </div>
+
+      <div>
+        <label>Pseudo</label>
+        <input type="text" formControlName="pseudo" />
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input type="email" formControlName="email" />
+      </div>
+
+      <div>
+        <label>Avatar (URL)</label>
+        <input type="text" formControlName="avatar" />
+      </div>
+
+      <div>
+        <label>Date de naissance</label>
+        <input type="date" formControlName="birthdate" />
+      </div>
+
+      <br>
+      <div>
+        <button type="submit">Modifier</button>
+
+        <button [routerLink]="['/main-page/profil']">Annuler</button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
