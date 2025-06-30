@@ -12,7 +12,7 @@
     },
     {
       "email": "pierre.pierre@techni.be",
-      "password": "$2a$10$UXIN/zsPJWvYUj8tfijv3.vJm0QqoJGCWB1.AHRz9J.TvGFrRX786",
+      "password": "$2a$10$g/XQl8TlTfQAJTyjHBBUn.ITf2ns9v5IaiS3lb1KZR8H2qdhm4Jt6",
       "firstname": "Pierre",
       "lastname": "Pierre",
       "pseudo": "PéPé",
@@ -26,7 +26,7 @@
       "firstname": "Samet",
       "lastname": "Sakin",
       "pseudo": "Samo",
-      "avatar": "https://cdn.discordapp.com/attachments/1384425174757150760/1384874227043143861/image.png?ex=685c95e1&is=685b4461&hm=70052cf9096fee08e4301ba0fbaff4e87ada8245a4a0e2591edd4e14dde65fb7&",
+      "avatar": "https://pbs.twimg.com/media/CIVoKPfWUAAFMFM.jpg",
       "birthdate": "2025-06-18",
       "id": 3
     },
@@ -57,6 +57,18 @@
       "isAccepted": true,
       "senderId": 1,
       "receiverId": 2
+    },
+    {
+      "isAccepted": false,
+      "senderId": 3,
+      "receiverId": 2,
+      "id": 2
+    },
+    {
+      "isAccepted": false,
+      "senderId": 3,
+      "receiverId": 4,
+      "id": 3
     }
   ],
   "events": [
@@ -231,6 +243,11 @@
       "eventId": 15,
       "userId": 5,
       "id": 4
+    },
+    {
+      "eventId": 1,
+      "userId": 3,
+      "id": 5
     }
   ]
 }
