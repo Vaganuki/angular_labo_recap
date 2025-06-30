@@ -1,3 +1,6 @@
+import { Event as AppEvent } from '../interfaces/event.interface';
+
+
 // Indique que ce fichier utilise les décorateurs et l'injection de dépendances Angular
 import { Injectable } from '@angular/core';
 
@@ -12,6 +15,10 @@ import {LoginInScreenComponent} from '../components/user/login-in-screen/login-i
 import {SignInScreenComponent} from '../components/user/sign-in-screen/sign-in-screen.component';
 import {AlluserComponent} from '../components/user/alluser/alluser.component';
 import {AlleventComponent} from '../components/events/allEvent/allevent/allevent.component';
+import {
+  EventPropertiesModalComponent
+} from '../components/events/EventProperties/event-properties-modal/event-properties-modal.component';
+import {EventCreationComponent} from '../components/events/event-creation/event-creation.component';
 
 // Déclare ce service comme injectable à la racine de l'application (singleton)
 @Injectable({ providedIn: 'root' })
@@ -36,6 +43,25 @@ export class ModalService {
     this.openModal(AlleventComponent);
   }
 
+  openCreateEventModal(): void {
+    this.openModal(EventCreationComponent);
+  }
+
+  openEventPropertiesModal(event: AppEvent): void {
+    this.overlayRef = this.overlay.create({
+      hasBackdrop: true,
+      backdropClass: 'transparent-backdrop',
+      positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
+    });
+
+    const portal = new ComponentPortal(EventPropertiesModalComponent);
+    const componentRef = this.overlayRef.attach(portal);
+    componentRef.instance.event = event;
+    (componentRef.instance as any).overlayRef = this.overlayRef;
+
+    this.overlayRef.backdropClick().subscribe(() => this.close());
+  }
+
   private openModal<T>(component: new (...args: any[]) => T): void {
     this.overlayRef = this.overlay.create({
       hasBackdrop: true,
@@ -53,5 +79,4 @@ export class ModalService {
   close(): void {
     this.overlayRef?.dispose();
     this.overlayRef = null;
-  }
-}
+  }}
