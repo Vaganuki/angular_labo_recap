@@ -5,6 +5,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { EventData } from '../../../interfaces/event.interface';
 import { EventService } from '../../../services/event.service';
 import { ParticipationService } from '../../../services/participation.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-all-events',
@@ -32,6 +33,7 @@ export class AllEventsComponent implements OnInit {
   @Input() overlayRef!: OverlayRef;
 
   private eventService = inject(EventService);
+  private userService = inject(UserService);
   private participationService = inject(ParticipationService);
 
   ngOnInit() {
@@ -39,9 +41,8 @@ export class AllEventsComponent implements OnInit {
       this.events = data;
     });
 
-    // Charger les participations de l'utilisateur connecté
     if (this.currentUserId) {
-      this.participationService.getUserParticipations(+this.currentUserId).subscribe({
+      this.userService.getUserParticipations(this.currentUserId).subscribe({
         next: participations => {
           participations.forEach(p => this.joinedEvents.add(p.eventId));
         }

@@ -1,51 +1,60 @@
 <div class="window">
-  <div class="titleBar">
-    <div class="title">Propriété de l'évènement</div>
-    <div>
-      <div class="titleButton">?</div>
-      <div class="titleButton" (click)="navigation()">X</div>
+    <div class="titleBar">
+        <div class="title">Propriété de l'évènement</div>
+        <div>
+            <div class="titleButton">?</div>
+            <div class="titleButton" (click)="navigation()">X</div>
+        </div>
     </div>
-  </div>
-  <div class="windowContent">
+    <div class="windowContent">
 
-    <div class="eventProperty" *ngIf="event">
-      <div class="eventPropertyTitle">
-        <strong>Titre :</strong> {{ event.name }}
-      </div>
+        <div *ngIf="event">
+            <div>Titre : {{ event.name }}</div>
 
-      <div class="eventPropertyImage" *ngIf="event.image">
-        <img [src]="event.image" alt="Image de l'événement" />
-      </div>
+            <div *ngIf="event.image">
+                <img [src]="event.image" alt="Image de l'événement" />
+            </div>
 
-      <div class="eventPropertyDescription">
-        <strong>Description :</strong> {{ event.description }}
-      </div>
+            <div>Description : {{ event.description }}</div>
 
-      <div class="eventPropertyDate">
-        <strong>Date :</strong>
-        du {{ event.beginDate | date:'fullDate' }}
-        <ng-container *ngIf="event.endDate"> au {{ event.endDate | date:'fullDate' }}</ng-container>
-      </div>
+            <div>
+                Date :
+                du {{ event.beginDate | date:'fullDate' }}
+                <ng-container *ngIf="event.endDate"> au {{ event.endDate | date:'fullDate' }}</ng-container>
+            </div>
 
-      <div class="eventPropertyLocation">
-        <strong>Adresse :</strong> {{ event.address }}
-      </div>
+            <div>Adresse : {{ event.address }}</div>
 
-      <div class="eventPropertyOrganizer">
-        <strong>Organisateur (ID) :</strong> {{ event.userId }}
-      </div>
+            <div *ngIf="event.user; else showUserId">
+                Organisateur : {{ event.user.firstname + ' ' + event.user.lastname || ( event.user.pseudo ) }}
+            </div>
+            <ng-template #showUserId>
+                Organisateur (ID) : {{ event.userId }}
+            </ng-template>
 
-      <div class="eventPropertyStatus">
-        <strong>Status :</strong>
-        <span [ngClass]="event.isCancelled ? 'cancelled' : 'active'">
-      {{ event.isCancelled ? 'Annulé' : 'Actif' }}
-    </span>
-      </div>
+            <div>
+                Status :
+                <span [ngClass]="event.isCancelled ? 'cancelled' : 'active'">
+                  {{ event.isCancelled ? 'Annulé' : 'Actif' }}
+                </span>
+            </div>
+
+            <div>
+                Participants :
+                <span *ngIf="participants.length > 0; else noParticipants">
+                  <span *ngFor="let participant of participants; let last = last">
+                    {{ participant.pseudo }} ({{ participant.id }}){{ last ? '' : ', ' }}
+                  </span>
+                </span>
+                <ng-template #noParticipants>
+                    Aucun participant pour l’instant.
+                </ng-template>
+            </div>
+        </div>
+
+        <ng-template [ngIf]="!event">
+            <p>Chargement des détails de l'événement...</p>
+        </ng-template>
+
     </div>
-
-    <ng-template [ngIf]="!event">
-      <p>Chargement des détails de l'événement...</p>
-    </ng-template>
-
-  </div>
 </div>

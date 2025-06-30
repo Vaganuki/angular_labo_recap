@@ -25,10 +25,4 @@ export class ParticipationService {
       headers: this.authHeaders
     });
   }
-
-  getUserParticipations(userId: number): Observable<Participation[]> {
-    return this.http.get<Participation[]>(`${this.baseUrl}?userId=${userId}`, {
-      headers: this.authHeaders
-    });
-  }
 }

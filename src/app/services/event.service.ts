@@ -10,10 +10,14 @@ export class EventService {
   private http =  inject(HttpClient);
 
   getEventById(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+    return this.http.get(`${this.baseUrl}/${id}?_expand=user`);
   }
 
   getEvents(): Observable<EventData[]> {
     return this.http.get<EventData[]>(this.baseUrl);
+  }
+
+  getEventParticipationsWithUsers(eventId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/${eventId}/participations?_expand=user`);
   }
 }
