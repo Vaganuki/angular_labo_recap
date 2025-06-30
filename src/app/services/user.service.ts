@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {inject, Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { RegisterData } from '../interfaces/register.interface';
 import { AuthService } from './auth.service';
+import {FriendData} from '../interfaces/friend.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,19 +11,25 @@ import { AuthService } from './auth.service';
 export class UserService {
   private baseUrl = 'http://localhost:3000/users';
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  private authService = inject(AuthService);
+  private http = inject(HttpClient);
 
-  getUserById(id: string | number): Observable<RegisterData> {
+  private get authHeaders(): HttpHeaders {
     const token = this.authService.getToken();
     if (!token) {
       throw new Error('Utilisateur non authentifié');
     }
-
-    const headers = new HttpHeaders({
+    return new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
+  }
 
-    return this.http.get<RegisterData>(`${this.baseUrl}/${id}`, { headers });
+  getAllUsers(): Observable<RegisterData[]> {
+    return this.http.get<RegisterData[]>(this.baseUrl, { headers: this.authHeaders });
+  }
+
+  getUserById(id: string | number): Observable<RegisterData> {
+    return this.http.get<RegisterData>(`${this.baseUrl}/${id}`, { headers: this.authHeaders });
   }
 
   getCurrentUser(): Observable<RegisterData> {
@@ -34,15 +41,7 @@ export class UserService {
   }
 
   updateUser(userId: string, updatedData: Partial<RegisterData>): Observable<any> {
-    const token = this.authService.getToken();
-
-    if (!token) throw new Error('Utilisateur non authentifié');
-
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json'
-    });
-
+    const headers = this.authHeaders.append('Content-Type', 'application/json');
     return this.http.patch(`${this.baseUrl}/${userId}`, updatedData, { headers });
   }
 
@@ -50,44 +49,34 @@ export class UserService {
     return this.http.get<any[]>(`${this.baseUrl}/${userId}/participations?_expand=event`);
   }
 
-
   updatePassword(userId: string | null, newPassword: string): Observable<any> {
     if (!userId) {
       throw new Error('ID utilisateur manquant');
     }
-
-    const token = this.authService.getToken();
-
-    if (!token) {
-      throw new Error('Utilisateur non authentifié');
-    }
-
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json'
-    });
-
+    const headers = this.authHeaders.append('Content-Type', 'application/json');
     return this.http.patch(`${this.baseUrl}/${userId}`, {
       password: newPassword
     }, { headers });
   }
 
   deleteCurrentUser(): Observable<void> {
-    const userId = localStorage.getItem('userId');
-    if (!userId) {
-      throw new Error('ID utilisateur non trouvé');
-    }
+    return this.http.delete<void>(`${this.baseUrl}/${localStorage.getItem('userId')}`, { headers: this.authHeaders });
+  }
 
-    const token = this.authService.getToken();
-    if (!token) {
-      throw new Error('Utilisateur non authentifié');
-    }
+      //Amis
 
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
+  getFriends(userId: string): Observable<FriendData[]> {
+    return this.http.get<FriendData[]>(`${this.baseUrl}/${userId}/friends`, { headers: this.authHeaders });
+  }
 
-    return this.http.delete<void>(`${this.baseUrl}/${userId}`, { headers });
+  getUserFriendsByStatus(userId: string, isAccepted: boolean): Observable<FriendData[]> {
+    const params = new HttpParams().set('isAccepted', String(isAccepted));
+    return this.http.get<FriendData[]>(`${this.baseUrl}/${userId}/friends`, { headers: this.authHeaders, params });
+  }
+
+  searchUsersByPseudo(pseudo: string): Observable<RegisterData[]> {
+    const params = new HttpParams().set('pseudo_like', pseudo);
+    return this.http.get<RegisterData[]>(this.baseUrl, { headers: this.authHeaders, params });
   }
 
 }

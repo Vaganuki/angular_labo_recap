@@ -49,7 +49,9 @@
 
       <button id="annuler" type="button" [routerLink]="['/']">Annuler</button>
 
-      <button id="creer" type="submit">Créer l'évènement</button>
+      <button id="creer" type="submit" [disabled]="isSubmitting || createEventForm.invalid">
+        {{ isSubmitting ? 'Création en cours...' : 'Créer l\'événement' }}
+      </button>
     </form>
 
   </div>

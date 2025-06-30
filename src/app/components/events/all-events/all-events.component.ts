@@ -1,38 +1,53 @@
-import {Component, Input} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {OverlayRef} from '@angular/cdk/overlay';
-import {EventData} from '../../../interfaces/event.interface';
-import {EventService} from '../../../services/event.service';
-import {RouterLink} from '@angular/router';
+import {Component, OnInit, inject, Input} from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OverlayRef } from '@angular/cdk/overlay';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { EventData } from '../../../interfaces/event.interface';
+import { EventService } from '../../../services/event.service';
+import { ParticipationService } from '../../../services/participation.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-all-events',
+  standalone: true,
   imports: [
     FormsModule,
     ReactiveFormsModule,
     RouterLink,
-
+    RouterOutlet
   ],
   templateUrl: './all-events.component.html',
   styleUrl: './all-events.component.scss'
 })
-export class AllEventsComponent {
+export class AllEventsComponent implements OnInit {
   events: EventData[] = [];
   selectedEvents?: EventData;
   isFullscreen = false;
-
+  participations: any[] = [];
+  selectedEventId: string | null = null;
   searchValue = '';
   searchTerm = '';
+  joinedEvents = new Set<number>();
+  currentUserId = localStorage.getItem('userId');
 
   @Input() overlayRef!: OverlayRef;
 
-  constructor(private eventService: EventService) {
-  }
+  private eventService = inject(EventService);
+  private userService = inject(UserService);
+  private participationService = inject(ParticipationService);
 
   ngOnInit() {
     this.eventService.getEvents().subscribe((data: EventData[]) => {
       this.events = data;
     });
+
+    if (this.currentUserId) {
+      this.userService.getUserParticipations(this.currentUserId).subscribe({
+        next: participations => {
+          participations.forEach(p => this.joinedEvents.add(p.eventId));
+        }
+      });
+    }
   }
 
   close() {
@@ -47,12 +62,6 @@ export class AllEventsComponent {
     this.selectedEvents = event;
   }
 
-  showProperties() {
-    if (this.selectedEvents) {
-      console.log(this.selectedEvents);
-    }
-  }
-
   SearchInput() {
     this.searchTerm = this.searchValue;
   }
@@ -64,7 +73,23 @@ export class AllEventsComponent {
     );
   }
 
+  participate(): void {
+    if (!this.selectedEvents || !this.currentUserId) return;
+
+    this.participationService.createParticipation({
+      eventId: this.selectedEvents.id,
+      userId: +this.currentUserId
+    }).subscribe({
+      next: () => {
+        this.joinedEvents.add(this.selectedEvents!.id);
+        alert('Participation enregistrée !');
+      },
+      error: (err) => {
+        console.error('Erreur participation:', err);
+        alert('Erreur lors de la participation.');
+      }
+    });
+  }
 
   protected readonly event = event;
-
 }

@@ -13,6 +13,7 @@ import {EventUserComponent} from './components/events/event-user/event-user.comp
 import {EventPropertyComponent} from './components/events/event-property/event-property.component';
 import {AllEventsComponent} from './components/events/all-events/all-events.component';
 import {AboutUsComponent} from './components/about-us/about-us.component';
+import {AllUsersComponent} from './components/user/all-users/all-users.component';
 
 export const routes: Routes = [
   {
@@ -26,7 +27,17 @@ export const routes: Routes = [
       },
       {
         path:'events',
-        component:AllEventsComponent
+        component:AllEventsComponent,
+        children: [
+          {
+            path: 'property/:id',
+            component: EventPropertyComponent,
+          }
+        ]
+      },
+      {
+        path: 'users',
+        component: AllUsersComponent,
       },
       {
         path: 'create-event',

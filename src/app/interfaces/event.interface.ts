@@ -1,3 +1,5 @@
+import {RegisterData} from "./register.interface";
+
 export interface EventData {
   id: number;
   name: string;
@@ -8,4 +10,8 @@ export interface EventData {
   endDate?: string | null;
   address: string;
   isCancelled: boolean;
+
+  // Ajouté pour la propriété `_expand=user` dans la route
+  participants?: RegisterData[];
+  users?: RegisterData[];
 }
