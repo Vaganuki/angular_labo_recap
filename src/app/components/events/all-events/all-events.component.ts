@@ -1,21 +1,24 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {Event} from '../../../../interfaces/event.interface';
+import {Component, Input} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {OverlayRef} from '@angular/cdk/overlay';
-import {EventService} from '../../../../services/event.service';
+import {EventData} from '../../../interfaces/event.interface';
+import {EventService} from '../../../services/event.service';
+import {RouterLink} from '@angular/router';
 
 @Component({
-  selector: 'app-allevent',
+  selector: 'app-all-events',
   imports: [
+    FormsModule,
     ReactiveFormsModule,
-    FormsModule
+    RouterLink,
+
   ],
-  templateUrl: './allevent.component.html',
-  styleUrl: './allevent.component.scss'
+  templateUrl: './all-events.component.html',
+  styleUrl: './all-events.component.scss'
 })
-export class AlleventComponent implements OnInit {
-  events: Event[] = [];
-  selectedEvents?: Event;
+export class AllEventsComponent {
+  events: EventData[] = [];
+  selectedEvents?: EventData;
   isFullscreen = false;
 
   searchValue = '';
@@ -23,10 +26,11 @@ export class AlleventComponent implements OnInit {
 
   @Input() overlayRef!: OverlayRef;
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService) {
+  }
 
   ngOnInit() {
-    this.eventService.getEvents().subscribe((data: Event[]) => {
+    this.eventService.getEvents().subscribe((data: EventData[]) => {
       this.events = data;
     });
   }
@@ -39,7 +43,7 @@ export class AlleventComponent implements OnInit {
     this.isFullscreen = !this.isFullscreen;
   }
 
-  selectEvent1(event: Event) {
+  selectEvent1(event: EventData) {
     this.selectedEvents = event;
   }
 
@@ -53,7 +57,7 @@ export class AlleventComponent implements OnInit {
     this.searchTerm = this.searchValue;
   }
 
-  filteredEvents(): Event[] {
+  filteredEvents(): EventData[] {
     if (!this.searchTerm) return this.events;
     return this.events.filter(event =>
       (event.name).toLowerCase().includes(this.searchTerm.toLowerCase())
@@ -61,6 +65,6 @@ export class AlleventComponent implements OnInit {
   }
 
 
-
   protected readonly event = event;
+
 }
