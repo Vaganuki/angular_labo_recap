@@ -20,7 +20,6 @@
 
   <div class="bottomBar">
     <div class="taskContainer">
-      <button (click)="sofian()"><img src="/sofian.png" alt="sofian" width="10"></button>
       <button [routerLink]="['/about-us']" (click)="viouwm()"><img src="fav-icon.gif" alt="Logo MhsEvent25" class="buttonIcon">MhsEvent25</button>
       <button><img src="PLACEHOLDER-person-heart.svg" alt="Logo MhsEvent25" class="buttonIcon">Amis</button>
       <button [routerLink]="['/events']">Events</button>
@@ -28,6 +27,7 @@
 
 
       <button (click)="logout()">Déconnexion</button>
+      <button (click)="sofian()"><img src="/sofian.png" alt="sofian" width="10"></button>
     </div>
     <div class="hourContainer">
       <p>{{ heure }}</p>

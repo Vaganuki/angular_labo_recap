@@ -5,7 +5,7 @@
     </div>
     <div class="b">
       <div class="titleButton"> _ </div>
-<!--      <div class="titleButton" (click)="toggleFullscreen()"> | | </div>-->
+      <!--      <div class="titleButton" (click)="toggleFullscreen()"> | | </div>-->
       <div class="titleButton" [routerLink]="['/']"> ✖ </div>
     </div>
   </div>
@@ -64,15 +64,15 @@
 
       </div>
 
-      </div>
-      <div class="button-principale">
-        <button class="button" [routerLink]="['/']">OK</button>
-        <button class="button" [routerLink]="['/']">Cancel</button>
-      </div>
     </div>
+    <div class="button-principale">
+      <button class="button" [routerLink]="['/']">OK</button>
+      <button class="button" [routerLink]="['/']">Cancel</button>
+    </div>
+  </div>
 
-    <div class="childComponent">
-      <router-outlet></router-outlet>
-    </div>
+  <div class="childComponent">
+    <router-outlet></router-outlet>
+  </div>
 
 </div>
