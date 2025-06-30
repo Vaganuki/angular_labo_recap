@@ -37,7 +37,7 @@
             <div class="button-option">
                 <button>Participate</button>
                 <button [routerLink]="['/create-event']">Create</button>
-                <button (click)="showProperties()" [disabled]="!selectedEvents">Proprietes</button>
+<!--                <button (click)="showProperties()" [disabled]="!selectedEvents">Proprietes</button>-->
             </div>
 
             <div class="button-option">
@@ -60,10 +60,4 @@
             <button class="button" (click)="close()">Cancel</button>
         </div>
     </div>
-
-    <div class="childComponent">
-      <router-outlet></router-outlet>
-    </div>
-
-  </div>
 </div>
