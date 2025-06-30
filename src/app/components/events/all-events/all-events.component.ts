@@ -50,10 +50,6 @@ export class AllEventsComponent implements OnInit {
     }
   }
 
-  close() {
-    this.overlayRef?.dispose();
-  }
-
   toggleFullscreen() {
     this.isFullscreen = !this.isFullscreen;
   }
