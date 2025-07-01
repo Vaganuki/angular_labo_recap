@@ -1,0 +1,62 @@
+@use '../../../../styles.scss' as *;
+
+.windowContent {
+  margin: 1rem;
+  height: 50vh;
+
+  & .titleMenu {
+    width: fit-content;
+    border: 2px solid $secondary-color;
+    padding: 0.3rem;
+    box-shadow: inset -1px -1px 2px $secondary-color, inset 1px 1px 2px $accent-color;
+  }
+
+  & .containerAll {
+    border: 2px solid $secondary-color;
+    box-shadow: inset -1px -1px 2px $secondary-color, inset 1px 1px 2px $accent-color;
+    padding: 0.5rem;
+
+    .affichageAll {
+      overflow-y: scroll;
+      background-color: $accent-color;
+      height: 90vh;
+      margin: 1.25rem;
+      box-shadow: inset -1px -1px 2px $secondary-color, inset 1px 1px 2px $accent-color;
+      max-height: 30vh;
+
+      & .requestContainer {
+        display: grid;
+        grid-template-columns: 15% 45% 20% 20%;
+        align-items: center;
+        margin: 1rem;
+
+        & .profilPic {
+          height: 4rem;
+          width: 4rem;
+          border-radius: 50%;
+        }
+
+        & .username {
+          font-size: 1.2rem;
+        }
+
+        & button {
+          height: 50%;
+        }
+      }
+    }
+  }
+  & .button-principale {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+  }
+  & .noFriends{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 1.2rem;
+  }
+}
