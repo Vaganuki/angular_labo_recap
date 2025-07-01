@@ -49,7 +49,8 @@
             Participer
           </button>
 
-          <button>Create</button>
+          <button [routerLink]="['/create-event']">Create</button>
+
           <button class="button"
                   [routerLink]="selectedEvents ? ['/events/property', selectedEvents.id] : null"
                   [state]="{ from: 'events' }"
