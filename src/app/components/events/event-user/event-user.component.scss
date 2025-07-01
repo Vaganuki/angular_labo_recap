@@ -5,7 +5,7 @@ $colors: #e74c3c, #1abc9c, #f1c40f, #2ecc71,
 #3498db, #e67e22, #2c3e50, #8e44ad;
 li {
   list-style: square;
-
+  padding-left: 0.5em;
   @for $i from 1 through length($colors) {
     &:nth-child(#{$i})::marker {
       color: nth($colors, $i);
@@ -13,6 +13,7 @@ li {
   }
 
   &.active {
+    color: $accent-color;
     background-color: color.adjust(lighten($secondary-title, 15));
     width: 90%;
   }
@@ -29,7 +30,7 @@ li {
 
 .windowContent {
   margin: 2rem;
-  height: 60vh;
+  height: 50vh;
 
   & .eventContainer {
     padding: 1rem;
