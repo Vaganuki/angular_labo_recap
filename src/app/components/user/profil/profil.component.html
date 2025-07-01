@@ -1,62 +1,61 @@
 <div class="window">
-    <div class="titleBar">
+  <div class="titleBar">
 
-        <div class="title">Votre profil</div>
+    <div class="title">Votre profil</div>
+
+    <div>
+<!--      <div class="titleButton">?</div>-->
+      <div [routerLink]="['/']" class="titleButton">X</div>
+    </div>
+  </div>
+
+  <div *ngIf="user; else loading" class="windowContent">
+
+    <div class="mainMenu">
+      <button disabled class="menuButton" [routerLink]="['/profil']">Utilisateur</button>
+      <button class="menuButton" [routerLink]="['/event-user']">Évènement</button>
+    </div>
+
+    <div class="profileContainer">
+
+      <h2 class="profilePseudo">Profil de {{ user.pseudo }}</h2>
+
+      <div class="profile">
 
         <div>
-            <div class="titleButton">?</div>
-            <div [routerLink]="['/']" class="titleButton">X</div>
-        </div>
-    </div>
-
-    <div *ngIf="user; else loading" class="windowContent">
-
-        <div class="mainMenu">
-            <button disabled class="menuButton" [routerLink]="['/profil']">Utilisateur</button>
-            <button class="menuButton" [routerLink]="['/event-user']">Évènement</button>
+          <img [src]="user.avatar" alt="Avatar de {{ user.pseudo }}" width="130"/>
         </div>
 
-        <div class="profileContainer">
-
-            <h2 class="profilePseudo">Profil de {{ user.pseudo }}</h2>
-
-            <div class="profile">
-
-                <div>
-                    <img [src]="user.avatar" alt="Avatar de {{ user.pseudo }}" width="130"/>
-                </div>
-
-                <div class="profileDetails">
-                    <p>Prénom : {{ user.firstname }}</p>
-                    <p>Nom : {{ user.lastname }}</p>
-                    <p>Email : {{ user.email }}</p>
-                    <p>Date de naissance : {{ user.birthdate }}</p>
-                </div>
-
-            </div>
-
-            <div class="profileActions">
-                <button class="button" [routerLink]="['/profil/edit-profile']">Modifier le profil</button>
-                <button class="button" [routerLink]="['/profil/change-password']">Changer le mot de passe</button>
-                <button class="button" (click)="deleteProfile()">Supprimer le profil</button>
-            </div>
-
+        <div class="profileDetails">
+          <p>Prénom : {{ user.firstname }}</p>
+          <p>Nom : {{ user.lastname }}</p>
+          <p>Email : {{ user.email }}</p>
+          <p>Date de naissance : {{ user.birthdate }}</p>
         </div>
 
-        <div class="profileButtons">
-            <button [routerLink]="['/']">OK</button>
-            <button [routerLink]="['/']">Annuler</button>
-        </div>
+      </div>
 
-        <div class="childPopUp">
-            <router-outlet></router-outlet>
-        </div>
+      <div class="profileActions">
+        <button class="button" [routerLink]="['/profil/edit-profile']">Modifier le profil</button>
+        <button class="button" [routerLink]="['/profil/change-password']">Changer le mot de passe</button>
+        <button class="button" (click)="deleteProfile()">Supprimer le profil</button>
+      </div>
 
     </div>
 
-    <ng-template #loading>
-        <p>Chargement du profil...</p>
-    </ng-template>
+    <div class="profileButtons">
+      <button [routerLink]="['/']">OK</button>
+      <button [routerLink]="['/']">Annuler</button>
+    </div>
+
+  </div>
+  <div class="childComponent">
+    <router-outlet></router-outlet>
+  </div>
+
+  <ng-template #loading>
+    <p>Chargement du profil...</p>
+  </ng-template>
 
 </div>
 

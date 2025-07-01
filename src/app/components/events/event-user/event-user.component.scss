@@ -1,6 +1,9 @@
+@use '../../../../styles.scss' as *;
+@use "sass:color";
+
 $colors: #e74c3c, #1abc9c, #f1c40f, #2ecc71,
-         #3498db, #e67e22, #2c3e50, #8e44ad;
-li{
+#3498db, #e67e22, #2c3e50, #8e44ad;
+li {
   list-style: square;
 
   @for $i from 1 through length($colors) {
@@ -9,7 +12,63 @@ li{
     }
   }
 
-  &.active{
-      background-color: white;
+  &.active {
+    background-color: color.adjust(lighten($secondary-title, 15));
+    width: 90%;
+  }
+}
+
+.childComponent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  z-index: 11;
+  width: 80vw;
+}
+
+.windowContent {
+  margin: 2rem;
+  height: 60vh;
+
+  & .eventContainer {
+    padding: 1rem;
+    border: 2px solid $secondary-color;
+    height: 60%;
+
+    & .listContainer {
+    overflow-y: scroll;
+      background-color: $accent-color;
+      height: 100%;
+      & .eventList {
+        display: flex;
+        height: 2rem;
+        align-items: center;
+      }
+    }
+  }
+
+  .eventActions {
+    margin-top: 0.5rem;
+
+    & button {
+      font-size: 1.1em;
+    }
+  }
+
+  & .eventButtons {
+    margin-top: 0.5rem;
+    text-align: right;
+  }
+
+  & .mainMenu {
+    & .menuButton {
+      border: 2px solid $secondary-color;
+      box-shadow: none;
+      margin: 0;
+      padding: 0.3rem;
+      width: 7rem;
+    }
+
   }
 }

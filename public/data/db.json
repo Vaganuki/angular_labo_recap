@@ -12,7 +12,7 @@
     },
     {
       "email": "pierre.pierre@techni.be",
-      "password": "$2a$10$g/XQl8TlTfQAJTyjHBBUn.ITf2ns9v5IaiS3lb1KZR8H2qdhm4Jt6",
+      "password": "$2a$10$UXIN/zsPJWvYUj8tfijv3.vJm0QqoJGCWB1.AHRz9J.TvGFrRX786",
       "firstname": "Pierre",
       "lastname": "Pierre",
       "pseudo": "PéPé",
@@ -53,16 +53,22 @@
   ],
   "friends": [
     {
+      "id": 1,
       "isAccepted": true,
       "senderId": 1,
-      "receiverId": 2,
-      "id": 1
+      "receiverId": 2
     },
     {
-      "isAccepted": true,
-      "senderId": 2,
-      "receiverId": 3,
+      "isAccepted": false,
+      "senderId": 5,
+      "receiverId": 2,
       "id": 2
+    },
+    {
+      "isAccepted": false,
+      "senderId": 3,
+      "receiverId": 5,
+      "id": 3
     }
   ],
   "events": [
@@ -93,128 +99,18 @@
       "beginDate": "2025-07-01",
       "endDate": "2025-07-01",
       "address": "ici",
-      "image": "https://tenor.com/view/pewpewpewpew-ahmed-mohsin-%D8%A3%D8%AD%D9%85%D8%AF-%D9%85%D8%AD%D8%B3%D9%86-hedgehog-dancing-meme-gif-2754780489075620554",
+      "image": "https://media.tenor.com/3Cs_AKNDxRwAAAAM/gato-lengua.gif",
       "id": 3
     },
     {
-      "name": "a",
-      "description": "a",
-      "userId": "5",
-      "beginDate": "56156-04-05",
-      "endDate": "0056-12-05",
-      "address": "0",
-      "image": "https://cdn.discordapp.com/attachments/1386603151901327390/1389175178201796669/QB2Anz8glxSBG03Q0VjQ9mvosa6gZi3sJD3wkDsorUOnQSBqGBkAE9lem9l1HvIAAAAASUVORK5CYII.png?ex=6863a9b4&is=68625834&hm=702a84b937342251693289798e45e7c70d705417853875452d1e3bf9af32d71f&",
+      "name": "wiwiwi",
+      "description": "La party de la fête",
+      "userId": "3",
+      "beginDate": "2025-07-02",
+      "endDate": "2025-07-03",
+      "address": "Ici même",
+      "image": "https://i.ytimg.com/vi/KaUk83A0DOA/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGCQgVCh_MA8=&rs=AOn4CLDqhq068pXdoHNNiaXPaysr2b5nKA",
       "id": 4
-    },
-    {
-      "name": "SAMET",
-      "description": "MO?N CSS",
-      "userId": "5",
-      "beginDate": "0002-12-21",
-      "endDate": "0003-02-12",
-      "address": "https://cdn.discordapp.com/attachments/1386603151901327390/1389175178201796669/QB2Anz8glxSBG03Q0VjQ9mvosa6gZi3sJD3wkDsorUOnQSBqGBkAE9lem9l1HvIAAAAASUVORK5CYII.png?ex=6863a9b4&is=68625834&hm=702a84b937342251693289798e45e7c70d705417853875452d1e3bf9af32d71f&",
-      "image": "https://cdn.discordapp.com/attachments/1386603151901327390/1389175178201796669/QB2Anz8glxSBG03Q0VjQ9mvosa6gZi3sJD3wkDsorUOnQSBqGBkAE9lem9l1HvIAAAAASUVORK5CYII.png?ex=6863a9b4&is=68625834&hm=702a84b937342251693289798e45e7c70d705417853875452d1e3bf9af32d71f&",
-      "id": 5
-    },
-    {
-      "name": "ENCORE",
-      "description": "2",
-      "userId": "5",
-      "beginDate": "0002-02-02",
-      "endDate": "0002-02-02",
-      "address": "Dhttps://cdn.discordapp.com/attachments/1386603151901327390/1389175178201796669/QB2Anz8glxSBG03Q0VjQ9mvosa6gZi3sJD3wkDsorUOnQSBqGBkAE9lem9l1HvIAAAAASUVORK5CYII.png?ex=6863a9b4&is=68625834&hm=702a84b937342251693289798e45e7c70d705417853875452d1e3bf9af32d71f&",
-      "image": "https://cdn.discordapp.com/attachments/1386603151901327390/1389175178201796669/QB2Anz8glxSBG03Q0VjQ9mvosa6gZi3sJD3wkDsorUOnQSBqGBkAE9lem9l1HvIAAAAASUVORK5CYII.png?ex=6863a9b4&is=68625834&hm=702a84b937342251693289798e45e7c70d705417853875452d1e3bf9af32d71f&",
-      "id": 6
-    },
-    {
-      "name": "Crea0te",
-      "description": "event",
-      "userId": "5",
-      "beginDate": "0001-01-01",
-      "endDate": "0001-01-01",
-      "address": "0",
-      "image": "0https://cdn.discordapp.com/attachments/1386603151901327390/1389175178201796669/QB2Anz8glxSBG03Q0VjQ9mvosa6gZi3sJD3wkDsorUOnQSBqGBkAE9lem9l1HvIAAAAASUVORK5CYII.png?ex=6863a9b4&is=68625834&hm=702a84b937342251693289798e45e7c70d705417853875452d1e3bf9af32d71f&",
-      "id": 7
-    },
-    {
-      "name": "eve",
-      "description": "nt",
-      "userId": "5",
-      "beginDate": "0004-04-04",
-      "endDate": "0004-04-04",
-      "address": "5",
-      "image": "https://cdn.discordapp.com/attachments/1386603151901327390/1389175178201796669/QB2Anz8glxSBG03Q0VjQ9mvosa6gZi3sJD3wkDsorUOnQSBqGBkAE9lem9l1HvIAAAAASUVORK5CYII.png?ex=6863a9b4&is=68625834&hm=702a84b937342251693289798e45e7c70d705417853875452d1e3bf9af32d71f&",
-      "id": 8
-    },
-    {
-      "name": "a",
-      "description": "a",
-      "userId": "5",
-      "beginDate": "0001-01-01",
-      "endDate": "0001-01-01",
-      "address": "      //height: 50vh;",
-      "image": "      //height: 50vh;",
-      "id": 9
-    },
-    {
-      "name": "a",
-      "description": "a",
-      "userId": "5",
-      "beginDate": "0001-01-01",
-      "endDate": "0001-01-01",
-      "address": "a",
-      "image": "a",
-      "id": 10
-    },
-    {
-      "name": "0",
-      "description": "0",
-      "userId": "5",
-      "beginDate": "0001-01-01",
-      "endDate": "0001-01-01",
-      "address": "0",
-      "image": "0",
-      "id": 11
-    },
-    {
-      "name": "0",
-      "description": "0",
-      "userId": "5",
-      "beginDate": "0001-01-01",
-      "endDate": "0001-01-01",
-      "address": "0",
-      "image": "0",
-      "id": 12
-    },
-    {
-      "name": "0",
-      "description": "0",
-      "userId": "5",
-      "beginDate": "0001-01-01",
-      "endDate": "0001-01-01",
-      "address": "0",
-      "image": "0",
-      "id": 13
-    },
-    {
-      "name": "a",
-      "description": "a",
-      "userId": "5",
-      "beginDate": "0001-01-01",
-      "endDate": "0001-01-01",
-      "address": "azda",
-      "image": "0000",
-      "id": 14
-    },
-    {
-      "name": "Burnout party",
-      "description": "Rien à voir avec les couilles j'veux juste mourir",
-      "userId": "5",
-      "beginDate": "2025-06-30",
-      "endDate": "2025-07-01",
-      "address": "Rue du Rouwa 47",
-      "image": "https://miro.medium.com/v2/resize:fit:736/1*zW3S02mX5hqkpBBx1YUWhQ.jpeg",
-      "id": 15
     }
   ],
   "participations": [
@@ -229,19 +125,34 @@
       "id": 2
     },
     {
-      "eventId": 14,
+      "eventId": 3,
       "userId": 5,
       "id": 3
     },
     {
-      "eventId": 15,
-      "userId": 5,
+      "eventId": 3,
+      "userId": 3,
       "id": 4
     },
     {
-      "eventId": 1,
-      "userId": 3,
+      "eventId": 3,
+      "userId": 4,
       "id": 5
+    },
+    {
+      "eventId": 1,
+      "userId": 5,
+      "id": 6
+    },
+    {
+      "eventId": 4,
+      "userId": 3,
+      "id": 7
+    },
+    {
+      "eventId": 4,
+      "userId": 5,
+      "id": 8
     }
   ]
 }

@@ -35,6 +35,7 @@
 
     & p {
       margin: 0.2rem 0;
+      border: 1px solid rgba($secondary-color,0);
     }
 
     cursor: url("/cursors/Cursor107.cur"), auto;
@@ -43,22 +44,22 @@
       & p {
         background-color: color.adjust($secondary-title, $lightness: 30%, $hue: 10);
         border: 1px solid $secondary-title;
+        cursor: url("/cursors/Cursor107.cur"), auto;
+
       }
 
-      &::before {
-        background-color: color.adjust($main-title, $lightness: 10%, $hue: 10);
+      & img {
         border: 1px solid $secondary-title;
+        background-color: color.adjust($secondary-title, $lightness: 30%, $hue: 10);
       }
     }
 
-    &::before {
-      content: '';
+    & img{
       margin: 0 auto;
+      padding: 0.1rem;
       width: 3.5rem;
-      aspect-ratio: 4/5;
-      display: block;
-      background-color: $main-title;
-
+      cursor: url("/cursors/Cursor107.cur"), auto;
+      border: 1px solid rgba($secondary-color,0);
     }
   }
 }
