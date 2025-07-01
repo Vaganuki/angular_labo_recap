@@ -1,6 +1,6 @@
 <div class="window">
     <div class="titleBar">
-        <div class="title">Propriété de l'évènement</div>
+        <div class="title">Propriété de l'évènement </div>
         <div>
             <div class="titleButton">?</div>
             <div class="titleButton" (click)="navigation()">X</div>
@@ -46,15 +46,25 @@
                     {{ participant.pseudo }} ({{ participant.id }}){{ last ? '' : ', ' }}
                   </span>
                 </span>
+
                 <ng-template #noParticipants>
                     Aucun participant pour l’instant.
                 </ng-template>
             </div>
+
+            <button
+              *ngIf="event && !joinedEvents.has(event.id)"
+              (click)="participate()"
+            >
+              Participer
+            </button>
+
         </div>
 
         <ng-template [ngIf]="!event">
             <p>Chargement des détails de l'événement...</p>
         </ng-template>
+
 
     </div>
 </div>
