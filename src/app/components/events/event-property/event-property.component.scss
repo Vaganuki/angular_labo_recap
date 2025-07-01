@@ -1,0 +1,32 @@
+@use '../../../../styles.scss' as *;
+
+.window {
+  max-height: 60vh;
+}
+
+.windowContent {
+  margin: 1rem;
+
+  & .eventContainer {
+    display: grid;
+    grid-template-columns:1fr 2fr;
+
+    & .eventPicture {
+      width: 15rem;
+      height: 15rem;
+      margin: 1rem;
+      border-radius: 5%;
+    }
+
+    & .infoContainer {
+      display: grid;
+      & .eventTitle {
+        font-size: 2rem;
+        font-weight: bold;
+        text-decoration: underline $secondary-title;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+}
