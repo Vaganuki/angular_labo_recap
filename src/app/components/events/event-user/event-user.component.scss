@@ -14,7 +14,7 @@ li {
 
   &.active {
     color: $accent-color;
-    background-color: color.adjust(lighten($secondary-title, 15));
+    background-color: $main-title;
     width: 90%;
   }
 }
