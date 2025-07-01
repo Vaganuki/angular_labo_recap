@@ -1,0 +1,60 @@
+@use '../../../styles.scss' as *;
+
+.window {
+  max-height: 80vh;
+}
+
+.windowContent {
+  padding: 1.5rem;
+
+  & .logosContainer {
+    & img {
+      height: 4rem;
+      margin: 0 0.5rem 0.5rem 0;
+    }
+  }
+
+  & h2 {
+    margin-top: 0;
+  }
+
+  & h6 {
+    margin: 0;
+  }
+
+  & .textContainer {
+    border: solid 2px $secondary-color;
+    padding: .5rem;
+
+    & p {
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  & .buttonsContainer {
+    margin-top: 1rem;
+    & .buttonBorder{
+      border: solid 2px $secondary-color;
+      padding: .5rem;
+      display: flex;
+      justify-content: space-evenly;
+      & a{
+        font-size: 1.1rem;
+        width: 10rem;
+        aspect-ratio: 10/3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+}

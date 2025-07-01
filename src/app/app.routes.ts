@@ -12,6 +12,10 @@ import {ChangePasswordComponent} from './components/user/change-password/change-
 import {EventUserComponent} from './components/events/event-user/event-user.component';
 import {EventPropertyComponent} from './components/events/event-property/event-property.component';
 import {AllEventsComponent} from './components/events/all-events/all-events.component';
+import {AboutUsComponent} from './components/about-us/about-us.component';
+import {AllUsersComponent} from './components/user/all-users/all-users.component';
+import {AllFriendsComponent} from './components/friends/all-friends/all-friends.component';
+import {FriendRequestComponent} from './components/friends/friend-request/friend-request.component';
 
 export const routes: Routes = [
   {
@@ -20,8 +24,22 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
+        path: 'about-us',
+        component: AboutUsComponent
+      },
+      {
         path:'events',
-        component:AllEventsComponent
+        component:AllEventsComponent,
+        children: [
+          {
+            path: 'property/:id',
+            component: EventPropertyComponent,
+          }
+        ]
+      },
+      {
+        path: 'users',
+        component: AllUsersComponent,
       },
       {
         path: 'create-event',
@@ -51,6 +69,14 @@ export const routes: Routes = [
           },
         ]
       },
+      {
+        path: 'friends',
+        component: AllFriendsComponent,
+      },
+      {
+        path: 'requests',
+        component: FriendRequestComponent
+      }
     ]
   },
   {

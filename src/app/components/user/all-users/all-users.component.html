@@ -1,0 +1,53 @@
+<div class="window">
+  <div class="titleBar">
+    <div class="title">Tout les utilisateurs</div>
+
+    <div>
+      <div class="titleButton">_</div>
+      <div [routerLink]="['/']" class="titleButton">X</div>
+    </div>
+
+  </div>
+
+  <div class="windowContent">
+
+      <div class="search">
+          <input
+                  type="text"
+                  [(ngModel)]="searchValue"
+                  placeholder="Rechercher un utilisateur..."
+          />
+          <div class="button-option">
+              <button (click)="searchUsers()">Search</button>
+          </div>
+      </div>
+
+    <div>
+      <div *ngFor="let user of users">
+        <div>
+          <div>
+            <img [src]="user.avatar" alt="Avatar de {{ user.pseudo }}" width="50" />
+            Pseudo: {{ user.pseudo }}
+            Nom: {{ user.lastname }}
+            Prénom: {{ user.firstname }}
+
+            <button
+              *ngIf="user.id !== +currentUserId!"
+              (click)="sendFriendRequest(user.id)"
+              [disabled]="sentRequests.has(user.id) || friends.has(user.id)">
+              Demander en ami
+            </button>
+
+            <br> <br>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noUsers>
+      <p>Aucun utilisateur trouvé.</p>
+    </ng-template>
+  </div>
+
+</div>

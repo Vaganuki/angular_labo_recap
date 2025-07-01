@@ -1,4 +1,5 @@
 export interface RegisterData {
+  id: number;
   firstname: string;
   lastname: string;
   pseudo: string;

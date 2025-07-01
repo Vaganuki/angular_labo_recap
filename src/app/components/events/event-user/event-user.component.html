@@ -3,7 +3,7 @@
     <div class="title">Votre profil</div>
     <div>
       <div class="titleButton">?</div>
-      <div [routerLink]="['']" class="titleButton">X</div>
+      <div [routerLink]="['/']" class="titleButton">X</div>
     </div>
   </div>
 
@@ -34,14 +34,15 @@
     <div class="eventActions">
       <button class="button"
               [routerLink]="selectedEventId ? ['/event-user/property', selectedEventId] : null"
+              [state] = "{ from: 'event-user' }"
               [disabled]="!selectedEventId">
         Propriétés
       </button>
     </div>
 
     <div class="profileButtons">
-      <button [routerLink]="['']">OK</button>
-      <button [routerLink]="['']">Annuler</button>
+      <button [routerLink]="['/']">OK</button>
+      <button [routerLink]="['/']">Annuler</button>
     </div>
 
     <div class="childComponent">

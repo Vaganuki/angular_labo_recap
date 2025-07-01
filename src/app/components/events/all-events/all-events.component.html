@@ -5,10 +5,11 @@
     </div>
     <div class="b">
       <div class="titleButton"> _ </div>
-<!--      <div class="titleButton" (click)="toggleFullscreen()"> | | </div>-->
+      <!--      <div class="titleButton" (click)="toggleFullscreen()"> | | </div>-->
       <div class="titleButton" [routerLink]="['/']"> ✖ </div>
     </div>
   </div>
+
   <div class="w">
     <div class="viewAll">
       <div class="t">
@@ -40,30 +41,38 @@
           </div>
         </div>
         <div class="button-option">
-          <button>Participate</button>
-          <button (click)="openCreateEvent()">Create</button>
-          <button (click)="showProperties()" [disabled]="!selectedEvents">Proprietes</button>
+
+          <button
+            (click)="participate()"
+            [disabled]="!selectedEvents || joinedEvents.has(selectedEvents.id)"
+          >
+            Participer
+          </button>
+
+          <button>Create</button>
+          <button class="button"
+                  [routerLink]="selectedEvents ? ['/events/property', selectedEvents.id] : null"
+                  [state]="{ from: 'events' }"
+                  [disabled]="!selectedEvents">
+            Propriétés
+          </button>
         </div>
 
         <div class="button-option">
           <button [disabled]="!selectedEvents">Partage </button>
-          <div class="check">
-            <div>
-              <input type="checkbox" id="participate">
-              <label for="participate">Participate to Events</label>
-            </div>
-            <div>
-              <input type="checkbox" id="created">
-              <label for="created">Events Created</label>
-            </div>
-          </div>
         </div>
 
       </div>
-      <div class="button-principale">
-        <button class="button">OK</button>
-        <button class="button" (click)="close()">Cancel</button>
-      </div>
+
+    </div>
+    <div class="button-principale">
+      <button class="button" [routerLink]="['/']">OK</button>
+      <button class="button" [routerLink]="['/']">Cancel</button>
     </div>
   </div>
+
+  <div class="childComponent">
+    <router-outlet></router-outlet>
+  </div>
+
 </div>

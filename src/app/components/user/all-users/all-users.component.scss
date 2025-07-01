@@ -1,0 +1,27 @@
+*{
+  font-size: 1.3rem;
+}
+
+.window{
+  width: 50rem;
+}
+.userInfo {
+  display: flex;
+  gap: 2rem; /* espace entre avatar et textes */
+}
+
+.userTexts div {
+  margin-bottom: 1rem;
+}
+
+.userAvatar img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+li{
+  list-style: none;
+}

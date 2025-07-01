@@ -8,12 +8,12 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-profil',
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    RouterLink,
-    NgIf,
-    RouterOutlet,
-  ],
+    imports: [
+        ReactiveFormsModule,
+        RouterLink,
+        NgIf,
+        RouterOutlet,
+    ],
   templateUrl: './profil.component.html',
   styleUrl: './profil.component.scss'
 })

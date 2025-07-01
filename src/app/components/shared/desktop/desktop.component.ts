@@ -45,6 +45,10 @@ export class DesktopComponent {
     this._soundSystem.playSound('microsoft', this.volume);
   }
 
+  sofian(){
+    this._soundSystem.playSound('sofian', this.volume);
+  }
+
   logout() {
     const confirmLogout = window.confirm('🔒 Êtes-vous sûr de vouloir vous déconnecter ?');
     if (confirmLogout) {

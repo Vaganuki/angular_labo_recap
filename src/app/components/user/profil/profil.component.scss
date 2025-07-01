@@ -1,35 +1,52 @@
-.profileContainer{
+@use '../../../../styles.scss' as *;
+
+.windowContent {
   margin: 2rem;
-  padding: 1rem;
-  border: 2px solid gray;
-}
+  height: 60vh;
 
-.profile{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 2rem;
-  padding: 1rem;
-}
+  & .profileContainer {
+    padding: 1rem;
+    border: 2px solid $secondary-color;
 
-.profilePseudo{
-  margin: 1rem 0 0 0;
-  font-weight: bold;
-  text-decoration: underline;
-}
+    & .profilePseudo {
+      margin: 1rem 0 0;
+      font-weight: bold;
+      text-decoration: underline;
+    }
 
-.profileDetails{
-  font-size: 1.3rem;
-}
+    & .profile {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
 
-.profileActions > *{
-  font-size: 1.1em;
-}
+    & .profileDetails {
+      font-size: 1.3rem;
+    }
 
-.profileButtons{
-  text-align: right;
+    & .profileActions {
+      & button {
+        font-size: 1.1em;
+      }
+    }
+  }
 
-  button{
-    font-size: 1.3rem;
+  & .profileButtons {
+    margin-top: 0.5rem;
+    text-align: right;
+  }
+
+
+  & .mainMenu {
+
+    & .menuButton {
+      border: 2px solid $secondary-color;
+      box-shadow: none;
+      margin: 0;
+      padding: 0.3rem;
+      width: 7rem;
+    }
+
   }
 }

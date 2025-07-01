@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ParticipationService } from '../../../services/participation.service';
 import { EventData } from '../../../interfaces/event.interface';
 
 @Component({
@@ -18,11 +19,13 @@ export class EventCreationComponent {
   createEventForm: FormGroup;
   userId= localStorage.getItem('userId');
 
+  isSubmitting = false;
 
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private participationService: ParticipationService
   )
   {
     this.createEventForm = this.fb.group({
@@ -42,21 +45,39 @@ export class EventCreationComponent {
       return;
     }
 
-    const EventData: EventData = this.createEventForm.value;
 
-    this.http.post('http://localhost:3000/events', EventData)
+    this.isSubmitting = true;
+
+    const eventData: EventData = this.createEventForm.value;
+
+    this.http.post<EventData>('http://localhost:3000/events', eventData)
       .subscribe({
-        next: () => {
-          alert('Événement créé avec succès !');
-          this.router.navigate(['/']);
+        next: (createdEvent) => {
+          // Création automatique de la participation du créateur
+          this.participationService.createParticipation({
+            eventId: createdEvent.id,
+            userId: +this.userId!
+          }).subscribe({
+            next: () => {
+              alert('Événement créé et participation enregistrée !');
+              this.isSubmitting = false;
+              void this.router.navigate(['/']);
+            },
+            error: (err) => {
+              console.error('Erreur lors de la participation automatique :', err);
+              alert('L\'événement a été créé mais la participation a échoué.');
+              this.isSubmitting = false;
+              void this.router.navigate(['/']);
+            }
+          });
         },
         error: (err) => {
           console.error('Erreur lors de la création de l’événement:', err);
           alert('Une erreur est survenue lors de la création de l’événement. Veuillez réessayer.');
+          this.isSubmitting = false;
         }
-      })
+      });
 
   }
-
 
 }
