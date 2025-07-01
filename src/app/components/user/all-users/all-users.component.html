@@ -20,7 +20,7 @@
           [(ngModel)]="searchValue"
           placeholder="Rechercher un utilisateur..."
         />
-          <button (click)="searchUsers()">Search</button>
+          <button (click)="searchUsers() ; clic()">Search</button>
       </div>
 
       <div class="affichageAll">
@@ -34,7 +34,7 @@
             </div>
             <button
               *ngIf="user.id !== +currentUserId!"
-              (click)="sendFriendRequest(user.id)"
+              (click)="sendFriendRequest(user.id) ; clic()"
               [disabled]="sentRequests.has(user.id) || friends.has(user.id)">
               Demander en ami
             </button>
@@ -47,8 +47,8 @@
       </ng-template>
     </div>
     <div class="button-principale">
-      <button class="button" [routerLink]="['/']">OK</button>
-      <button class="button" [routerLink]="['/']">Cancel</button>
+      <button class="button" [routerLink]="['/']" (click)="close()">OK</button>
+      <button class="button" [routerLink]="['/']" (click)="close()">Cancel</button>
     </div>
   </div>
 </div>

@@ -36,16 +36,16 @@
       </div>
 
       <div class="profileActions">
-        <button class="button" [routerLink]="['/profil/edit-profile']">Modifier le profil</button>
-        <button class="button" [routerLink]="['/profil/change-password']">Changer le mot de passe</button>
-        <button class="button" (click)="deleteProfile()">Supprimer le profil</button>
+        <button class="button" [routerLink]="['/profil/edit-profile']" (click)="clic()">Modifier le profil</button>
+        <button class="button" [routerLink]="['/profil/change-password']" (click)="clic()">Changer le mot de passe</button>
+        <button class="button" (click)="deleteProfile() ; clic()">Supprimer le profil</button>
       </div>
 
     </div>
 
     <div class="profileButtons">
-      <button [routerLink]="['/']">OK</button>
-      <button [routerLink]="['/']">Annuler</button>
+      <button [routerLink]="['/']" (click)="close()">OK</button>
+      <button [routerLink]="['/']" (click)="close()">Annuler</button>
     </div>
 
   </div>

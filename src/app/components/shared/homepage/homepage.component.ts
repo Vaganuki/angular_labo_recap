@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterLink} from '@angular/router';
+import {SoundSystemService} from '../../../services/sound-system.service';
 
 @Component({
   selector: 'app-homepage',
@@ -14,4 +15,9 @@ import {RouterLink} from '@angular/router';
 })
 export class HomepageComponent {
 
+  private _soundSystem = inject(SoundSystemService);
+
+  clic() {
+    this._soundSystem.playSound('start');
+  }
 }

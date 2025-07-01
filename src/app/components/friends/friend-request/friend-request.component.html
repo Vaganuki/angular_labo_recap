@@ -3,7 +3,6 @@
     <div class="title">Demandes d'amis</div>
 
     <div>
-<!--      <div class="titleButton">_</div>-->
       <div [routerLink]="['/']" (click)="close()" class="titleButton">X</div>
     </div>
 
@@ -21,8 +20,8 @@
             <div class="requestContainer">
               <img class="profilPic" [src]="request.user.avatar" alt="Avatar de {{ request.user.pseudo }}" width="40"/>
               <div class="username">{{ request.user.pseudo }}</div>
-              <button (click)="accept(request.friendId)">Accepter</button>
-              <button (click)="decline(request.friendId)">Refuser</button>
+              <button (click)="accept(request.friendId) ; clic()">Accepter</button>
+              <button (click)="decline(request.friendId); clic()">Refuser</button>
             </div>
           </div>
         </div>
@@ -33,8 +32,8 @@
       </ng-template>
     </div>
     <div class="button-principale">
-      <button class="button" [routerLink]="['/']">OK</button>
-      <button class="button" [routerLink]="['/']">Cancel</button>
+      <button class="button" [routerLink]="['/']" (click)="close()">OK</button>
+      <button class="button" [routerLink]="['/']" (click)="close()">Cancel</button>
     </div>
   </div>
 </div>

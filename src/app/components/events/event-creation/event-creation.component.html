@@ -47,9 +47,9 @@
         <input id="img" type="text" formControlName="image"/>
       </div>
 
-      <button id="annuler" type="button" [routerLink]="['/']">Annuler</button>
+      <button id="annuler" type="button" [routerLink]="['/']" (click)="close()">Annuler</button>
 
-      <button id="creer" type="submit" [disabled]="isSubmitting || createEventForm.invalid">
+      <button id="creer" type="submit" [disabled]="isSubmitting || createEventForm.invalid" (click)="clic()">
         {{ isSubmitting ? 'Création en cours...' : 'Créer l\'événement' }}
       </button>
     </form>

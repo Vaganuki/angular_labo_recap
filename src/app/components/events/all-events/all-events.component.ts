@@ -41,6 +41,10 @@ export class AllEventsComponent implements OnInit {
     this._soundSystem.playSound('recycle', this.volume);
   }
 
+  clic(){
+    this._soundSystem.playSound('start', this.volume);
+  }
+
 
   ngOnInit() {
     this.eventService.getEvents().subscribe((data: EventData[]) => {

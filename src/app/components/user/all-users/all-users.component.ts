@@ -34,6 +34,10 @@ export class AllUsersComponent implements OnInit {
   close(){
     this._soundSystem.playSound('recycle', this.volume);
   }
+
+  clic() {
+    this._soundSystem.playSound('start');
+  }
   ngOnInit(): void {
     this.loadUsers();
     this.loadSentFriendRequests();

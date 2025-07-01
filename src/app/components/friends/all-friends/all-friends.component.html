@@ -2,7 +2,7 @@
   <div class="titleBar">
     <div class="title">Liste des amis</div>
     <div>
-<!--      <div class="titleButton">_</div>-->
+      <!--      <div class="titleButton">_</div>-->
       <div class="titleButton" [routerLink]="['/']" (click)="close()">X</div>
     </div>
   </div>
@@ -29,8 +29,8 @@
       </ng-template>
     </div>
     <div class="button-principale">
-      <button class="button" [routerLink]="['/']">OK</button>
-      <button class="button" [routerLink]="['/']">Cancel</button>
+      <button class="button" [routerLink]="['/']" (click)="close()">OK</button>
+      <button class="button" [routerLink]="['/']" (click)="close()">Cancel</button>
     </div>
     </div>
 

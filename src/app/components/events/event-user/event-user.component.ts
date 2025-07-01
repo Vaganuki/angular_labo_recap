@@ -30,6 +30,9 @@ export class EventUserComponent implements OnInit {
   close(){
     this._soundSystem.playSound('recycle', this.volume);
   }
+  clic(){
+    this._soundSystem.playSound('start', this.volume);
+  }
 
   ngOnInit() {
     if (!this.userId) {
