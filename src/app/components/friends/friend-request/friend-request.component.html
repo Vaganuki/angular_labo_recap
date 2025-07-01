@@ -3,28 +3,37 @@
     <div class="title">Demandes d'amis</div>
 
     <div>
-<!--      <div class="titleButton">_</div>-->
-      <div [routerLink]="['/']" (click)="close()" class="titleButton">X</div>
+      <div [routerLink]="['/']" class="titleButton">X</div>
     </div>
 
   </div>
 
   <div class="windowContent">
-    <div *ngIf="pendingRequests.length > 0; else noRequests">
-      <div *ngFor="let request of pendingRequests">
-        <div>
-          <img [src]="request.user.avatar" alt="Avatar de {{ request.user.pseudo }}" width="40"/>
-          Pseudo: {{ request.user.pseudo }}<br>
-          <button (click)="accept(request.friendId)">Accepter</button>
-          <button (click)="decline(request.friendId)">Refuser</button>
-        </div>
-        <br>
-      </div>
+    <div class="titleMenu">
+      List of requests
     </div>
+    <div class="containerAll">
+      <div class="affichageAll">
 
-    <ng-template #noRequests>
-      <p>Aucune demande en attente.</p>
-    </ng-template>
+        <div *ngIf="pendingRequests.length > 0; else noRequests">
+          <div *ngFor="let request of pendingRequests">
+            <div class="requestContainer">
+              <img class="profilPic" [src]="request.user.avatar" alt="Avatar de {{ request.user.pseudo }}" width="40"/>
+              <div class="username">{{ request.user.pseudo }}</div>
+              <button (click)="accept(request.friendId)">Accepter</button>
+              <button (click)="decline(request.friendId)">Refuser</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #noRequests>
+        <div class="noFriends">Aucune demande en attente.</div>
+      </ng-template>
+    </div>
+    <div class="button-principale">
+      <button class="button" [routerLink]="['/']">OK</button>
+      <button class="button" [routerLink]="['/']">Cancel</button>
+    </div>
   </div>
-
 </div>

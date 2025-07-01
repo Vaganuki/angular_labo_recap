@@ -65,10 +65,16 @@
       "id": 2
     },
     {
-      "isAccepted": false,
+      "isAccepted": true,
       "senderId": 3,
       "receiverId": 5,
       "id": 3
+    },
+    {
+      "isAccepted": true,
+      "senderId": 4,
+      "receiverId": 5,
+      "id": 4
     }
   ],
   "events": [
