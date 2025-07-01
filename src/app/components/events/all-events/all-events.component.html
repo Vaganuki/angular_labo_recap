@@ -20,7 +20,7 @@
           [(ngModel)]="searchValue"
           placeholder="Rechercher un événement..."
         />
-        <button (click)="SearchInput()">Search</button>
+        <button (click)="SearchInput() ; clic()">Search</button>
       </div>
       <div class="affichageAll">
         <ul>
@@ -36,20 +36,21 @@
       </div>
       <div class="button-option">
         <button
-          (click)="participate()"
+          (click)="participate() ; clic()"
           [disabled]="!selectedEvents || joinedEvents.has(selectedEvents.id)"
         >
           Participer
         </button>
 
-        <button [disabled]="!selectedEvents" (click)="sharing()">Partage</button>
+        <button [disabled]="!selectedEvents" (click)="sharing() ; clic()">Partage</button>
         <button class="button"
+                (click)="clic()"
                 [routerLink]="selectedEvents ? ['/events/property', selectedEvents.id] : null"
                 [state]="{ from: 'events' }"
                 [disabled]="!selectedEvents">
           Propriétés
         </button>
-        <button [routerLink]="['/create-event']">Créer un event</button>
+        <button [routerLink]="['/create-event']" (click)="clic()">Créer un event</button>
       </div>
     </div>
 

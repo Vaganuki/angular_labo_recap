@@ -40,9 +40,9 @@
   <div class="bottomBar">
     <div class="taskContainer">
       <button [routerLink]="['/about-us']" (click)="viouwm()"><img src="fav-icon.gif" alt="Logo MhsEvent25" class="buttonIcon">MhsEvent25</button>
-      <button [routerLink]="['/friends']">Amis</button>
-      <button [routerLink]="['/events']">Events</button>
-      <button [routerLink]="['/profil']">Profil</button>
+      <button [routerLink]="['/friends']" (click)="clic()">Amis</button>
+      <button [routerLink]="['/events']" (click)="clic()">Events</button>
+      <button [routerLink]="['/profil']" (click)="clic()">Profil</button>
 
 
       <button (click)="logout()">Déconnexion</button>

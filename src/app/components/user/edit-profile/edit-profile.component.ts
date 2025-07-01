@@ -41,6 +41,11 @@ export class EditProfileComponent implements OnInit {
   close(){
     this._soundSystem.playSound('recycle', this.volume);
   }
+
+  clic() {
+    this._soundSystem.playSound('start');
+  }
+
   ngOnInit(): void {
     this.userService.getCurrentUser().subscribe({
       next: (user: any) => {

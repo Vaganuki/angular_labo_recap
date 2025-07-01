@@ -30,6 +30,10 @@ export class ProfilComponent implements OnInit {
     this._soundSystem.playSound('recycle', this.volume);
   }
 
+  clic() {
+    this._soundSystem.playSound('start');
+  }
+
   ngOnInit(): void {
     this.userService.getCurrentUser().subscribe({
       next: (user) => {

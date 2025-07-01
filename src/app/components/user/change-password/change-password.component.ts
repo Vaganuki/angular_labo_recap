@@ -40,6 +40,10 @@ export class ChangePasswordComponent {
     this._soundSystem.playSound('recycle', this.volume);
   }
 
+  clic() {
+    this._soundSystem.playSound('start');
+  }
+
   onSubmit() {
     if (this.passwordForm.invalid || !this.userId) return;
 

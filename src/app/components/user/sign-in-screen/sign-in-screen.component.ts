@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {ReactiveFormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {RegisterData} from '../../../interfaces/register.interface';
 import {OverlayRef} from '@angular/cdk/overlay';
+import {SoundSystemService} from '../../../services/sound-system.service';
 
 @Component({
   selector: 'app-sign-in-screen',
@@ -21,7 +22,8 @@ export class SignInScreenComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private _soundSystem: SoundSystemService
   ) {
     this.registerForm = this.fb.group({
       firstname: ['', Validators.required],
@@ -32,6 +34,14 @@ export class SignInScreenComponent {
       avatar: ['', Validators.required],
       birthdate: ['', Validators.required],
     });
+  }
+
+  clic() {
+    this._soundSystem.playSound('start');
+  }
+
+  close() {
+    this._soundSystem.playSound('recycle');
   }
 
   onSubmit() {
@@ -53,11 +63,5 @@ export class SignInScreenComponent {
           alert('Erreur lors de l\'inscription. Veuillez réessayer.');
         }
       });
-  }
-
-  @Input() overlayRef!: OverlayRef;
-
-  close() {
-    this.overlayRef?.dispose();
   }
 }

@@ -46,6 +46,10 @@ export class EventCreationComponent {
     this._soundSystem.playSound('recycle', this.volume);
   }
 
+  clic(){
+    this._soundSystem.playSound('start', this.volume);
+  }
+
   onSubmit(): void {
     if(this.createEventForm.invalid){
       alert('Veuillez remplir tous les champs correctement.');

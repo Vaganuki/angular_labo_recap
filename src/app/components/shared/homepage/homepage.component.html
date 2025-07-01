@@ -3,7 +3,7 @@
     <div class="title">Homepage</div>
     <div>
 <!--      <div class="titleButton">?</div>-->
-      <div [routerLink]="['/welcome']" class="titleButton">X</div>
+<!--      <div [routerLink]="['/welcome']" class="titleButton">X</div>-->
     </div>
   </div>
 
@@ -31,8 +31,8 @@
       </div>
 
       <div class="button-container">
-        <button [routerLink]="['/login']">Se connecter</button>
-        <button [routerLink]="['/register']">S'inscrire</button>
+        <button [routerLink]="['/login']" (click)="clic()">Se connecter</button>
+        <button [routerLink]="['/register']" (click)="clic()">S'inscrire</button>
       </div>
 
     </div>

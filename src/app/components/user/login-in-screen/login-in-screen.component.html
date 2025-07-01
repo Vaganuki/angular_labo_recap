@@ -5,7 +5,7 @@
 
     <div>
 <!--      <div class="titleButton">?</div>-->
-      <div [routerLink]="['/welcome']" class="titleButton">X</div>
+      <div [routerLink]="['/welcome']" class="titleButton" (click)="close()">X</div>
     </div>
   </div>
 
@@ -25,9 +25,9 @@
         <label for="password">Mot de passe :</label>
         <input type="password" id="password" formControlName="password" required/>
       </div>
-      <button type="submit">Se connecter</button>
-      <button [routerLink]="['/register']">S'inscrire</button>
-      <button type="button" (click)="PasswordForgotten()">Mot de passe oublié</button>
+      <button type="submit" (click)="clic()">Se connecter</button>
+      <button [routerLink]="['/register']" (click)="clic()">S'inscrire</button>
+      <button type="button" (click)="PasswordForgotten(); clic()">Mot de passe oublié</button>
 
     </form>
 

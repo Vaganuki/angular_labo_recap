@@ -48,7 +48,7 @@
         </div>
           <button
             *ngIf="event && !joinedEvents.has(event.id)"
-            (click)="participate()"
+            (click)="participate(); clic()"
           >
             Participer
           </button>

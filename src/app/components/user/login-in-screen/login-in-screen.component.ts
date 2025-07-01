@@ -3,6 +3,7 @@ import {Router, RouterLink} from '@angular/router';
 import {ReactiveFormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {LoginData} from '../../../interfaces/login.interface';
 import {AuthService} from '../../../services/auth.service';
+import {SoundSystemService} from '../../../services/sound-system.service';
 
 @Component({
   selector: 'app-login-in-screen',
@@ -17,7 +18,18 @@ import {AuthService} from '../../../services/auth.service';
 export class LoginInScreenComponent {
   private _authService = inject(AuthService);
   private router = inject(Router);
+  private _soundSystem = inject(SoundSystemService);
+  volume = 1;
+
   loginForm: FormGroup;
+
+  clic() {
+    this._soundSystem.playSound('start');
+  }
+
+  close() {
+    this._soundSystem.playSound('recycle');
+  }
 
   constructor( private fb: FormBuilder) {
     this.loginForm = this.fb.group({

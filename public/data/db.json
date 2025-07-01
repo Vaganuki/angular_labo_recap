@@ -22,7 +22,7 @@
     },
     {
       "email": "samet@samet.com",
-      "password": "$2a$10$j0MCMkoCvBLaWr1UJUDqL.r8No8kmfKRNpFCdWMCGJbCRS4uF9DMO",
+      "password": "$2a$10$ndr.4EkwbPL45IFojTi.ue.cXO8GMQoJceO9/4sa7vqm7pN9cjLGa",
       "firstname": "Samet",
       "lastname": "Sakin",
       "pseudo": "Samo",
@@ -65,16 +65,22 @@
       "id": 2
     },
     {
-      "isAccepted": true,
+      "isAccepted": false,
       "senderId": 3,
       "receiverId": 5,
       "id": 3
     },
     {
-      "isAccepted": true,
-      "senderId": 4,
-      "receiverId": 5,
+      "isAccepted": false,
+      "senderId": 3,
+      "receiverId": 2,
       "id": 4
+    },
+    {
+      "isAccepted": false,
+      "senderId": 2,
+      "receiverId": 3,
+      "id": 5
     }
   ],
   "events": [
@@ -159,6 +165,11 @@
       "eventId": 4,
       "userId": 5,
       "id": 8
+    },
+    {
+      "eventId": 1,
+      "userId": 3,
+      "id": 9
     }
   ]
 }

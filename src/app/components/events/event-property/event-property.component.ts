@@ -38,6 +38,10 @@ export class EventPropertyComponent implements OnInit {
     this._soundSystem.playSound('recycle', this.volume);
   }
 
+  clic(){
+    this._soundSystem.playSound('start', this.volume);
+  }
+
   ngOnInit(): void {
     const eventId = this.route.snapshot.paramMap.get('id');
     this.from = history.state?.from || null;

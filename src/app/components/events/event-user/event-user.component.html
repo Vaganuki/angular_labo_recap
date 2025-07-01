@@ -36,7 +36,8 @@
       <button class="button"
               [routerLink]="selectedEventId ? ['/event-user/property', selectedEventId] : null"
               [state]="{ from: 'event-user' }"
-              [disabled]="!selectedEventId">
+              [disabled]="!selectedEventId"
+              (click)="clic()">
         Propriétés
       </button>
     </div>

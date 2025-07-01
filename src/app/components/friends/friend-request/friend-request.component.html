@@ -20,8 +20,8 @@
             <div class="requestContainer">
               <img class="profilPic" [src]="request.user.avatar" alt="Avatar de {{ request.user.pseudo }}" width="40"/>
               <div class="username">{{ request.user.pseudo }}</div>
-              <button (click)="accept(request.friendId)">Accepter</button>
-              <button (click)="decline(request.friendId)">Refuser</button>
+              <button (click)="accept(request.friendId) ; clic()">Accepter</button>
+              <button (click)="decline(request.friendId); clic()">Refuser</button>
             </div>
           </div>
         </div>
