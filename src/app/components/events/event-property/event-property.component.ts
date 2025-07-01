@@ -3,6 +3,7 @@ import { EventService } from '../../../services/event.service';
 import { EventData } from '../../../interfaces/event.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import {DatePipe, NgClass, NgForOf, NgIf} from '@angular/common';
+import {ParticipationService} from '../../../services/participation.service';
 
 @Component({
   selector: 'app-event-property',
@@ -18,6 +19,9 @@ import {DatePipe, NgClass, NgForOf, NgIf} from '@angular/common';
 })
 export class EventPropertyComponent implements OnInit {
 
+  joinedEvents = new Set<number>();
+  currentUserId = localStorage.getItem('userId');
+
   event?: EventData & { user?: any };
   from: string | null = null;
   participants: { id: number; pseudo: string }[] = [];
@@ -25,6 +29,7 @@ export class EventPropertyComponent implements OnInit {
   private eventService = inject(EventService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+  private participationService = inject(ParticipationService);
 
   ngOnInit(): void {
     const eventId = this.route.snapshot.paramMap.get('id');
@@ -50,10 +55,37 @@ export class EventPropertyComponent implements OnInit {
           id: p.user.id,
           pseudo: p.user.pseudo
         }));
+
+        if (this.currentUserId && participations.some((p: any) => p.user.id === +this.currentUserId!)) {
+          this.joinedEvents.add(eventId);
+        }
       },
       error: (err) => console.error('Erreur chargement participants:', err)
     });
   }
+
+  participate(): void {
+    const eventIdStr = this.route.snapshot.paramMap.get('id');
+    if (!this.currentUserId || !eventIdStr) return;
+
+    const eventId = +eventIdStr;
+
+    this.participationService.createParticipation({
+      eventId: eventId,
+      userId: +this.currentUserId
+    }).subscribe({
+      next: () => {
+        this.joinedEvents.add(eventId);
+        alert('Participation enregistrée !');
+        this.loadParticipants(eventId);
+      },
+      error: (err) => {
+        console.error('Erreur participation:', err);
+        alert('Erreur lors de la participation.');
+      }
+    });
+  }
+
 
   navigation(): void {
     switch (this.from) {

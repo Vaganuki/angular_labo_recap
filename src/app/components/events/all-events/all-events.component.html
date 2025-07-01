@@ -36,12 +36,17 @@
       </div>
       <div class="button-option">
 
-        <button
-          (click)="participate()"
-          [disabled]="!selectedEvents || joinedEvents.has(selectedEvents.id)"
-        >
-          Participer
-        </button>
+          <button
+            (click)="participate()"
+            [disabled]="!selectedEvents || joinedEvents.has(selectedEvents.id)"
+          >
+            Participer
+          </button>
+
+          <button>Create</button>
+        <div class="button-option">
+          <button [disabled]="!selectedEvents" (click)="sharing()">Partage </button>
+        </div>
 
         <button>Create</button>
         <button class="button"
