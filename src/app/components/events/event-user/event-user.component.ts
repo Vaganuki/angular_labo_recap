@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 import { NgForOf, NgIf } from '@angular/common';
+import {SoundSystemService} from '../../../services/sound-system.service';
 
 @Component({
   selector: 'app-event-user',
@@ -20,9 +21,15 @@ export class EventUserComponent implements OnInit {
   participations: any[] = [];
   userId = localStorage.getItem('userId');
   selectedEventId: string | null = null;
+  volume = 1;
 
   private userService = inject(UserService);
   private router = inject(Router);
+  private _soundSystem = inject(SoundSystemService);
+
+  close(){
+    this._soundSystem.playSound('recycle', this.volume);
+  }
 
   ngOnInit() {
     if (!this.userId) {

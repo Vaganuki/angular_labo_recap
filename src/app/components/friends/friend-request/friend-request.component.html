@@ -3,7 +3,8 @@
     <div class="title">Demandes d'amis</div>
 
     <div>
-      <div [routerLink]="['/']" class="titleButton">X</div>
+<!--      <div class="titleButton">_</div>-->
+      <div [routerLink]="['/']" (click)="close()" class="titleButton">X</div>
     </div>
 
   </div>

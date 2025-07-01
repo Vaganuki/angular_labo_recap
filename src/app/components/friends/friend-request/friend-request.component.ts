@@ -5,6 +5,7 @@ import { UserService } from '../../../services/user.service';
 import { FriendService } from '../../../services/friend.service';
 import { FriendData } from '../../../interfaces/friend.interface';
 import { RegisterData } from '../../../interfaces/register.interface';
+import {SoundSystemService} from '../../../services/sound-system.service';
 
 @Component({
   selector: 'app-friend-request',
@@ -18,9 +19,15 @@ export class FriendRequestComponent implements OnInit {
   currentUserId = localStorage.getItem('userId');
   pendingRequests: { friendId: number; user: RegisterData }[] = [];
   errorMessage = '';
+  volume = 1;
 
   private userService = inject(UserService);
   private friendService = inject(FriendService);
+  private _soundSystem = inject(SoundSystemService);
+
+  close(){
+    this._soundSystem.playSound('recycle', this.volume);
+  }
 
   ngOnInit(): void {
     if (!this.currentUserId) return;

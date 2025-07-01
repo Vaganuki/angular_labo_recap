@@ -2,7 +2,7 @@
   <div class="titleBar">
     <div class="title">Tout sur ce projet</div>
     <div>
-      <div [routerLink]="['/']" class="titleButton">X</div>
+      <div [routerLink]="['/']" (click)="close()" class="titleButton">X</div>
     </div>
   </div>
   <div class="windowContent">

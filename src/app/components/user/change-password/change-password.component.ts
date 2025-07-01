@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, Router } from "@angular/router";
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../../services/user.service';
 import { AuthService } from '../../../services/auth.service';
+import {SoundSystemService} from '../../../services/sound-system.service';
 
 @Component({
   selector: 'app-change-password',
@@ -24,13 +25,19 @@ export class ChangePasswordComponent {
       private fb: FormBuilder,
       private userService: UserService,
       private authService: AuthService,
-      private router: Router
+      private router: Router,
+      private _soundSystem :SoundSystemService
   ) {
     this.passwordForm = this.fb.group({
       currentPassword: ['', Validators.required],
       newPassword: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required]
     });
+  }
+  volume = 1;
+
+  close(){
+    this._soundSystem.playSound('recycle', this.volume);
   }
 
   onSubmit() {
