@@ -1,78 +1,66 @@
 <div class="window" [class.fullscreen]="isFullscreen">
   <div class="titleBar">
     <div class="title">
-      <h2>View All Events</h2>
+      <div>View All Events</div>
     </div>
     <div class="b">
-      <div class="titleButton"> _ </div>
+      <!--            <div class="titleButton"> _</div>-->
       <!--      <div class="titleButton" (click)="toggleFullscreen()"> | | </div>-->
-      <div class="titleButton" [routerLink]="['/']"> ✖ </div>
+      <div class="titleButton" [routerLink]="['/']">X</div>
     </div>
   </div>
-
-  <div class="w">
-    <div class="viewAll">
-      <div class="t">
-        <p class="titleMenu">Liste of events</p>
+  <div class="windowContent">
+    <div class="titleMenu">
+      List of events
+    </div>
+    <div class="containerAll">
+      <div class="search">
+        <input
+          type="text"
+          [(ngModel)]="searchValue"
+          placeholder="Rechercher un événement..."
+        />
+        <button (click)="SearchInput()">Search</button>
       </div>
-      <div class="containerAll">
-        <div class="search">
-          <input
-            type="text"
-            [(ngModel)]="searchValue"
-            placeholder="Rechercher un événement..."
-          />
-          <div class="button-option">
-            <button (click)="SearchInput()">Search</button>
-          </div>
-        </div>
-        <div class="affichageAll">
-          <div class="back">
-            <ul>
-              @for (event of filteredEvents(); track event.id) {
-                <li
-                  [class.selected]="event.id === selectedEvents?.id"
-                  (click)="selectEvent1(event)"
-                >
-                  {{ event.name }}
-                </li>
-              }
-            </ul>
-          </div>
-        </div>
-        <div class="button-option">
-
-          <button
-            (click)="participate()"
-            [disabled]="!selectedEvents || joinedEvents.has(selectedEvents.id)"
-          >
-            Participer
-          </button>
-
-          <button>Create</button>
-          <button class="button"
-                  [routerLink]="selectedEvents ? ['/events/property', selectedEvents.id] : null"
-                  [state]="{ from: 'events' }"
-                  [disabled]="!selectedEvents">
-            Propriétés
-          </button>
-        </div>
-
-        <div class="button-option">
-          <button [disabled]="!selectedEvents">Partage </button>
-        </div>
-
+      <div class="affichageAll">
+        <ul>
+          @for (event of filteredEvents(); track event.id) {
+            <li
+              [class.selected]="event.id === selectedEvents?.id"
+              (click)="selectEvent1(event)"
+            >
+              {{ event.name }}
+            </li>
+          }
+        </ul>
       </div>
+      <div class="button-option">
+        <button
+          (click)="participate()"
+          [disabled]="!selectedEvents || joinedEvents.has(selectedEvents.id)"
+        >
+          Participer
+        </button>
 
+        <button [disabled]="!selectedEvents" (click)="sharing()">Partage</button>
+        <button class="button"
+                [routerLink]="selectedEvents ? ['/events/property', selectedEvents.id] : null"
+                [state]="{ from: 'events' }"
+                [disabled]="!selectedEvents">
+          Propriétés
+        </button>
+        <button [routerLink]="['/create-event']">Créer un event</button>
+      </div>
     </div>
-    <div class="button-principale">
-      <button class="button" [routerLink]="['/']">OK</button>
-      <button class="button" [routerLink]="['/']">Cancel</button>
-    </div>
-  </div>
 
-  <div class="childComponent">
-    <router-outlet></router-outlet>
   </div>
-
+  <div class="button-principale">
+    <button class="button" [routerLink]="['/']">OK</button>
+    <button class="button" [routerLink]="['/']">Cancel</button>
+  </div>
 </div>
+
+<div class="childComponent">
+  <router-outlet></router-outlet>
+</div>
+

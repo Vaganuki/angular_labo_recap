@@ -9,22 +9,23 @@
 
   <div class="windowContent">
 
-    <button [routerLink]="['/profil']">Utilisateur</button>
-    <button [routerLink]="['/event-user']">Évènement</button>
+    <div class="mainMenu">
+      <button class="menuButton" [routerLink]="['/profil']">Utilisateur</button>
+      <button disabled class="menuButton" [routerLink]="['/event-user']">Évènement</button>
+    </div>
 
     <div class="eventContainer">
-
-      <ul *ngIf="participations.length; else noEvent" class="colored-square">
-        <li *ngFor="let participation of participations; let i = index"
-            [class.active]="participation.isActive"
-            (click)="selectEvent(i)">
-          <div class="eventList">
-            {{ participation.event?.name }}
-            <br><br>
-          </div>
-        </li>
-      </ul>
-
+      <div class="listContainer">
+        <ul *ngIf="participations.length; else noEvent" class="colored-square">
+          <li *ngFor="let participation of participations; let i = index"
+              [class.active]="participation.isActive"
+              (click)="selectEvent(i)">
+            <div class="eventList">
+              {{ participation.event?.name }}
+            </div>
+          </li>
+        </ul>
+      </div>
       <ng-template #noEvent>
         <p>Aucun événement trouvé.</p>
       </ng-template>
@@ -34,13 +35,13 @@
     <div class="eventActions">
       <button class="button"
               [routerLink]="selectedEventId ? ['/event-user/property', selectedEventId] : null"
-              [state] = "{ from: 'event-user' }"
+              [state]="{ from: 'event-user' }"
               [disabled]="!selectedEventId">
         Propriétés
       </button>
     </div>
 
-    <div class="profileButtons">
+    <div class="eventButtons">
       <button [routerLink]="['/']">OK</button>
       <button [routerLink]="['/']">Annuler</button>
     </div>

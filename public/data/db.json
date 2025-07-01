@@ -26,7 +26,7 @@
       "firstname": "Samet",
       "lastname": "Sakin",
       "pseudo": "Samo",
-      "avatar": "https://cdn.discordapp.com/attachments/1384425174757150760/1384874227043143861/image.png?ex=685c95e1&is=685b4461&hm=70052cf9096fee08e4301ba0fbaff4e87ada8245a4a0e2591edd4e14dde65fb7&",
+      "avatar": "https://pbs.twimg.com/media/CIVoKPfWUAAFMFM.jpg",
       "birthdate": "2025-06-18",
       "id": 3
     },
@@ -57,6 +57,18 @@
       "isAccepted": true,
       "senderId": 1,
       "receiverId": 2
+    },
+    {
+      "isAccepted": false,
+      "senderId": 5,
+      "receiverId": 2,
+      "id": 2
+    },
+    {
+      "isAccepted": false,
+      "senderId": 3,
+      "receiverId": 5,
+      "id": 3
     }
   ],
   "events": [
@@ -87,8 +99,18 @@
       "beginDate": "2025-07-01",
       "endDate": "2025-07-01",
       "address": "ici",
-      "image": "https://tenor.com/view/pewpewpewpew-ahmed-mohsin-%D8%A3%D8%AD%D9%85%D8%AF-%D9%85%D8%AD%D8%B3%D9%86-hedgehog-dancing-meme-gif-2754780489075620554",
+      "image": "https://media.tenor.com/3Cs_AKNDxRwAAAAM/gato-lengua.gif",
       "id": 3
+    },
+    {
+      "name": "wiwiwi",
+      "description": "La party de la fête",
+      "userId": "3",
+      "beginDate": "2025-07-02",
+      "endDate": "2025-07-03",
+      "address": "Ici même",
+      "image": "https://i.ytimg.com/vi/KaUk83A0DOA/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGCQgVCh_MA8=&rs=AOn4CLDqhq068pXdoHNNiaXPaysr2b5nKA",
+      "id": 4
     }
   ],
   "participations": [
@@ -101,6 +123,36 @@
       "eventId": 1,
       "userId": 2,
       "id": 2
+    },
+    {
+      "eventId": 3,
+      "userId": 5,
+      "id": 3
+    },
+    {
+      "eventId": 3,
+      "userId": 3,
+      "id": 4
+    },
+    {
+      "eventId": 3,
+      "userId": 4,
+      "id": 5
+    },
+    {
+      "eventId": 1,
+      "userId": 5,
+      "id": 6
+    },
+    {
+      "eventId": 4,
+      "userId": 3,
+      "id": 7
+    },
+    {
+      "eventId": 4,
+      "userId": 5,
+      "id": 8
     }
   ]
 }

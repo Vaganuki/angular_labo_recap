@@ -23,8 +23,6 @@ export class AllEventsComponent implements OnInit {
   events: EventData[] = [];
   selectedEvents?: EventData;
   isFullscreen = false;
-  participations: any[] = [];
-  selectedEventId: string | null = null;
   searchValue = '';
   searchTerm = '';
   joinedEvents = new Set<number>();
@@ -84,6 +82,19 @@ export class AllEventsComponent implements OnInit {
         console.error('Erreur participation:', err);
         alert('Erreur lors de la participation.');
       }
+    });
+  }
+
+  sharing(): void {
+    if (!this.selectedEvents) return;
+
+    const url = `${window.location.origin}/event-property/${this.selectedEvents.id}`;
+
+    navigator.clipboard.writeText(url).then(() => {
+      alert('Lien copié dans le presse-papier !');
+    }).catch(err => {
+      console.error('Erreur lors de la copie du lien :', err);
+      alert('Impossible de copier le lien.');
     });
   }
 
