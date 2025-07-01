@@ -42,8 +42,8 @@
     </div>
 
     <div class="eventButtons">
-      <button [routerLink]="['/']">OK</button>
-      <button [routerLink]="['/']">Annuler</button>
+      <button [routerLink]="['/']" (click)="close()">OK</button>
+      <button [routerLink]="['/']" (click)="close()">Annuler</button>
     </div>
 
     <div class="childComponent">

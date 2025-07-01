@@ -32,8 +32,8 @@
       </ng-template>
     </div>
     <div class="button-principale">
-      <button class="button" [routerLink]="['/']">OK</button>
-      <button class="button" [routerLink]="['/']">Cancel</button>
+      <button class="button" [routerLink]="['/']" (click)="close()">OK</button>
+      <button class="button" [routerLink]="['/']" (click)="close()">Cancel</button>
     </div>
   </div>
 </div>
