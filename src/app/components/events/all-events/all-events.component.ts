@@ -6,6 +6,7 @@ import { EventData } from '../../../interfaces/event.interface';
 import { EventService } from '../../../services/event.service';
 import { ParticipationService } from '../../../services/participation.service';
 import { UserService } from '../../../services/user.service';
+import {SoundSystemService} from '../../../services/sound-system.service';
 
 @Component({
   selector: 'app-all-events',
@@ -27,12 +28,19 @@ export class AllEventsComponent implements OnInit {
   searchTerm = '';
   joinedEvents = new Set<number>();
   currentUserId = localStorage.getItem('userId');
+  volume = 1;
 
   @Input() overlayRef!: OverlayRef;
 
+  private _soundSystem = inject(SoundSystemService);
   private eventService = inject(EventService);
   private userService = inject(UserService);
   private participationService = inject(ParticipationService);
+
+  close(){
+    this._soundSystem.playSound('recycle', this.volume);
+  }
+
 
   ngOnInit() {
     this.eventService.getEvents().subscribe((data: EventData[]) => {
@@ -46,10 +54,6 @@ export class AllEventsComponent implements OnInit {
         }
       });
     }
-  }
-
-  toggleFullscreen() {
-    this.isFullscreen = !this.isFullscreen;
   }
 
   selectEvent1(event: EventData) {

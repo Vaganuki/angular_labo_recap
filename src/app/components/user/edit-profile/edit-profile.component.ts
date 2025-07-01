@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import {UserService} from '../../../services/user.service';
+import {SoundSystemService} from '../../../services/sound-system.service';
 
 
 @Component({
@@ -18,12 +19,14 @@ export class EditProfileComponent implements OnInit {
 
   profileForm: FormGroup;
   userId = localStorage.getItem('userId');
+  volume = 1;
 
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private _soundSystem: SoundSystemService
   ) {
     this.profileForm = this.fb.group({
       firstname: ['', Validators.required],
@@ -35,6 +38,9 @@ export class EditProfileComponent implements OnInit {
     });
   }
 
+  close(){
+    this._soundSystem.playSound('recycle', this.volume);
+  }
   ngOnInit(): void {
     this.userService.getCurrentUser().subscribe({
       next: (user: any) => {

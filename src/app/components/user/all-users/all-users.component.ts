@@ -6,6 +6,7 @@ import { FriendService } from '../../../services/friend.service';
 import { RegisterData } from '../../../interfaces/register.interface';
 import { FriendData } from '../../../interfaces/friend.interface';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {SoundSystemService} from '../../../services/sound-system.service';
 
 @Component({
   selector: 'app-all-users',
@@ -24,10 +25,15 @@ export class AllUsersComponent implements OnInit {
   // Suivi des demandes envoyées et des amis confirmés
   sentRequests = new Set<number>();
   friends = new Set<number>();
+  volume = 1;
 
   private userService = inject(UserService);
   private friendService = inject(FriendService);
+  private _soundSystem = inject(SoundSystemService);
 
+  close(){
+    this._soundSystem.playSound('recycle', this.volume);
+  }
   ngOnInit(): void {
     this.loadUsers();
     this.loadSentFriendRequests();

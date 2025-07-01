@@ -4,6 +4,7 @@ import {Router, RouterLink, RouterOutlet} from '@angular/router';
 import { UserService } from '../../../services/user.service';
 import { RegisterData } from '../../../interfaces/register.interface';
 import { NgIf } from '@angular/common';
+import {SoundSystemService} from '../../../services/sound-system.service';
 
 @Component({
   selector: 'app-profil',
@@ -19,8 +20,15 @@ import { NgIf } from '@angular/common';
 })
 export class ProfilComponent implements OnInit {
   user?: RegisterData;
+  volume = 1;
+
   private userService = inject(UserService);
   private router = inject(Router);
+  private _soundSystem = inject(SoundSystemService);
+
+  close(){
+    this._soundSystem.playSound('recycle', this.volume);
+  }
 
   ngOnInit(): void {
     this.userService.getCurrentUser().subscribe({

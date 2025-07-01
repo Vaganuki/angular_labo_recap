@@ -4,6 +4,7 @@ import { EventData } from '../../../interfaces/event.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import {DatePipe, NgClass, NgForOf, NgIf} from '@angular/common';
 import {ParticipationService} from '../../../services/participation.service';
+import {SoundSystemService} from '../../../services/sound-system.service';
 
 @Component({
   selector: 'app-event-property',
@@ -25,11 +26,17 @@ export class EventPropertyComponent implements OnInit {
   event?: EventData & { user?: any };
   from: string | null = null;
   participants: { id: number; pseudo: string }[] = [];
+  volume = 1;
 
   private eventService = inject(EventService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private participationService = inject(ParticipationService);
+  private _soundSystem = inject(SoundSystemService);
+
+  close(){
+    this._soundSystem.playSound('recycle', this.volume);
+  }
 
   ngOnInit(): void {
     const eventId = this.route.snapshot.paramMap.get('id');

@@ -4,6 +4,7 @@ import { NgIf, NgForOf } from '@angular/common';
 import { UserService } from '../../../services/user.service';
 import { RegisterData } from '../../../interfaces/register.interface';
 import { FriendData } from '../../../interfaces/friend.interface';
+import {SoundSystemService} from '../../../services/sound-system.service';
 
 @Component({
   selector: 'app-all-friends',
@@ -19,9 +20,14 @@ import { FriendData } from '../../../interfaces/friend.interface';
 export class AllFriendsComponent implements OnInit {
   currentUserId = localStorage.getItem('userId');
   friends: RegisterData[] = [];
+  volume = 1;
 
   private userService = inject(UserService);
+  private _soundSystem = inject(SoundSystemService);
 
+  close(){
+    this._soundSystem.playSound('recycle', this.volume);
+  }
   ngOnInit(): void {
     if (!this.currentUserId) return;
 

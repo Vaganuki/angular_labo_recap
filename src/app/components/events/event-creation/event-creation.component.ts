@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ParticipationService } from '../../../services/participation.service';
 import { EventData } from '../../../interfaces/event.interface';
+import {SoundSystemService} from '../../../services/sound-system.service';
 
 @Component({
   selector: 'app-event-creation',
@@ -18,10 +19,12 @@ export class EventCreationComponent {
 
   createEventForm: FormGroup;
   userId= localStorage.getItem('userId');
+  volume = 1;
 
   isSubmitting = false;
 
   constructor(
+    private _soundSystem: SoundSystemService,
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router,
@@ -37,6 +40,10 @@ export class EventCreationComponent {
       address: ['', Validators.required],
       image: ['', Validators.required],
     })
+  }
+
+  close(){
+    this._soundSystem.playSound('recycle', this.volume);
   }
 
   onSubmit(): void {

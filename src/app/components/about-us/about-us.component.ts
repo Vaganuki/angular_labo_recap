@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {RouterLink} from '@angular/router';
+import {SoundSystemService} from '../../services/sound-system.service';
 
 @Component({
   selector: 'app-about-us',
@@ -10,5 +11,12 @@ import {RouterLink} from '@angular/router';
   styleUrl: './about-us.component.scss'
 })
 export class AboutUsComponent {
+
+  private _soundSystem = inject(SoundSystemService);
+  volume = 1;
+
+  close(){
+    this._soundSystem.playSound('recycle', this.volume);
+  }
 
 }
