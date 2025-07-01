@@ -17,13 +17,6 @@
           Date :
           du {{ event.beginDate | date:'fullDate' }}
           <ng-container *ngIf="event.endDate"> au {{ event.endDate | date:'fullDate' }}</ng-container>
-            <button
-              *ngIf="event && !joinedEvents.has(event.id)"
-              (click)="participate()"
-            >
-              Participer
-            </button>
-
         </div>
 
         <div>Adresse : {{ event.address }}</div>
@@ -53,6 +46,12 @@
             </ng-template>
           </div>
         </div>
+          <button
+            *ngIf="event && !joinedEvents.has(event.id)"
+            (click)="participate()"
+          >
+            Participer
+          </button>
       </div>
     </div>
 

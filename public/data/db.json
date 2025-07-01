@@ -101,6 +101,16 @@
       "address": "ici",
       "image": "https://media.tenor.com/3Cs_AKNDxRwAAAAM/gato-lengua.gif",
       "id": 3
+    },
+    {
+      "name": "wiwiwi",
+      "description": "La party de la fête",
+      "userId": "3",
+      "beginDate": "2025-07-02",
+      "endDate": "2025-07-03",
+      "address": "Ici même",
+      "image": "https://i.ytimg.com/vi/KaUk83A0DOA/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGCQgVCh_MA8=&rs=AOn4CLDqhq068pXdoHNNiaXPaysr2b5nKA",
+      "id": 4
     }
   ],
   "participations": [
@@ -133,6 +143,16 @@
       "eventId": 1,
       "userId": 5,
       "id": 6
+    },
+    {
+      "eventId": 4,
+      "userId": 3,
+      "id": 7
+    },
+    {
+      "eventId": 4,
+      "userId": 5,
+      "id": 8
     }
   ]
 }
