@@ -2,26 +2,36 @@
   <div class="titleBar">
     <div class="title">Liste des amis</div>
     <div>
-<!--      <div class="titleButton">_</div>-->
+      <!--      <div class="titleButton">_</div>-->
       <div class="titleButton" [routerLink]="['/']">X</div>
     </div>
   </div>
 
   <div class="windowContent">
-    <div *ngIf="friends.length > 0; else noFriends">
-      <div *ngFor="let friend of friends">
-        <div>
-          <div>
-          <img [src]="friend.avatar" alt="Avatar de {{ friend.pseudo }}" width="40"/>
-            {{ friend.pseudo }}
+    <div class="titleMenu">
+      Friends
+    </div>
+    <div class="containerAll">
+      <div class="affichageAll">
+        <div *ngIf="friends.length > 0; else noFriends">
+          <div *ngFor="let friend of friends">
+            <div class="friendContainer">
+                <img class="profilPic" [src]="friend.avatar" alt="Avatar de {{ friend.pseudo }}" width="40"/>
+              <div class="username">
+                {{ friend.pseudo }}
+              </div>
+            </div>
           </div>
-          <br>
         </div>
       </div>
+      <ng-template #noFriends>
+        <div class="noFriends">Aucun ami trouvé.</div>
+      </ng-template>
+    </div>
+    <div class="button-principale">
+      <button class="button" [routerLink]="['/']">OK</button>
+      <button class="button" [routerLink]="['/']">Cancel</button>
+    </div>
     </div>
 
-    <ng-template #noFriends>
-      <p>Aucun ami trouvé.</p>
-    </ng-template>
-  </div>
 </div>
